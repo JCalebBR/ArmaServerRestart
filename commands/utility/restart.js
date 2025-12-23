@@ -5,42 +5,39 @@ const SERVERS = {
 };
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
-function findArmaProcess(targetPort) {
+function findArmaProcesses(targetPort) {
 	return new Promise((resolve) => {
-		// PowerShell command to get process info as JSON
-		// We use Get-CimInstance (modern replacement for WMI)
-		const psCommand = `powershell -Command "Get-CimInstance Win32_Process -Filter \\"name='arma3server_x64.exe'\\" | Select-Object ProcessId, CommandLine | ConvertTo-Json -Compress"`;
+		// PowerShell to get all arma processes
+		const psCommand = `powershell -Command "Get-CimInstance Win32_Process -Filter \\"name like 'arma3server%'\\" | Select-Object ProcessId, CommandLine | ConvertTo-Json -Compress"`;
 
 		exec(psCommand, (error, stdout) => {
-			if (error) {
-				// If no processes found, ConvertTo-Json might error or return null, handle gracefully
-				return resolve(null);
-			}
+			if (error || !stdout.trim()) return resolve([]);
 
 			try {
-				const output = stdout.trim();
-				if (!output) return resolve(null);
-
-				// Handle case where single result is object, multiple is array
-				let processes = JSON.parse(output);
+				let processes = JSON.parse(stdout.trim());
 				if (!Array.isArray(processes)) processes = [processes];
 
-				// Find the specific process matching our port
-				const match = processes.find(proc =>
-					proc.CommandLine && proc.CommandLine.includes(`-port=${targetPort}`),
-				);
+				// Filter for our specific port
+				const matches = processes.filter(proc => {
+					const cmd = (proc.CommandLine || "").toLowerCase();
+					return cmd.includes(`port=${targetPort}`) || cmd.includes(`port ${targetPort}`);
+				});
 
-				if (match) {
-					resolve({
-						pid: match.ProcessId,
-						commandLine: match.CommandLine,
-					});
-				} else {
-					resolve(null);
-				}
+				// Map to a cleaner format and tag them
+				const results = matches.map(proc => {
+					const cmd = proc.CommandLine.toLowerCase();
+					const isClient = cmd.includes('-client');
+					return {
+						pid: proc.ProcessId,
+						commandLine: proc.CommandLine,
+						type: isClient ? 'HEADLESS CLIENT' : 'SERVER'
+					};
+				});
+
+				resolve(results);
 			} catch (e) {
 				console.error("JSON Parse Error:", e);
-				resolve(null);
+				resolve([]);
 			}
 		});
 	});
@@ -78,42 +75,67 @@ function relaunchProcess(commandLine) {
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('restart')
-		.setDescription('Kills and Relaunches an Arma 3 Server')
-		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+		.setDescription('Restarts Server AND Headless Clients')
 		.addStringOption(option =>
 			option.setName('server')
 				.setDescription('The server to restart')
 				.setRequired(true)
 				.addChoices(
-					...Object.keys(SERVERS).map(name => ({ name: name, value: name })),
-				),
+					...Object.keys(SERVERS).map(name => ({ name: name, value: name }))
+				)
 		),
 
 	async execute(interaction) {
+		// Security Check
 		const serverName = interaction.options.getString('server', true);
 		const targetPort = SERVERS[serverName];
 
 		await interaction.deferReply();
 
 		try {
-			// STEP 1: Find it
-			const procInfo = await findArmaProcess(targetPort);
+			// STEP 1: Find processes
+			const targets = await findArmaProcesses(targetPort);
 
-			if (!procInfo) {
-				return interaction.editReply(`⚠️ Could not find a running **${serverName}** server on port ${targetPort}.`);
+			if (targets.length === 0) {
+				return interaction.editReply(`⚠️ No running processes found for **${serverName}** (Port ${targetPort}).`);
 			}
 
-			// STEP 2: Kill it
-			await interaction.editReply(`found PID ${procInfo.pid}. Killing...`);
-			await killProcess(procInfo.pid);
+			// Report what we found
+			const serverCount = targets.filter(t => t.type === 'SERVER').length;
+			const hcCount = targets.filter(t => t.type === 'HEADLESS CLIENT').length;
+			await interaction.editReply(`Found **${serverCount}** Server and **${hcCount}** HC(s). Killing...`);
 
-			// Wait 2 seconds to ensure file locks are released
+			// STEP 2: Kill EVERYTHING found
+			for (const target of targets) {
+				await killProcess(target.pid);
+			}
+
+			// Wait 2 seconds for clean shutdown
 			await new Promise(r => setTimeout(r, 2000));
 
-			// STEP 3: Relaunch it
-			relaunchProcess(procInfo.commandLine);
+			// STEP 3: Relaunch (Server First -> Then Clients)
 
-			await interaction.editReply(`✅ **${serverName.toUpperCase()}** cycled successfully.\nPID: ${procInfo.pid} → Killed → Relaunched.`);
+			// Sort: Server first (false comes before true in sort? No, we check type manually)
+			const serverProc = targets.find(t => t.type === 'SERVER');
+			const clientProcs = targets.filter(t => t.type === 'HEADLESS CLIENT');
+
+			if (serverProc) {
+				console.log(`[Restart] Launching Server...`);
+				relaunchProcess(serverProc.commandLine);
+			}
+
+			// Wait 5 seconds before starting HCs so the server can initialize
+			if (clientProcs.length > 0) {
+				await interaction.editReply(`✅ Server launched. Waiting 5s to launch Headless Clients...`);
+				await new Promise(r => setTimeout(r, 5000));
+
+				for (const client of clientProcs) {
+					console.log(`[Restart] Launching HC...`);
+					relaunchProcess(client.commandLine);
+				}
+			}
+
+			await interaction.editReply(`✅ **${serverName.toUpperCase()}** full restart complete.\n(Server + ${clientProcs.length} HCs cycled)`);
 
 		} catch (error) {
 			console.error(error);
