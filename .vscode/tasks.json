@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Deploy Commands",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "--env-file",
+                ".env.dev",
+                "deploy-commands.js"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "Deploys the slash commands to the server."
+        },
+        {
+            "label": "Start",
+            "type": "shell",
+            "command": "node",
+            "args": [
+                "--env-file",
+                ".env.dev",
+                "index.js"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "Starts the bot."
+        }
+    ]
+}
