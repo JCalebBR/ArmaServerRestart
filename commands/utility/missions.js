@@ -15,7 +15,7 @@ const ITEMS_PER_PAGE = 10;
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('listmissions')
+		.setName('missions')
 		.setDescription('Lists all .pbo mission files on the server (Newest first)'),
 
 	async execute(interaction) {
