@@ -24,7 +24,7 @@ function isServerRunning(targetPort) {
  * Helper: Launches a process safely in the background
  */
 function launchProcess(exePath, args) {
-	// We use the Windows 'start' command. 
+	// We use the Windows 'start' command.
 	// Syntax: start "Window Title" /MIN "Path/To/Exe" arguments...
 	// /MIN launches it minimized (optional, good for keeping the server clean)
 	const command = `start "Arma3Server" /MIN "${exePath}" ${args}`;

@@ -63,7 +63,7 @@ module.exports = {
 				.addFields(
 					{ name: 'Mission', value: state.map || 'Unknown', inline: true },
 					{ name: 'Players', value: `${state.players.length} / ${state.maxplayers}`, inline: true },
-					{ name: 'Ping', value: `${state.ping}ms`, inline: true }
+					{ name: 'Ping', value: `${state.ping}ms`, inline: true },
 				)
 				.setFooter({ text: `IP: ${state.connect}` })
 				.setTimestamp();
