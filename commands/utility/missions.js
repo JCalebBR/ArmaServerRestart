@@ -67,13 +67,23 @@ module.exports = {
 				.setTimestamp();
 
 			// Format the list
-			// Output: "**MissionName.pbo**\n📅 12/25/2025 10:30 AM"
 			const description = currentFiles.map(f => {
 				const dateStr = f.mtime.toLocaleString('en-GB', {
 					day: '2-digit', month: '2-digit', year: 'numeric',
-					hour: '2-digit', minute: '2-digit',
+					hour: '2-digit', minute: '2-digit'
 				});
-				return `**${f.name}**\n└ ${dateStr}`;
+
+				// 1. CLEAN THE NAME: Decode %20 back to spaces
+				let parsedName = f.name;
+				try {
+					parsedName = decodeURIComponent(f.name);
+				} catch (e) {
+					// If decoding fails for some reason, keep original
+				}
+
+				// 2. FORMAT: The 3-line structure you asked for
+				// We wrap the raw filename in `code blocks` so it's distinct
+				return `**${parsedName}**\n└ \`${f.name}\`\n└ ${dateStr}`;
 			}).join('\n\n');
 
 			embed.setDescription(description);
