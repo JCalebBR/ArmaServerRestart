@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-const Gamedig = require('gamedig');
+const { GameDig } = require('gamedig');
 const fs = require('fs');
 const path = require('path');
 
@@ -17,10 +17,12 @@ module.exports = {
 		),
 
 	async autocomplete(interaction) {
-		// Reuse the same autocomplete logic as start/restart
 		const focusedValue = interaction.options.getFocused();
 		let config = {};
-		try { config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')); } catch (e) { }
+		try { config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')); }
+		catch (e) {
+			console.error("Error reading servers.json", e);
+		}
 
 		const choices = config.servers ? Object.keys(config.servers) : [];
 		const filtered = choices.filter(choice => choice.startsWith(focusedValue));
@@ -30,7 +32,6 @@ module.exports = {
 	async execute(interaction) {
 		const serverName = interaction.options.getString('server');
 
-		// 1. Load Config
 		let serverConfig;
 		try {
 			const data = fs.readFileSync(CONFIG_PATH, 'utf8');
@@ -42,32 +43,33 @@ module.exports = {
 		await interaction.deferReply();
 
 		try {
-			// 2. Query the Server
-			// We assume queryPort is port + 1 if not specified in JSON
-			const qPort = serverConfig.queryPort || (parseInt(serverConfig.port) + 1);
+			// 1. Determine Port (Use JSON > Fallback to Game Port > Fallback to +1)
+			// Since your scan worked on 2302, the JSON "queryPort": 2302 will take priority here.
+			const qPort = serverConfig.queryPort || serverConfig.port || 2302;
+			const qHost = serverConfig.host || '127.0.0.1';
 
-			const state = await Gamedig.query({
+			const state = await GameDig.query({
 				type: 'arma3',
-				host: '127.0.0.1',
+				host: qHost,
 				port: qPort,
 				maxAttempts: 2,
+				socketTimeout: 3000,
 			});
 
-			// 3. Build the Embed (Rich Card)
+			// 2. Build Embed
 			const embed = new EmbedBuilder()
 				.setColor(0x00FF00)
 				.setTitle(`🟢 ${serverName.toUpperCase()} is Online`)
 				.addFields(
 					{ name: 'Mission', value: state.map || 'Unknown', inline: true },
 					{ name: 'Players', value: `${state.players.length} / ${state.maxplayers}`, inline: true },
-					{ name: 'Ping', value: `${state.ping}ms`, inline: true },
+					{ name: 'Ping', value: `${state.ping}ms`, inline: true }
 				)
+				.setFooter({ text: `IP: ${state.connect}` })
 				.setTimestamp();
 
-			// Optional: List players nicely
 			if (state.players.length > 0) {
 				const playerNames = state.players.map(p => p.name).join(', ');
-				// Discord fields have a 1024 char limit, so we truncate if needed
 				const safePlayerList = playerNames.length > 1000 ? playerNames.substring(0, 1000) + '...' : playerNames;
 				embed.addFields({ name: 'Player List', value: safePlayerList });
 			}
@@ -75,11 +77,11 @@ module.exports = {
 			await interaction.editReply({ embeds: [embed] });
 
 		} catch (error) {
-			// If query fails, server is likely offline
+			console.error(error);
 			const embed = new EmbedBuilder()
 				.setColor(0xFF0000)
 				.setTitle(`🔴 ${serverName.toUpperCase()} is Offline`)
-				.setDescription(`Could not reach query port ${serverConfig.queryPort || parseInt(serverConfig.port) + 1}.`)
+				.setDescription(`No response on Port ${serverConfig.queryPort || serverConfig.port}`)
 				.setTimestamp();
 
 			await interaction.editReply({ embeds: [embed] });
