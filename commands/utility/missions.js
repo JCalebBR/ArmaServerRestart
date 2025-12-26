@@ -70,7 +70,7 @@ module.exports = {
 			const description = currentFiles.map(f => {
 				const dateStr = f.mtime.toLocaleString('en-GB', {
 					day: '2-digit', month: '2-digit', year: 'numeric',
-					hour: '2-digit', minute: '2-digit'
+					hour: '2-digit', minute: '2-digit',
 				});
 
 				// 1. CLEAN THE NAME: Decode %20 back to spaces
@@ -78,7 +78,7 @@ module.exports = {
 				try {
 					parsedName = decodeURIComponent(f.name);
 				} catch (e) {
-					// If decoding fails for some reason, keep original
+					console.error("Error decoding filename:", e);
 				}
 
 				// 2. FORMAT: The 3-line structure you asked for

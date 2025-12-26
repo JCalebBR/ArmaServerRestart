@@ -89,6 +89,7 @@ module.exports = {
 			const data = fs.readFileSync(CONFIG_PATH, 'utf8');
 			serverConfig = JSON.parse(data).servers[serverName];
 		} catch (e) {
+			console.error(e);
 			return interaction.reply({ content: `❌ Error loading config file.`, ephemeral: true });
 		}
 

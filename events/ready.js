@@ -60,7 +60,7 @@ async function updateServerStatus(client) {
 		});
 
 	} catch (e) {
-		// If Offline or Query Fails
+		console.warn(e);
 		client.user.setPresence({
 			activities: [{ name: 'Server Offline', type: ActivityType.Watching }],
 			status: 'dnd',

@@ -70,12 +70,12 @@ module.exports = {
 		const response = await interaction.reply({
 			content: `⚠️ **WARNING**: Are you sure you want to delete **${safeName}**?\nThis action cannot be undone.`,
 			components: [row],
-			ephemeral: true
+			ephemeral: true,
 		});
 
 		const collector = response.createMessageComponentCollector({
 			componentType: ComponentType.Button,
-			time: 15_000
+			time: 15_000,
 		});
 
 		collector.on('collect', async i => {

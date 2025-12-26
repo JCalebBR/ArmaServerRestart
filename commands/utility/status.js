@@ -36,7 +36,10 @@ module.exports = {
 		try {
 			const data = fs.readFileSync(CONFIG_PATH, 'utf8');
 			serverConfig = JSON.parse(data).servers[serverName];
-		} catch (e) { return interaction.reply({ content: `❌ Error loading config.`, ephemeral: true }); }
+		} catch (e) {
+			console.error(e);
+			return interaction.reply({ content: `❌ Error loading config.`, ephemeral: true });
+		}
 
 		if (!serverConfig) return interaction.reply({ content: `❌ Unknown server.`, ephemeral: true });
 

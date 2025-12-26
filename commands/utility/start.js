@@ -79,6 +79,7 @@ module.exports = {
 			fullConfig = JSON.parse(data);
 			serverConfig = fullConfig.servers[serverName];
 		} catch (e) {
+			console.error(e);
 			return interaction.reply(`❌ Error loading config file.`);
 		}
 
