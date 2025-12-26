@@ -57,12 +57,16 @@ function killProcess(pid) {
  * 3. RESURRECT
  */
 function relaunchProcess(commandLine) {
-	console.log(`[Resurrecting] executing: ${commandLine}`);
-	const subprocess = spawn(commandLine, {
+	const decoupledCommand = `start "RestoredServer" /MIN ${commandLine}`;
+
+	console.log(`[Resurrecting] executing: ${decoupledCommand}`);
+
+	const subprocess = spawn(decoupledCommand, {
 		shell: true,
 		detached: true,
 		stdio: 'ignore',
 	});
+
 	subprocess.unref();
 }
 

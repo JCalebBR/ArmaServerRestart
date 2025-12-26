@@ -24,14 +24,19 @@ function isServerRunning(targetPort) {
  * Helper: Launches a process safely in the background
  */
 function launchProcess(exePath, args) {
-	const fullCommand = `"${exePath}" ${args}`;
-	console.log(`[Start] Executing: ${fullCommand}`);
+	// We use the Windows 'start' command. 
+	// Syntax: start "Window Title" /MIN "Path/To/Exe" arguments...
+	// /MIN launches it minimized (optional, good for keeping the server clean)
+	const command = `start "Arma3Server" /MIN "${exePath}" ${args}`;
 
-	const subprocess = spawn(fullCommand, {
+	console.log(`[Start] Decoupling process: ${command}`);
+
+	const subprocess = spawn(command, {
 		shell: true,
 		detached: true,
 		stdio: 'ignore',
 	});
+
 	subprocess.unref();
 }
 
