@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // --- CONFIGURATION ---
-const CONFIG_PATH = path.join(__dirname, '../../servers.json');
+const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
 /**
  * Helper: Checks if a server is ALREADY running on this port
