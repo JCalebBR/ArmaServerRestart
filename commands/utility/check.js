@@ -115,13 +115,38 @@ function runCommand(command) {
 	});
 }
 
-// --- UPDATED PARSER ---
+// --- UPDATED PARSER WITH BRACE COUNTING ---
 function checkSqmContent(content) {
-	// 1. EXTRACT CLASS Helper
-	const extractClass = (name, text) => {
-		const regex = new RegExp(`class\\s+${name}\\s*\\{([\\s\\S]*?)\\};?`, 'i');
-		const match = text.match(regex);
-		return match ? match[1] : null;
+
+	// 1. ROBUST CLASS EXTRACTOR (Brace Counter)
+	// This correctly handles nested classes like 'class Mission' and 'class EditorData'
+	const extractClass = (className, fullText) => {
+		// Find "class ClassName"
+		const classRegex = new RegExp(`class\\s+${className}\\s*`, 'i');
+		const match = fullText.match(classRegex);
+		if (!match) return null;
+
+		const startIndex = match.index + match[0].length;
+
+		// Find the opening '{'
+		const openBraceIndex = fullText.indexOf('{', startIndex);
+		if (openBraceIndex === -1) return null;
+
+		// Walk through the string counting braces
+		let balance = 1;
+		let currentIndex = openBraceIndex + 1;
+
+		while (balance > 0 && currentIndex < fullText.length) {
+			const char = fullText[currentIndex];
+			if (char === '{') balance++;
+			else if (char === '}') balance--;
+			currentIndex++;
+		}
+
+		if (balance !== 0) return null;
+
+		// Return content WITHOUT the outer braces
+		return fullText.substring(openBraceIndex + 1, currentIndex - 1);
 	};
 
 	// 2. FIND VALUE Helper
@@ -152,10 +177,14 @@ function checkSqmContent(content) {
 
 	// --- EXECUTE EXTRACTION ---
 
-	// Scopes
+	// Scopes (Now using the robust brace counter)
 	const scenarioData = extractClass('ScenarioData', content);
 	const editorData = extractClass('EditorData', content);
-	const missionIntel = extractClass('Intel', content);
+
+	// 'Intel' is inside 'Mission'. Now that extractClass works on nested blocks,
+	// we can properly extract Mission first, then Intel.
+	const missionClass = extractClass('Mission', content);
+	const missionIntel = extractClass('Intel', missionClass || content);
 
 	// Values
 	const author = findValue('author', scenarioData);
@@ -166,7 +195,7 @@ function checkSqmContent(content) {
 	// Arrays
 	const edenMods = extractArray('mods', editorData);
 
-	// FILTER: Remove vanilla 'A3_' addons
+	// Filter out A3_ vanilla addons
 	const requiredAddons = extractArray('addons', content)
 		.filter(addon => !addon.startsWith('A3_'));
 
