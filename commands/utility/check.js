@@ -46,7 +46,6 @@ module.exports = {
 			// 2. EXTRACT (hemtt pbo extract)
 			await interaction.editReply(`📦 Extracting with HEMTT...`);
 
-			// Syntax: hemtt pbo extract <pbo> <destination_folder>
 			await runCommand(`${HEMTT_PATH} utils pbo unpack "${pboPath}" "${extractPath}"`);
 
 			// 3. READ & DECODE SQM
@@ -55,10 +54,8 @@ module.exports = {
 				throw new Error(`Extraction finished, but **mission.sqm** was not found.`);
 			}
 
-			// We use 'hemtt rap dump' to read the file.
-			// This works on both Text files AND Binary files (it converts binary to text automatically).
 			// We capture the output (stdout) instead of reading the file directly.
-			const sqmContent = await runCommand(`${HEMTT_PATH} rap dump "${sqmPath}"`);
+			const sqmContent = await runCommand(`${HEMTT_PATH} utils pbo extract "${sqmPath}"`);
 
 			// 4. RUN CHECKS (Using the decoded content)
 			const results = checkSqmContent(sqmContent);
