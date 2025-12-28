@@ -140,3 +140,5 @@ vite.config.ts.timestamp-*
 
 node_modules
 .env.*
+*.pbo
+*.code-workspace

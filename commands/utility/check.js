@@ -47,7 +47,7 @@ module.exports = {
 			await interaction.editReply(`📦 Extracting with HEMTT...`);
 
 			// Syntax: hemtt pbo extract <pbo> <destination_folder>
-			await runCommand(`${HEMTT_PATH} pbo extract "${pboPath}" "${extractPath}"`);
+			await runCommand(`${HEMTT_PATH} utils pbo unpack "${pboPath}" "${extractPath}"`);
 
 			// 3. READ & DECODE SQM
 			const sqmPath = path.join(extractPath, 'mission.sqm');
