@@ -46,7 +46,7 @@ module.exports = {
 			// 2. READ & DECODE SQM
 			await interaction.editReply(`📦 Reading with HEMTT...`);
 			// We capture the output (stdout) instead of reading the file directly.
-			const sqmContent = await runCommand(`${HEMTT_PATH} utils pbo extract "${pboPath}" "${sqmPath}"`);
+			const sqmContent = await runCommand(`${HEMTT_PATH} utils pbo extract "${pboPath}" "mission.sqm"`);
 
 			// 3. RUN CHECKS (Using the decoded content)
 			const results = checkSqmContent(sqmContent);
