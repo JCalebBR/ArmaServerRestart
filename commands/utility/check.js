@@ -7,7 +7,7 @@ const { pipeline } = require('stream/promises');
 
 // --- CONFIGURATION ---
 // Point this to your hemtt.exe
-const HEMTT_PATH = '"C:\\Tools\\hemtt.exe"';
+const HEMTT_PATH = '"C:\\HEMTT\\hemtt.exe"';
 
 module.exports = {
 	data: new SlashCommandBuilder()
