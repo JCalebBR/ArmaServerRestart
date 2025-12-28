@@ -48,13 +48,13 @@ module.exports = {
 
 		const destPath = path.join(TARGET_DIR, fileName);
 
-		// Security: Prevent directory traversal (e.g. "../../windows/system32")
+		// Security: Prevent directory traversal
 		if (!destPath.startsWith(TARGET_DIR)) {
 			return interaction.reply({ content: '❌ Invalid filename.', ephemeral: true });
 		}
 
-		// We defer immediately because downloading might take a few seconds
-		await interaction.deferReply({ ephemeral: true });
+		// Deferred Reply, so the user can see the progress
+		await interaction.deferReply();
 
 		// 2. Check if File Exists
 		if (fs.existsSync(destPath)) {
@@ -77,14 +77,18 @@ module.exports = {
 				components: [row],
 			});
 
-			// Create a "collector" to listen for the button click
-			// It waits 15 seconds for a click, then gives up.
 			const collector = response.createMessageComponentCollector({
 				componentType: ComponentType.Button,
 				time: 15_000,
 			});
 
 			collector.on('collect', async i => {
+				// --- CHANGE 2: Security Check ---
+				// Ensure only the person who ran the command can click the buttons
+				if (i.user.id !== interaction.user.id) {
+					return i.reply({ content: '🚫 You cannot control this upload.', ephemeral: true });
+				}
+
 				if (i.customId === 'confirm') {
 					// User clicked Overwrite
 					await i.update({ content: `🔄 Overwriting **${fileName}**...`, components: [] });
@@ -105,6 +109,7 @@ module.exports = {
 			collector.on('end', collected => {
 				// If user didn't click anything after 15s
 				if (collected.size === 0) {
+					// Use editReply on original interaction since buttons are gone/timed out
 					interaction.editReply({ content: '⏳ Timed out. Upload cancelled.', components: [] });
 				}
 			});
