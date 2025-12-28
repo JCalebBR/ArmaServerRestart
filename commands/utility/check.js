@@ -6,7 +6,6 @@ const { exec } = require('child_process');
 const { pipeline } = require('stream/promises');
 
 // --- CONFIGURATION ---
-// Point this to your hemtt.exe
 const HEMTT_PATH = '"C:\\HEMTT\\hemtt.exe"';
 
 module.exports = {
@@ -29,29 +28,25 @@ module.exports = {
 
 		await interaction.deferReply();
 
-		// Setup Paths
 		const tempDir = os.tmpdir();
 		const pboPath = path.join(tempDir, fileName);
 		const extractFolderName = path.parse(fileName).name;
 		const extractPath = path.join(tempDir, extractFolderName);
 
 		try {
-			// 1. DOWNLOAD
 			await interaction.editReply(`📥 Downloading **${fileName}**...`);
 			const response = await fetch(attachment.url);
 			if (!response.ok) throw new Error(`Download failed: ${response.statusText}`);
 			const fileStream = fs.createWriteStream(pboPath);
 			await pipeline(response.body, fileStream);
 
-			// 2. READ & DECODE SQM
 			await interaction.editReply(`📦 Reading with HEMTT...`);
-			// We capture the output (stdout) instead of reading the file directly.
 			const sqmContent = await runCommand(`${HEMTT_PATH} utils pbo extract "${pboPath}" "mission.sqm"`);
 
-			// 3. RUN CHECKS (Using the decoded content)
+			// --- RUN CHECKS ---
 			const results = checkSqmContent(sqmContent);
 
-			// 4. BUILD REPORT
+			// --- BUILD REPORT ---
 			const embed = new EmbedBuilder()
 				.setTitle(`📋 Mission Check: ${fileName}`)
 				.setTimestamp();
@@ -61,15 +56,40 @@ module.exports = {
 			if (criticalFail) {
 				embed.setColor(0xFF0000).setDescription('**❌ Failed Critical Checks**').setFooter({ text: 'Mission is not valid!' });
 			} else {
-				embed.setColor(0x00FF00).setDescription('**✅ Passed All Requirements**').setFooter({ text: 'Mission is valid!. /upload it to the server!' });
+				embed.setColor(0x00FF00).setDescription('**✅ Passed All Requirements**').setFooter({ text: 'Mission is valid! Ready for upload.' });
 			}
 
+			// Standard Fields
 			embed.addFields(
-				{ name: 'Author', value: results.hasAuthor ? `✅ ${results.author}` : '❌', inline: true },
-				{ name: 'Title', value: results.hasTitle ? `✅ ${results.title}` : '❌', inline: true },
-				{ name: 'Overview', value: results.hasOverview ? `ℹ️ Present` : '⚠️', inline: true },
-				{ name: 'AI Disabled', value: results.aiDisabled ? '✅' : '❌', inline: true },
-				{ name: 'Compositions', value: results.hasComposition ? `✅ Found: "${results.foundComp}"` : '❌', inline: false },
+				{ name: 'Author', value: results.hasAuthor ? `✅ ${results.author}` : '❌ Missing', inline: true },
+				{ name: 'Title', value: results.hasTitle ? `✅ ${results.title}` : '❌ Missing', inline: true },
+				{ name: 'Overview', value: results.hasOverview ? `ℹ️ Present` : '⚠️ Missing', inline: true },
+				{ name: 'AI Disabled', value: results.aiDisabled ? '✅ Yes' : '❌ **ACTIVE**', inline: true },
+				{ name: 'Compositions', value: results.hasComposition ? `✅ Found: "${results.foundComp}"` : '❌ **NONE**', inline: true },
+			);
+
+			// --- NEW: MODS SECTIONS ---
+
+			// Helper to format long lists safely
+			const formatList = (items) => {
+				if (!items || items.length === 0) return "None";
+				const total = items.length;
+				const joined = items.join(', ');
+
+				// Discord field limit is 1024 chars. We cut off at 900 to be safe.
+				if (joined.length < 900) return `**(${total})** ${joined}`;
+
+				// If too long, cut it and add count
+				let validStr = joined.substring(0, 900);
+				// Cut to the last comma so we don't break a word
+				validStr = validStr.substring(0, validStr.lastIndexOf(','));
+				const remaining = total - validStr.split(',').length;
+				return `**(${total})** ${validStr}, ... and **${remaining} more**`;
+			};
+
+			embed.addFields(
+				{ name: 'Eden Mods (Editor)', value: formatList(results.edenMods), inline: false },
+				{ name: 'Required Addons', value: formatList(results.requiredAddons), inline: false },
 			);
 
 			await interaction.editReply({ content: null, embeds: [embed] });
@@ -78,69 +98,82 @@ module.exports = {
 			console.error(error);
 			await interaction.editReply({ content: `❌ Error: ${error.message}`, embeds: [] });
 		} finally {
-			// 6. CLEANUP
 			try {
 				if (fs.existsSync(pboPath)) fs.unlinkSync(pboPath);
 				if (fs.existsSync(extractPath)) fs.rmSync(extractPath, { recursive: true, force: true });
-			} catch (e) {
-				console.error("Cleanup error:", e);
-			}
+			} catch (e) { console.error("Cleanup error:", e); }
 		}
 	},
 };
 
-// --- HELPER: Promisified Exec ---
 function runCommand(command) {
 	return new Promise((resolve, reject) => {
 		exec(command, { maxBuffer: 1024 * 1024 * 20 }, (error, stdout) => {
-			if (error) {
-				// Warning: HEMTT might output to stderr even on success sometimes, or vice versa.
-				// If stdout is empty and error exists, reject.
-				if (!stdout || stdout.trim().length === 0) reject(error);
-			}
+			if (error && (!stdout || stdout.trim().length === 0)) reject(error);
 			resolve(stdout);
 		});
 	});
 }
 
-// --- LOGIC PARSER ---
+// --- UPDATED PARSER ---
 function checkSqmContent(content) {
-	// Regex Helpers
+	// 1. EXTRACT CLASS Helper
 	const extractClass = (name, text) => {
-		// Added ? after ; to be safe, though standard SQM has it.
-		// We look for class Name { content };
 		const regex = new RegExp(`class\\s+${name}\\s*\\{([\\s\\S]*?)\\};?`, 'i');
 		const match = text.match(regex);
 		return match ? match[1] : null;
 	};
 
+	// 2. FIND VALUE Helper
 	const findValue = (key, text) => {
 		if (!text) return null;
-		// Capture value until semicolon
 		const regex = new RegExp(`\\b${key}\\b\\s*=\\s*([\\s\\S]*?);`, 'i');
 		const match = text.match(regex);
 		if (!match) return null;
 		return match[1].replace(/"/g, '').replace(/\\n/g, ' ').replace(/\s+/g, ' ').trim();
 	};
 
-	// 1. DATA EXTRACTION
-	const scenarioData = extractClass('ScenarioData', content);
+	// 3. EXTRACT ARRAY Helper
+	const extractArray = (key, text) => {
+		if (!text) return [];
+		const regex = new RegExp(`\\b${key}\\[\\]\\s*=\\s*\\{([\\s\\S]*?)\\};`, 'i');
+		const match = text.match(regex);
+		if (!match) return [];
 
+		const rawList = match[1];
+		const items = [];
+		const itemRegex = /"([^"]+)"/g;
+		let itemMatch;
+		while ((itemMatch = itemRegex.exec(rawList)) !== null) {
+			items.push(itemMatch[1]);
+		}
+		return items;
+	};
+
+	// --- EXECUTE EXTRACTION ---
+
+	// Scopes
+	const scenarioData = extractClass('ScenarioData', content);
+	const editorData = extractClass('EditorData', content);
 	const missionIntel = extractClass('Intel', content);
 
+	// Values
 	const author = findValue('author', scenarioData);
 	const disabledAI = findValue('disabledAI', scenarioData);
 	const overview = findValue('overviewText', scenarioData);
-
-	// 'briefingName' is the standard property for the Mission Title in the loading screen
 	const title = findValue('briefingName', missionIntel);
 
-	// 2. COMPOSITION CHECK
+	// Arrays
+	const edenMods = extractArray('mods', editorData);
+
+	// FILTER: Remove vanilla 'A3_' addons
+	const requiredAddons = extractArray('addons', content)
+		.filter(addon => !addon.startsWith('A3_'));
+
+	// Composition Check
 	const requiredComps = ['BT Ship Comp', 'BT Spawn Comp'];
 	let foundComp = null;
-
 	for (const comp of requiredComps) {
-		// We test globally for the composition name
 		if (new RegExp(`name\\s*=\\s*"${comp}"`, 'i').test(content)) {
 			foundComp = comp;
 			break;
@@ -148,13 +181,12 @@ function checkSqmContent(content) {
 	}
 
 	return {
-		hasAuthor: !!author,
-		author: author,
-		hasTitle: !!title,
-		title: title,
+		hasAuthor: !!author, author,
+		hasTitle: !!title, title,
 		aiDisabled: disabledAI === '1',
 		hasOverview: !!overview,
-		hasComposition: !!foundComp,
-		foundComp: foundComp,
+		hasComposition: !!foundComp, foundComp,
+		edenMods,
+		requiredAddons,
 	};
 }
