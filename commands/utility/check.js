@@ -43,24 +43,15 @@ module.exports = {
 			const fileStream = fs.createWriteStream(pboPath);
 			await pipeline(response.body, fileStream);
 
-			// 2. EXTRACT (hemtt pbo extract)
-			await interaction.editReply(`📦 Extracting with HEMTT...`);
-
-			await runCommand(`${HEMTT_PATH} utils pbo unpack "${pboPath}" "${extractPath}"`);
-
-			// 3. READ & DECODE SQM
-			const sqmPath = path.join(extractPath, 'mission.sqm');
-			if (!fs.existsSync(sqmPath)) {
-				throw new Error(`Extraction finished, but **mission.sqm** was not found.`);
-			}
-
+			// 2. READ & DECODE SQM
+			await interaction.editReply(`📦 Reading with HEMTT...`);
 			// We capture the output (stdout) instead of reading the file directly.
-			const sqmContent = await runCommand(`${HEMTT_PATH} utils pbo extract "${sqmPath}"`);
+			const sqmContent = await runCommand(`${HEMTT_PATH} utils pbo extract "${pboPath}" "${sqmPath}"`);
 
-			// 4. RUN CHECKS (Using the decoded content)
+			// 3. RUN CHECKS (Using the decoded content)
 			const results = checkSqmContent(sqmContent);
 
-			// 5. BUILD REPORT
+			// 4. BUILD REPORT
 			const embed = new EmbedBuilder()
 				.setTitle(`📋 Mission Check: ${fileName}`)
 				.setTimestamp();
