@@ -30,7 +30,6 @@ module.exports = {
 
 		// --- CHECK 1: FILENAME FORMAT ---
 		// Regex: ^(Name).(Map).pbo
-		// Allowed: Letters, Numbers, Underscores, Hyphens
 		const nameRegex = /^([\w-]+)\.([\w-]+)\.pbo$/i;
 		const nameMatch = fileName.match(nameRegex);
 
@@ -57,7 +56,6 @@ module.exports = {
 			const results = checkSqmContent(sqmContent);
 
 			// --- CHECK 2: SOURCENAME CONSISTENCY ---
-			// Does "sourceName" in file match "Fall_of_the_believers" from filename?
 			const isSourceMatch = results.sourceName === expectedSourceName;
 
 			// --- BUILD REPORT ---
@@ -65,14 +63,17 @@ module.exports = {
 				.setTitle(`📋 Mission Check: ${fileName}`)
 				.setTimestamp();
 
-			// Critical Logic
+			// Critical Logic (Updated with MP Checks)
 			const criticalFail =
 				!isNamingValid ||
 				!isSourceMatch ||
 				!results.hasAuthor ||
 				!results.hasTitle ||
 				!results.aiDisabled ||
-				!results.hasComposition;
+				!results.hasComposition ||
+				!results.validRespawn ||
+				!results.validRespawnDelay ||
+				!results.hasMultiplayerAttr;
 
 			if (criticalFail) {
 				embed.setColor(0xFF0000).setDescription('**❌ FAILED CRITICAL CHECKS**').setFooter({ text: 'Mission is not valid!' });
@@ -84,7 +85,6 @@ module.exports = {
 			embed.addFields(
 				{ name: 'File Format', value: isNamingValid ? `✅ Correct` : '❌ **INVALID** (Use Name.Map.pbo)', inline: true },
 				{ name: 'Source Match', value: isSourceMatch ? `✅ Matches` : `❌ **MISMATCH**\nFile: ${expectedSourceName || 'N/A'}\nSQM: ${results.sourceName || 'Missing'}`, inline: true },
-				// Spacer
 				{ name: '\u200B', value: '\u200B', inline: false },
 			);
 
@@ -96,7 +96,14 @@ module.exports = {
 				{ name: 'Compositions', value: results.hasComposition ? `✅ Found: "${results.foundComp}"` : '❌ **NONE**', inline: false },
 			);
 
-			// 3. Mods
+			// 3. Multiplayer Settings (New)
+			embed.addFields(
+				{ name: 'Respawn Type', value: results.validRespawn ? `✅ BASE (3)` : `❌ **${results.respawn || 'Missing'}** (Need 3)`, inline: true },
+				{ name: 'Respawn Delay', value: results.validRespawnDelay ? `✅ 5s` : `❌ **${results.respawnDelay || 'Missing'}** (Need 5)`, inline: true },
+				{ name: 'MP Attribute', value: results.hasMultiplayerAttr ? `✅ Enabled` : `❌ **Missing**`, inline: true },
+			);
+
+			// 4. Mods
 			embed.addFields(
 				{ name: 'Eden Mods (Editor)', value: formatList(results.edenMods), inline: false },
 				{ name: 'Required Addons', value: formatList(results.requiredAddons), inline: false },
@@ -195,13 +202,25 @@ function checkSqmContent(content) {
 	const missionClass = extractClass('Mission', content);
 	const missionIntel = extractClass('Intel', missionClass || content);
 
+	// --- NEW: Custom Attributes Extraction ---
+	// Structure: ScenarioData -> CustomAttributes -> Category0 -> name="Multiplayer"
+	const customAttributes = extractClass('CustomAttributes', scenarioData || "");
+	const category0 = extractClass('Category0', customAttributes || "");
+
 	// Values
 	const author = findValue('author', scenarioData);
 	const disabledAI = findValue('disabledAI', scenarioData);
 	const title = findValue('briefingName', missionIntel);
 
-	// NEW: Source Name (Usually at global scope or inside ScenarioData)
-	// We check ScenarioData first, then fallback to Global
+	// --- NEW: Respawn Checks ---
+	const respawn = findValue('respawn', scenarioData);
+	const respawnDelay = findValue('respawnDelay', scenarioData);
+
+	// --- NEW: Multiplayer Attribute Check ---
+	const catName = findValue('name', category0);
+	const hasMultiplayerAttr = catName === 'Multiplayer';
+
+	// Source Name
 	const sourceName = findValue('sourceName', scenarioData) || findValue('sourceName', content);
 
 	// Arrays
@@ -227,5 +246,11 @@ function checkSqmContent(content) {
 		sourceName,
 		edenMods,
 		requiredAddons,
+		// New MP Results
+		respawn,
+		respawnDelay,
+		validRespawn: respawn === '3',
+		validRespawnDelay: respawnDelay === '5',
+		hasMultiplayerAttr,
 	};
 }
