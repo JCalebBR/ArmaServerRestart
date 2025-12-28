@@ -47,7 +47,6 @@ module.exports = {
 
 		try {
 			// 1. Determine Port (Use JSON > Fallback to Game Port > Fallback to +1)
-			// Since your scan worked on 2302, the JSON "queryPort": 2302 will take priority here.
 			const qPort = serverConfig.queryPort || serverConfig.port || 2302;
 			const qHost = serverConfig.host || '127.0.0.1';
 
