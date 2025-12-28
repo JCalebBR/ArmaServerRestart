@@ -107,13 +107,16 @@ function runCommand(command) {
 function checkSqmContent(content) {
 	// Regex Helpers
 	const extractClass = (name, text) => {
-		const regex = new RegExp(`class\\s+${name}\\s*\\{([\\s\\S]*?)\\};`, 'i');
+		// Added ? after ; to be safe, though standard SQM has it.
+		// We look for class Name { content };
+		const regex = new RegExp(`class\\s+${name}\\s*\\{([\\s\\S]*?)\\};?`, 'i');
 		const match = text.match(regex);
 		return match ? match[1] : null;
 	};
 
 	const findValue = (key, text) => {
 		if (!text) return null;
+		// Capture value until semicolon
 		const regex = new RegExp(`\\b${key}\\b\\s*=\\s*([\\s\\S]*?);`, 'i');
 		const match = text.match(regex);
 		if (!match) return null;
@@ -122,13 +125,14 @@ function checkSqmContent(content) {
 
 	// 1. DATA EXTRACTION
 	const scenarioData = extractClass('ScenarioData', content);
-	// Try finding Intel inside 'Mission' first (standard), then globally if needed
-	const missionClass = extractClass('Mission', content);
-	const missionIntel = extractClass('Intel', missionClass || content);
+
+	const missionIntel = extractClass('Intel', content);
 
 	const author = findValue('author', scenarioData);
 	const disabledAI = findValue('disabledAI', scenarioData);
 	const overview = findValue('overviewText', scenarioData);
+
+	// 'briefingName' is the standard property for the Mission Title in the loading screen
 	const title = findValue('briefingName', missionIntel);
 
 	// 2. COMPOSITION CHECK
@@ -136,6 +140,7 @@ function checkSqmContent(content) {
 	let foundComp = null;
 
 	for (const comp of requiredComps) {
+		// We test globally for the composition name
 		if (new RegExp(`name\\s*=\\s*"${comp}"`, 'i').test(content)) {
 			foundComp = comp;
 			break;
