@@ -28,8 +28,7 @@ module.exports = {
 		const fileName = attachment.name;
 		await interaction.deferReply();
 
-		// --- REUSE LOGIC ---
-		// (This part is identical to the main command, thanks to the util!)
+
 		const pboPath = path.join(os.tmpdir(), fileName);
 
 		try {

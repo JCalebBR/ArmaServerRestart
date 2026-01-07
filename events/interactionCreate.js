@@ -19,7 +19,6 @@ module.exports = {
 			return;
 		}
 
-		// ✅ GOOD: Allows Slash Commands AND Context Menus
 		if (!interaction.isChatInputCommand() && !interaction.isContextMenuCommand()) return;
 
 		const command = interaction.client.commands.get(interaction.commandName);
