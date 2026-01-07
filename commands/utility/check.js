@@ -30,11 +30,12 @@ module.exports = {
 
 		// --- CHECK 1: FILENAME FORMAT ---
 		// Regex: ^(Name).(Map).pbo
+		// Allowed: Letters, Numbers, Underscores, Hyphens
 		const nameRegex = /^([\w-]+)\.([\w-]+)\.pbo$/i;
 		const nameMatch = fileName.match(nameRegex);
 
 		const isNamingValid = !!nameMatch;
-		const expectedSourceName = nameMatch ? nameMatch[1] : null;
+		const expectedSourceName = nameMatch ? nameMatch[1] : null; // "Fall_of_the_believers"
 
 		// Setup Paths
 		const tempDir = os.tmpdir();
@@ -54,9 +55,9 @@ module.exports = {
 
 			// --- RUN CONTENT CHECKS ---
 			const results = checkSqmContent(sqmContent);
-			console.log(results);
 
 			// --- CHECK 2: SOURCENAME CONSISTENCY ---
+			// Does "sourceName" in file match "Fall_of_the_believers" from filename?
 			const isSourceMatch = results.sourceName === expectedSourceName;
 
 			// --- BUILD REPORT ---
@@ -64,17 +65,14 @@ module.exports = {
 				.setTitle(`📋 Mission Check: ${fileName}`)
 				.setTimestamp();
 
-			// Critical Logic (Updated with MP Checks)
+			// Critical Logic
 			const criticalFail =
 				!isNamingValid ||
 				!isSourceMatch ||
 				!results.hasAuthor ||
 				!results.hasTitle ||
 				!results.aiDisabled ||
-				!results.hasComposition ||
-				!results.validRespawn ||
-				!results.validRespawnDelay ||
-				!results.hasMultiplayerAttr;
+				!results.hasComposition;
 
 			if (criticalFail) {
 				embed.setColor(0xFF0000).setDescription('**❌ FAILED CRITICAL CHECKS**').setFooter({ text: 'Mission is not valid!' });
@@ -86,7 +84,8 @@ module.exports = {
 			embed.addFields(
 				{ name: 'File Format', value: isNamingValid ? `✅ Correct` : '❌ **INVALID** (Use Name.Map.pbo)', inline: true },
 				{ name: 'Source Match', value: isSourceMatch ? `✅ Matches` : `❌ **MISMATCH**\nFile: ${expectedSourceName || 'N/A'}\nSQM: ${results.sourceName || 'Missing'}`, inline: true },
-				{ name: '\u200B', value: '\u200B', inline: false },
+				// Spacer
+				{ name: '\u200B', value: '\u200B', inline: false }
 			);
 
 			// 2. Content Checks
@@ -97,17 +96,10 @@ module.exports = {
 				{ name: 'Compositions', value: results.hasComposition ? `✅ Found: "${results.foundComp}"` : '❌ **NONE**', inline: false },
 			);
 
-			// 3. Multiplayer Settings (New)
-			embed.addFields(
-				{ name: 'Respawn Type', value: results.validRespawn ? `✅ BASE (3)` : `❌ **${results.respawn || 'Missing'}** (Need 3)`, inline: true },
-				{ name: 'Respawn Delay', value: results.validRespawnDelay ? `✅ 5s` : `❌ **${results.respawnDelay || 'Missing'}** (Need 5)`, inline: true },
-				{ name: 'MP Attribute', value: results.hasMultiplayerAttr ? `✅ Enabled` : `❌ **Missing**`, inline: true },
-			);
-
-			// 4. Mods
+			// 3. Mods
 			embed.addFields(
 				{ name: 'Eden Mods (Editor)', value: formatList(results.edenMods), inline: false },
-				{ name: 'Required Addons', value: formatList(results.requiredAddons), inline: false },
+				{ name: 'Required Addons', value: formatList(results.requiredAddons), inline: false }
 			);
 
 			await interaction.editReply({ content: null, embeds: [embed] });
@@ -148,16 +140,15 @@ const formatList = (items) => {
 };
 
 // --- UPDATED PARSER ---
-// --- UPDATED PARSER (Fixes Category0 Bug) ---
 function checkSqmContent(content) {
-	// 1. ROBUST CLASS EXTRACTOR
+	// 1. ROBUST CLASS EXTRACTOR (Brace Counter)
 	const extractClass = (className, fullText) => {
 		const classRegex = new RegExp(`class\\s+${className}\\s*`, 'i');
 		const match = fullText.match(classRegex);
 		if (!match) return null;
 
 		const startIndex = match.index + match[0].length;
-		const openBraceIndex = fullText.indexOf('{', startIndex);
+		let openBraceIndex = fullText.indexOf('{', startIndex);
 		if (openBraceIndex === -1) return null;
 
 		let balance = 1;
@@ -187,6 +178,7 @@ function checkSqmContent(content) {
 		const regex = new RegExp(`\\b${key}\\[\\]\\s*=\\s*\\{([\\s\\S]*?)\\};`, 'i');
 		const match = text.match(regex);
 		if (!match) return [];
+
 		const rawList = match[1];
 		const items = [];
 		const itemRegex = /"([^"]+)"/g;
@@ -203,22 +195,14 @@ function checkSqmContent(content) {
 	const missionClass = extractClass('Mission', content);
 	const missionIntel = extractClass('Intel', missionClass || content);
 
-	// --- Attributes Extraction ---
-	const customAttributes = extractClass('CustomAttributes', scenarioData || "");
-
-	// FIX: Don't look for Category0. Just look for "Multiplayer" anywhere inside CustomAttributes.
-	// This handles cases where it might be Category1, Category2, etc.
-	const hasMultiplayerAttr = /name\s*=\s*"Multiplayer"/i.test(customAttributes || "");
-
 	// Values
 	const author = findValue('author', scenarioData);
 	const disabledAI = findValue('disabledAI', scenarioData);
 	const title = findValue('briefingName', missionIntel);
-	const sourceName = findValue('sourceName', scenarioData) || findValue('sourceName', content);
 
-	// Respawn Checks
-	const respawn = findValue('respawn', scenarioData);
-	const respawnDelay = findValue('respawnDelay', scenarioData);
+	// NEW: Source Name (Usually at global scope or inside ScenarioData)
+	// We check ScenarioData first, then fallback to Global
+	const sourceName = findValue('sourceName', scenarioData) || findValue('sourceName', content);
 
 	// Arrays
 	const edenMods = extractArray('mods', editorData);
@@ -243,10 +227,5 @@ function checkSqmContent(content) {
 		sourceName,
 		edenMods,
 		requiredAddons,
-		respawn,
-		respawnDelay,
-		validRespawn: respawn === '3',
-		validRespawnDelay: respawnDelay === '5',
-		hasMultiplayerAttr,
 	};
 }
