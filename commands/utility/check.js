@@ -148,8 +148,9 @@ const formatList = (items) => {
 };
 
 // --- UPDATED PARSER ---
+// --- UPDATED PARSER (Fixes Category0 Bug) ---
 function checkSqmContent(content) {
-	// 1. ROBUST CLASS EXTRACTOR (Brace Counter)
+	// 1. ROBUST CLASS EXTRACTOR
 	const extractClass = (className, fullText) => {
 		const classRegex = new RegExp(`class\\s+${className}\\s*`, 'i');
 		const match = fullText.match(classRegex);
@@ -186,7 +187,6 @@ function checkSqmContent(content) {
 		const regex = new RegExp(`\\b${key}\\[\\]\\s*=\\s*\\{([\\s\\S]*?)\\};`, 'i');
 		const match = text.match(regex);
 		if (!match) return [];
-
 		const rawList = match[1];
 		const items = [];
 		const itemRegex = /"([^"]+)"/g;
@@ -203,26 +203,22 @@ function checkSqmContent(content) {
 	const missionClass = extractClass('Mission', content);
 	const missionIntel = extractClass('Intel', missionClass || content);
 
-	// --- NEW: Custom Attributes Extraction ---
-	// Structure: ScenarioData -> CustomAttributes -> Category0 -> name="Multiplayer"
+	// --- Attributes Extraction ---
 	const customAttributes = extractClass('CustomAttributes', scenarioData || "");
-	const category0 = extractClass('Category0', customAttributes || "");
+
+	// FIX: Don't look for Category0. Just look for "Multiplayer" anywhere inside CustomAttributes.
+	// This handles cases where it might be Category1, Category2, etc.
+	const hasMultiplayerAttr = /name\s*=\s*"Multiplayer"/i.test(customAttributes || "");
 
 	// Values
 	const author = findValue('author', scenarioData);
 	const disabledAI = findValue('disabledAI', scenarioData);
 	const title = findValue('briefingName', missionIntel);
+	const sourceName = findValue('sourceName', scenarioData) || findValue('sourceName', content);
 
-	// --- NEW: Respawn Checks ---
+	// Respawn Checks
 	const respawn = findValue('respawn', scenarioData);
 	const respawnDelay = findValue('respawnDelay', scenarioData);
-
-	// --- NEW: Multiplayer Attribute Check ---
-	const catName = findValue('name', category0);
-	const hasMultiplayerAttr = catName === 'Multiplayer';
-
-	// Source Name
-	const sourceName = findValue('sourceName', scenarioData) || findValue('sourceName', content);
 
 	// Arrays
 	const edenMods = extractArray('mods', editorData);
@@ -247,7 +243,6 @@ function checkSqmContent(content) {
 		sourceName,
 		edenMods,
 		requiredAddons,
-		// New MP Results
 		respawn,
 		respawnDelay,
 		validRespawn: respawn === '3',
