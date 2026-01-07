@@ -129,7 +129,7 @@ function checkSqmContent(content) {
 		const startIndex = match.index + match[0].length;
 
 		// Find the opening '{'
-		let openBraceIndex = fullText.indexOf('{', startIndex);
+		const openBraceIndex = fullText.indexOf('{', startIndex);
 		if (openBraceIndex === -1) return null;
 
 		// Walk through the string counting braces
