@@ -54,6 +54,7 @@ module.exports = {
 
 			// --- RUN CONTENT CHECKS ---
 			const results = checkSqmContent(sqmContent);
+			console.log(results);
 
 			// --- CHECK 2: SOURCENAME CONSISTENCY ---
 			const isSourceMatch = results.sourceName === expectedSourceName;
