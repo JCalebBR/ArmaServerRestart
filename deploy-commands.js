@@ -7,6 +7,9 @@ const foldersPath = path.join(__dirname, 'commands');
 const commandFolders = fs.readdirSync(foldersPath);
 
 for (const folder of commandFolders) {
+	// --- EXCEPTION: SKIP 'utils' FOLDER ---
+	if (folder === 'utils') continue;
+
 	const fullPath = path.join(foldersPath, folder);
 	const stat = fs.statSync(fullPath);
 
