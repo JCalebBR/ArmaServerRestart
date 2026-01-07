@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const { pipeline } = require('stream/promises');
-const { analyzePbo, formatList } = require('./utils/mission-parser');
+const { analyzePbo, formatList } = require('../utils/mission-parser');
 
 module.exports = {
 	data: new ContextMenuCommandBuilder()
