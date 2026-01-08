@@ -4,11 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 // --- CONFIGURATION ---
-const CONFIG_PATH = path.join(__dirname, '../../servers.json');
+const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
-/**
- * 1. SCOUT: Finds ALL processes matching the port
- */
 function findArmaProcesses(targetPort) {
 	return new Promise((resolve) => {
 		const psCommand = `powershell -Command "Get-CimInstance Win32_Process -Filter \\"name like 'arma3server%'\\" | Select-Object ProcessId, CommandLine | ConvertTo-Json -Compress"`;

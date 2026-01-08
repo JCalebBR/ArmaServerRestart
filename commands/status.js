@@ -3,7 +3,7 @@ const { GameDig } = require('gamedig');
 const fs = require('fs');
 const path = require('path');
 
-const CONFIG_PATH = path.join(__dirname, '../../servers.json');
+const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
