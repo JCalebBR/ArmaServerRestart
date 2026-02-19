@@ -1,0 +1,182 @@
+[
+    {
+        "rank": 1,
+        "name": "Malrinius Manus",
+        "inf_kills": 76,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 81
+    },
+    {
+        "rank": 2,
+        "name": "Arrathus Decinian",
+        "inf_kills": 54,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 66
+    },
+    {
+        "rank": 3,
+        "name": "Dagonel Griffor",
+        "inf_kills": 58,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 58
+    },
+    {
+        "rank": 4,
+        "name": "Maxiumus Texelleaus",
+        "inf_kills": 50,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 50
+    },
+    {
+        "rank": 5,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 31,
+        "soft_veh": 2,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 47
+    },
+    {
+        "rank": 6,
+        "name": "Cyrus King",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 40
+    },
+    {
+        "rank": 7,
+        "name": "Sydico Doomshield",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 36
+    },
+    {
+        "rank": 8,
+        "name": "Veltek Aquila",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 29
+    },
+    {
+        "rank": 9,
+        "name": "Esurien Mortuus",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 10,
+        "name": "Toroc Arakia",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 25
+    },
+    {
+        "rank": 11,
+        "name": "Vorax Stoicar",
+        "inf_kills": 17,
+        "soft_veh": 1,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 19
+    },
+    {
+        "rank": 12,
+        "name": "Soladorr Cleardane",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 12
+    },
+    {
+        "rank": 13,
+        "name": "Dominico Gunthanus",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 11
+    },
+    {
+        "rank": 14,
+        "name": "Balderic Caeledis",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 15,
+        "name": "Caras Mordatus",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 3
+    },
+    {
+        "rank": 16,
+        "name": "Harvos Liche",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 17,
+        "name": "Balderic Caeledis",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 18,
+        "name": "The Thinker",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

@@ -1,0 +1,252 @@
+[
+    {
+        "rank": 1,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 168,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 1,
+        "score": 194
+    },
+    {
+        "rank": 2,
+        "name": "Moss Caessian",
+        "inf_kills": 141,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 150
+    },
+    {
+        "rank": 3,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 116,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 1,
+        "deaths": 0,
+        "score": 145
+    },
+    {
+        "rank": 4,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 124,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 1,
+        "deaths": 0,
+        "score": 144
+    },
+    {
+        "rank": 5,
+        "name": "Siniel Arakia",
+        "inf_kills": 116,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 0,
+        "score": 137
+    },
+    {
+        "rank": 6,
+        "name": "Gabral Santor",
+        "inf_kills": 85,
+        "soft_veh": 0,
+        "armor_veh": 16,
+        "air": 0,
+        "deaths": 0,
+        "score": 133
+    },
+    {
+        "rank": 7,
+        "name": "Selios Rockbrow",
+        "inf_kills": 82,
+        "soft_veh": 0,
+        "armor_veh": -3,
+        "air": 4,
+        "deaths": 1,
+        "score": 93
+    },
+    {
+        "rank": 8,
+        "name": "Sequtr Clades",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 0,
+        "score": 87
+    },
+    {
+        "rank": 9,
+        "name": "Avar Vorleii",
+        "inf_kills": 62,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 0,
+        "score": 80
+    },
+    {
+        "rank": 10,
+        "name": "Orthicus Otto",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 1,
+        "deaths": 1,
+        "score": 75
+    },
+    {
+        "rank": 11,
+        "name": "Jon Darnastrega",
+        "inf_kills": 49,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 49
+    },
+    {
+        "rank": 12,
+        "name": "Raimund Krause",
+        "inf_kills": 46,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 1,
+        "score": 43
+    },
+    {
+        "rank": 13,
+        "name": "Sydico Doomshield",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 40
+    },
+    {
+        "rank": 14,
+        "name": "Shephard Reynauld",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 37
+    },
+    {
+        "rank": 15,
+        "name": "Gregor Tiberius",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 35
+    },
+    {
+        "rank": 16,
+        "name": "Kane Corvar",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 34
+    },
+    {
+        "rank": 17,
+        "name": "Arrathus Decinian",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 29
+    },
+    {
+        "rank": 18,
+        "name": "Dagonel Griffor",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 25
+    },
+    {
+        "rank": 19,
+        "name": "Sareri Rose",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 21
+    },
+    {
+        "rank": 20,
+        "name": "Zeruel Monarch",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 11
+    },
+    {
+        "rank": 21,
+        "name": "Castian Rozila",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 7
+    },
+    {
+        "rank": 22,
+        "name": "Horatio Loran",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 7
+    },
+    {
+        "rank": 23,
+        "name": "TM Alastor Moratorn",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 3
+    },
+    {
+        "rank": 24,
+        "name": "Veltek Aquila",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 25,
+        "name": "Harvos Liche",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": -1,
+        "deaths": 0,
+        "score": -4
+    }
+]

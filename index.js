@@ -2,7 +2,13 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits } = require('discord.js');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+	],
+});
 
 client.commands = new Collection();
 
@@ -50,5 +56,22 @@ for (const file of eventFiles) {
 		client.on(event.name, (...args) => event.execute(...args));
 	}
 }
+
+process.on('unhandledRejection', (reason, promise) => {
+	console.error(' [Anti-Crash] :: Unhandled Rejection/Catch');
+	console.error(reason, promise);
+});
+
+// Catches synchronous execution errors
+process.on('uncaughtException', (err, origin) => {
+	console.error(' [Anti-Crash] :: Uncaught Exception/Catch');
+	console.error(err, origin);
+});
+
+// Catches synchronous execution errors (without preventing the crash if you want to log it externally first)
+process.on('uncaughtExceptionMonitor', (err, origin) => {
+	console.error(' [Anti-Crash] :: Uncaught Exception Monitor');
+	console.error(err, origin);
+});
 
 client.login(process.env.DISCORD_TOKEN);

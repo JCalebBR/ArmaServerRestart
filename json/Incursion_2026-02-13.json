@@ -1,0 +1,212 @@
+[
+    {
+        "rank": 1,
+        "name": "Moss Caessian",
+        "inf_kills": 114,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 1,
+        "deaths": 1,
+        "score": 146
+    },
+    {
+        "rank": 2,
+        "name": "Galm Stormwolf",
+        "inf_kills": 106,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 2,
+        "deaths": 0,
+        "score": 140
+    },
+    {
+        "rank": 3,
+        "name": "Zacharia Wolff",
+        "inf_kills": 131,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 134
+    },
+    {
+        "rank": 4,
+        "name": "Infernus Wolff",
+        "inf_kills": 115,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 1,
+        "score": 123
+    },
+    {
+        "rank": 5,
+        "name": "Lysander Orosius",
+        "inf_kills": 103,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 109
+    },
+    {
+        "rank": 6,
+        "name": "Raphaelius Victorias",
+        "inf_kills": 107,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 107
+    },
+    {
+        "rank": 7,
+        "name": "Skellus Gadrah",
+        "inf_kills": 106,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 106
+    },
+    {
+        "rank": 8,
+        "name": "Zeruel Monarch",
+        "inf_kills": 96,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 99
+    },
+    {
+        "rank": 9,
+        "name": "Cassius Thrax",
+        "inf_kills": 70,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 76
+    },
+    {
+        "rank": 10,
+        "name": "Vespera Aetos",
+        "inf_kills": 69,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 69
+    },
+    {
+        "rank": 11,
+        "name": "Seraph Historia",
+        "inf_kills": 59,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 59
+    },
+    {
+        "rank": 12,
+        "name": "Friedrich Kruger",
+        "inf_kills": 56,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 56
+    },
+    {
+        "rank": 13,
+        "name": "Arrathus Decinian",
+        "inf_kills": 46,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 55
+    },
+    {
+        "rank": 14,
+        "name": "Wilhelm King",
+        "inf_kills": 55,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 55
+    },
+    {
+        "rank": 15,
+        "name": "Fin Enarah",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 4,
+        "score": 52
+    },
+    {
+        "rank": 16,
+        "name": "Dantanius Lunius",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 33
+    },
+    {
+        "rank": 17,
+        "name": "Reaper Grimaldi",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 32
+    },
+    {
+        "rank": 18,
+        "name": "Ven Erath",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 16
+    },
+    {
+        "rank": 19,
+        "name": "Wolf Tribune",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 7
+    },
+    {
+        "rank": 20,
+        "name": "Vespera Aetos",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 21,
+        "name": "Raykan Hussarion",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 0
+    }
+]

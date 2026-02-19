@@ -1,0 +1,162 @@
+[
+    {
+        "rank": 1,
+        "name": "Lysander Orosius",
+        "inf_kills": 47,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 50
+    },
+    {
+        "rank": 2,
+        "name": "Sydico Doomshield",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 0,
+        "score": 49
+    },
+    {
+        "rank": 3,
+        "name": "Dais Dune",
+        "inf_kills": 47,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 47
+    },
+    {
+        "rank": 4,
+        "name": "Malrinius Manus",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 2,
+        "score": 44
+    },
+    {
+        "rank": 5,
+        "name": "Rhamiel Astelus",
+        "inf_kills": 40,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 40
+    },
+    {
+        "rank": 6,
+        "name": "Adrius Auxilius",
+        "inf_kills": 40,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 40
+    },
+    {
+        "rank": 7,
+        "name": "Caeledis",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 34
+    },
+    {
+        "rank": 8,
+        "name": "Julius Brazenheart",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 28
+    },
+    {
+        "rank": 9,
+        "name": "Naval Amatos",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 26
+    },
+    {
+        "rank": 10,
+        "name": "Cyrus King",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 1,
+        "score": 16
+    },
+    {
+        "rank": 11,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 12
+    },
+    {
+        "rank": 12,
+        "name": "Wolf Tribune",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 7
+    },
+    {
+        "rank": 13,
+        "name": "Ulrich Tannhauser",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 4
+    },
+    {
+        "rank": 14,
+        "name": "Merlin Albus",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 2
+    },
+    {
+        "rank": 15,
+        "name": "Castian Rozila",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    },
+    {
+        "rank": 16,
+        "name": "Odysseus Iraetus",
+        "inf_kills": 33,
+        "soft_veh": 0,
+        "armor_veh": -15,
+        "air": 1,
+        "deaths": 2,
+        "score": -7
+    }
+]

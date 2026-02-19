@@ -1,0 +1,442 @@
+[
+    {
+        "rank": 1,
+        "name": "Adrius Auxilius",
+        "inf_kills": 120,
+        "soft_veh": 1,
+        "armor_veh": 96,
+        "air": 0,
+        "deaths": 0,
+        "score": 410
+    },
+    {
+        "rank": 2,
+        "name": "Terminus Undra",
+        "inf_kills": 82,
+        "soft_veh": 6,
+        "armor_veh": 51,
+        "air": 8,
+        "deaths": 1,
+        "score": 287
+    },
+    {
+        "rank": 3,
+        "name": "Raimund Krause",
+        "inf_kills": 171,
+        "soft_veh": 4,
+        "armor_veh": 18,
+        "air": 2,
+        "deaths": 0,
+        "score": 243
+    },
+    {
+        "rank": 4,
+        "name": "Tyrion Historia",
+        "inf_kills": 102,
+        "soft_veh": 0,
+        "armor_veh": 12,
+        "air": 15,
+        "deaths": 0,
+        "score": 213
+    },
+    {
+        "rank": 5,
+        "name": "Omneil Noctus",
+        "inf_kills": 100,
+        "soft_veh": 0,
+        "armor_veh": 32,
+        "air": 1,
+        "deaths": 1,
+        "score": 201
+    },
+    {
+        "rank": 6,
+        "name": "Avar Vorleii",
+        "inf_kills": 70,
+        "soft_veh": 7,
+        "armor_veh": 30,
+        "air": 1,
+        "deaths": 0,
+        "score": 179
+    },
+    {
+        "rank": 7,
+        "name": "Joseph Caseious",
+        "inf_kills": 99,
+        "soft_veh": 0,
+        "armor_veh": 24,
+        "air": 0,
+        "deaths": 1,
+        "score": 171
+    },
+    {
+        "rank": 8,
+        "name": "Orthicus Otto",
+        "inf_kills": 57,
+        "soft_veh": 1,
+        "armor_veh": 17,
+        "air": 11,
+        "deaths": 0,
+        "score": 165
+    },
+    {
+        "rank": 9,
+        "name": "Siniel Harter",
+        "inf_kills": 87,
+        "soft_veh": 0,
+        "armor_veh": 25,
+        "air": 0,
+        "deaths": 0,
+        "score": 162
+    },
+    {
+        "rank": 10,
+        "name": "Harrow Krodarius",
+        "inf_kills": 52,
+        "soft_veh": 1,
+        "armor_veh": 6,
+        "air": 14,
+        "deaths": 1,
+        "score": 142
+    },
+    {
+        "rank": 11,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 115,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 127
+    },
+    {
+        "rank": 12,
+        "name": "Raykan Hussarion",
+        "inf_kills": 69,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 1,
+        "score": 96
+    },
+    {
+        "rank": 13,
+        "name": "Aray Armros",
+        "inf_kills": 64,
+        "soft_veh": 1,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 0,
+        "score": 93
+    },
+    {
+        "rank": 14,
+        "name": "Grave Leonhart",
+        "inf_kills": 82,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 91
+    },
+    {
+        "rank": 15,
+        "name": "Cadmane Tureo",
+        "inf_kills": 73,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 2,
+        "score": 91
+    },
+    {
+        "rank": 16,
+        "name": "Execallum Croz",
+        "inf_kills": 78,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 84
+    },
+    {
+        "rank": 17,
+        "name": "Chinn Agustius",
+        "inf_kills": 73,
+        "soft_veh": 1,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 2,
+        "score": 84
+    },
+    {
+        "rank": 18,
+        "name": "Infernus Wolff",
+        "inf_kills": 48,
+        "soft_veh": 2,
+        "armor_veh": 10,
+        "air": 0,
+        "deaths": 0,
+        "score": 82
+    },
+    {
+        "rank": 19,
+        "name": "Rylan Leonhart",
+        "inf_kills": 71,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 80
+    },
+    {
+        "rank": 20,
+        "name": "Aethon Septyn",
+        "inf_kills": 76,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 76
+    },
+    {
+        "rank": 21,
+        "name": "Tyberos Scharn",
+        "inf_kills": 38,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 0,
+        "deaths": 0,
+        "score": 71
+    },
+    {
+        "rank": 22,
+        "name": "Alexius Thracicus",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 0,
+        "score": 70
+    },
+    {
+        "rank": 23,
+        "name": "Lothair El'Kaliel",
+        "inf_kills": 57,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 69
+    },
+    {
+        "rank": 24,
+        "name": "Fernon Serimos",
+        "inf_kills": 67,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 67
+    },
+    {
+        "rank": 25,
+        "name": "Castus Caedus",
+        "inf_kills": 36,
+        "soft_veh": 0,
+        "armor_veh": 10,
+        "air": 0,
+        "deaths": 0,
+        "score": 66
+    },
+    {
+        "rank": 26,
+        "name": "Herius Occisor",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 0,
+        "score": 64
+    },
+    {
+        "rank": 27,
+        "name": "Valeus Tabreth",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 10,
+        "air": 0,
+        "deaths": 1,
+        "score": 64
+    },
+    {
+        "rank": 28,
+        "name": "Skaldi Historia",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 2,
+        "deaths": 0,
+        "score": 44
+    },
+    {
+        "rank": 29,
+        "name": "Gallus Stanz",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 1,
+        "score": 40
+    },
+    {
+        "rank": 30,
+        "name": "Wilhelm King",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 38
+    },
+    {
+        "rank": 31,
+        "name": "Sergio Xandus",
+        "inf_kills": 30,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 30
+    },
+    {
+        "rank": 32,
+        "name": "Seraph Historia",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 3,
+        "deaths": 0,
+        "score": 29
+    },
+    {
+        "rank": 33,
+        "name": "Arrathus Decinian",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 28
+    },
+    {
+        "rank": 34,
+        "name": "Arn Gothia",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 25
+    },
+    {
+        "rank": 35,
+        "name": "Lorenzo Decane",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 16
+    },
+    {
+        "rank": 36,
+        "name": "Harvos Liche",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": -1,
+        "deaths": 0,
+        "score": 15
+    },
+    {
+        "rank": 37,
+        "name": "Kane Corvar",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 13
+    },
+    {
+        "rank": 38,
+        "name": "Gotz Nerva",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 12
+    },
+    {
+        "rank": 39,
+        "name": "Castian Rozila",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 11
+    },
+    {
+        "rank": 40,
+        "name": "Cyrus King",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 10
+    },
+    {
+        "rank": 41,
+        "name": "Wolf Tribune",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 5
+    },
+    {
+        "rank": 42,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 43,
+        "name": "Dagonel Griffor",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 44,
+        "name": "Gregor Tiberius",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

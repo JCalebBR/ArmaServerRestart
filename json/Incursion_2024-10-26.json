@@ -1,0 +1,152 @@
+[
+    {
+        "rank": 1,
+        "name": "Sydico Doomshield",
+        "inf_kills": 64,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 67
+    },
+    {
+        "rank": 2,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 46
+    },
+    {
+        "rank": 3,
+        "name": "Toroc Arakia",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 2,
+        "deaths": 0,
+        "score": 41
+    },
+    {
+        "rank": 4,
+        "name": "Nathaniel Akikus",
+        "inf_kills": 38,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 38
+    },
+    {
+        "rank": 5,
+        "name": "Chinn Agustius",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 29
+    },
+    {
+        "rank": 6,
+        "name": "Kane Corvar",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 7,
+        "name": "Raimund Krause",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 26
+    },
+    {
+        "rank": 8,
+        "name": "Arcanist Aetheo",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 9,
+        "name": "Larinae Mornal",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 23
+    },
+    {
+        "rank": 10,
+        "name": "Castian Rozila",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 17
+    },
+    {
+        "rank": 11,
+        "name": "Udrid Salbik",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 17
+    },
+    {
+        "rank": 12,
+        "name": "Lodus Koza",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": -2,
+        "air": 0,
+        "deaths": 2,
+        "score": 8
+    },
+    {
+        "rank": 13,
+        "name": "Ulrich Trannhauser",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 14,
+        "name": "Harvos Liche",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": -1,
+        "deaths": 0,
+        "score": -3
+    },
+    {
+        "rank": 15,
+        "name": "Kyr'ad Voss",
+        "inf_kills": -8,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": -1,
+        "deaths": 0,
+        "score": -16
+    }
+]

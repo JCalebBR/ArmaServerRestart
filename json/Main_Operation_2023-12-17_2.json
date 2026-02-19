@@ -1,0 +1,232 @@
+[
+    {
+        "rank": 1,
+        "name": "Sydico Doomshield",
+        "inf_kills": 56,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 16,
+        "deaths": 0,
+        "score": 139
+    },
+    {
+        "rank": 2,
+        "name": "Death-Speaker Khyzo",
+        "inf_kills": 77,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 8,
+        "deaths": 1,
+        "score": 120
+    },
+    {
+        "rank": 3,
+        "name": "Azrion Zeuion",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 20,
+        "deaths": 1,
+        "score": 117
+    },
+    {
+        "rank": 4,
+        "name": "Balderic Caeledis",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 14,
+        "deaths": 0,
+        "score": 92
+    },
+    {
+        "rank": 5,
+        "name": "Lord Speaker Asmodai",
+        "inf_kills": 53,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 7,
+        "deaths": 3,
+        "score": 88
+    },
+    {
+        "rank": 6,
+        "name": "Axe-Brother Icurus",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 7,
+        "deaths": 1,
+        "score": 84
+    },
+    {
+        "rank": 7,
+        "name": "Wilhelm King",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 4,
+        "deaths": 0,
+        "score": 82
+    },
+    {
+        "rank": 8,
+        "name": "Axe-Sergeant LtSkitzune",
+        "inf_kills": 54,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 0,
+        "score": 69
+    },
+    {
+        "rank": 9,
+        "name": "Axe-Veteran Dax",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 4,
+        "deaths": 0,
+        "score": 64
+    },
+    {
+        "rank": 10,
+        "name": "Executor-Sgt Jörmungandr",
+        "inf_kills": 56,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 56
+    },
+    {
+        "rank": 11,
+        "name": "Hannibrim Churchward",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 4,
+        "deaths": 0,
+        "score": 45
+    },
+    {
+        "rank": 12,
+        "name": "Asterion Theross",
+        "inf_kills": 33,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 36
+    },
+    {
+        "rank": 13,
+        "name": "Axe-Sergeant Hellas",
+        "inf_kills": 30,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 33
+    },
+    {
+        "rank": 14,
+        "name": "Harvos Liche",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 2,
+        "deaths": 0,
+        "score": 32
+    },
+    {
+        "rank": 15,
+        "name": "Castian Rozila",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 2,
+        "deaths": 0,
+        "score": 32
+    },
+    {
+        "rank": 16,
+        "name": "Ash Farhammer",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 17,
+        "name": "Shield-Captain Leonaus",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 17
+    },
+    {
+        "rank": 18,
+        "name": "Rukai Wolfhart",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 0,
+        "score": 16
+    },
+    {
+        "rank": 19,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 14
+    },
+    {
+        "rank": 20,
+        "name": "Witch Doctor Dasago",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 10
+    },
+    {
+        "rank": 21,
+        "name": "Seqtur Clades",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 8
+    },
+    {
+        "rank": 22,
+        "name": "Chief Anvil Brickky",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 23,
+        "name": "Executor-Brother Agvaldr",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

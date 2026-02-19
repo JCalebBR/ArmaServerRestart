@@ -1,0 +1,392 @@
+[
+    {
+        "rank": 1,
+        "name": "Brother Templarii",
+        "inf_kills": 36,
+        "soft_veh": 1,
+        "armor_veh": 2,
+        "air": 13,
+        "deaths": 2,
+        "score": 109
+    },
+    {
+        "rank": 2,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 58,
+        "soft_veh": 1,
+        "armor_veh": 9,
+        "air": 3,
+        "deaths": 4,
+        "score": 102
+    },
+    {
+        "rank": 3,
+        "name": "Seraphiel Issidya",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 9,
+        "deaths": 2,
+        "score": 72
+    },
+    {
+        "rank": 4,
+        "name": "Brother Avar",
+        "inf_kills": 26,
+        "soft_veh": 1,
+        "armor_veh": 2,
+        "air": 7,
+        "deaths": 2,
+        "score": 69
+    },
+    {
+        "rank": 5,
+        "name": "Asterion Theross",
+        "inf_kills": 33,
+        "soft_veh": 2,
+        "armor_veh": 1,
+        "air": 4,
+        "deaths": 7,
+        "score": 60
+    },
+    {
+        "rank": 6,
+        "name": "Aerion Salicmund",
+        "inf_kills": 18,
+        "soft_veh": 1,
+        "armor_veh": 0,
+        "air": 8,
+        "deaths": 7,
+        "score": 60
+    },
+    {
+        "rank": 7,
+        "name": "Maxiumus Texelleaus",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 6,
+        "deaths": 7,
+        "score": 46
+    },
+    {
+        "rank": 8,
+        "name": "Brother Bandit",
+        "inf_kills": 14,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 5,
+        "deaths": 6,
+        "score": 44
+    },
+    {
+        "rank": 9,
+        "name": "Moss Caessian",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 6,
+        "deaths": 5,
+        "score": 41
+    },
+    {
+        "rank": 10,
+        "name": "Forge Artisan Logan",
+        "inf_kills": 11,
+        "soft_veh": -1,
+        "armor_veh": 4,
+        "air": 4,
+        "deaths": 8,
+        "score": 41
+    },
+    {
+        "rank": 11,
+        "name": "Battle Brother Neolotha",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 5,
+        "score": 34
+    },
+    {
+        "rank": 12,
+        "name": "Omneil Noctus",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 5,
+        "score": 28
+    },
+    {
+        "rank": 13,
+        "name": "Vet. Sergeant Sleep",
+        "inf_kills": 17,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 1,
+        "score": 27
+    },
+    {
+        "rank": 14,
+        "name": "Brother Pash",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 2,
+        "deaths": 6,
+        "score": 27
+    },
+    {
+        "rank": 15,
+        "name": "Adrius Auxilius",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 1,
+        "score": 26
+    },
+    {
+        "rank": 16,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 5,
+        "score": 25
+    },
+    {
+        "rank": 17,
+        "name": "Herius Occisor",
+        "inf_kills": 14,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 3,
+        "score": 24
+    },
+    {
+        "rank": 18,
+        "name": "Vorax Stoicar",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 2,
+        "score": 23
+    },
+    {
+        "rank": 19,
+        "name": "Brother Geo",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 3,
+        "score": 19
+    },
+    {
+        "rank": 20,
+        "name": "Brother Mathews",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 8,
+        "score": 19
+    },
+    {
+        "rank": 21,
+        "name": "Gregor Tiberius",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 4,
+        "score": 17
+    },
+    {
+        "rank": 22,
+        "name": "Brother Theseus",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 4,
+        "score": 16
+    },
+    {
+        "rank": 23,
+        "name": "Rukai Wolfhart",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 7,
+        "score": 16
+    },
+    {
+        "rank": 24,
+        "name": "Brother Primus",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 15
+    },
+    {
+        "rank": 25,
+        "name": "Dagonel Griffor",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 10
+    },
+    {
+        "rank": 26,
+        "name": "Azrion Zeuion",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 1,
+        "score": 10
+    },
+    {
+        "rank": 27,
+        "name": "Toroc Arakia",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 2,
+        "score": 10
+    },
+    {
+        "rank": 28,
+        "name": "Baelen Kyyus",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 29,
+        "name": "Fernon Serimos",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 30,
+        "name": "Brother Captain Cassius",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 1
+    },
+    {
+        "rank": 31,
+        "name": "Seqtur Clades",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 32,
+        "name": "Tyberos Scharn",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 33,
+        "name": "Brother Spire",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 34,
+        "name": "Cheif Apothocary Stome",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 35,
+        "name": "Sister Sergeant Veritas",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 0
+    },
+    {
+        "rank": 36,
+        "name": "Brother Pollo",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 0
+    },
+    {
+        "rank": 37,
+        "name": "Brother Zero",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 0
+    },
+    {
+        "rank": 38,
+        "name": "Brother Hiatus",
+        "inf_kills": -1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": -1
+    },
+    {
+        "rank": 39,
+        "name": "Cheif Apothecary Stome",
+        "inf_kills": -1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": -1
+    }
+]

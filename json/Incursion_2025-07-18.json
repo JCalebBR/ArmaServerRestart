@@ -1,0 +1,142 @@
+[
+    {
+        "rank": 1,
+        "name": "Arrathus Decinian",
+        "inf_kills": 230,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 242
+    },
+    {
+        "rank": 2,
+        "name": "Orthicus Otto",
+        "inf_kills": 198,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 198
+    },
+    {
+        "rank": 3,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 154,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 0,
+        "deaths": 2,
+        "score": 178
+    },
+    {
+        "rank": 4,
+        "name": "Zeruel Monarch",
+        "inf_kills": 67,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 1,
+        "deaths": 1,
+        "score": 90
+    },
+    {
+        "rank": 5,
+        "name": "Jon Darnastrega",
+        "inf_kills": 73,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 76
+    },
+    {
+        "rank": 6,
+        "name": "Gabral Santor",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 8,
+        "deaths": 2,
+        "score": 67
+    },
+    {
+        "rank": 7,
+        "name": "Chiron Solaris",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 61
+    },
+    {
+        "rank": 8,
+        "name": "Seqtur Clades",
+        "inf_kills": 46,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 1,
+        "deaths": 0,
+        "score": 57
+    },
+    {
+        "rank": 9,
+        "name": "Avar Vorleil",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 43
+    },
+    {
+        "rank": 10,
+        "name": "Shephard Reynauld",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 18
+    },
+    {
+        "rank": 11,
+        "name": "Kane Corvar",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 12,
+        "name": "Toroc Arakia",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 13,
+        "name": "Cydius Blackout",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 14,
+        "name": "Valeus Tabreth",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

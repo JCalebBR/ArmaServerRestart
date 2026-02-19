@@ -1,0 +1,202 @@
+[
+    {
+        "rank": 1,
+        "name": "Omneil Noctus",
+        "inf_kills": 275,
+        "soft_veh": 0,
+        "armor_veh": 18,
+        "air": 0,
+        "deaths": 4,
+        "score": 329
+    },
+    {
+        "rank": 2,
+        "name": "Wolfstille Krause",
+        "inf_kills": 237,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 3,
+        "score": 243
+    },
+    {
+        "rank": 3,
+        "name": "Xarl Endymion",
+        "inf_kills": 172,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 3,
+        "score": 187
+    },
+    {
+        "rank": 4,
+        "name": "Zeruel Monarch",
+        "inf_kills": 127,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 2,
+        "score": 148
+    },
+    {
+        "rank": 5,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 118,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 0,
+        "deaths": 2,
+        "score": 142
+    },
+    {
+        "rank": 6,
+        "name": "Dantes Tyrrhenio",
+        "inf_kills": 86,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 89
+    },
+    {
+        "rank": 7,
+        "name": "Friedrich Kruger",
+        "inf_kills": 80,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 7,
+        "score": 86
+    },
+    {
+        "rank": 8,
+        "name": "Adrius Auxilius",
+        "inf_kills": 76,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 4,
+        "score": 82
+    },
+    {
+        "rank": 9,
+        "name": "Chiron Solaris",
+        "inf_kills": 78,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 81
+    },
+    {
+        "rank": 10,
+        "name": "Gabral Santor",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 0,
+        "deaths": 1,
+        "score": 76
+    },
+    {
+        "rank": 11,
+        "name": "Ecliptus Arcadius",
+        "inf_kills": 59,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 62
+    },
+    {
+        "rank": 12,
+        "name": "Avar Vorleii",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 61
+    },
+    {
+        "rank": 13,
+        "name": "Seraph Historia",
+        "inf_kills": 59,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 59
+    },
+    {
+        "rank": 14,
+        "name": "Uriel TamerlaN",
+        "inf_kills": 56,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 56
+    },
+    {
+        "rank": 15,
+        "name": "Orthicus Otto",
+        "inf_kills": 36,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 39
+    },
+    {
+        "rank": 16,
+        "name": "Azrion Zeuion",
+        "inf_kills": 33,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 6,
+        "score": 33
+    },
+    {
+        "rank": 17,
+        "name": "Ven Erath",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 10
+    },
+    {
+        "rank": 18,
+        "name": "Harvos Liche",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 5
+    },
+    {
+        "rank": 19,
+        "name": "Kane Corvar",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 1
+    },
+    {
+        "rank": 20,
+        "name": "Seqtur Clades",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

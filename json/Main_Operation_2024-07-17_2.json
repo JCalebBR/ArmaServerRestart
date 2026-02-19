@@ -1,0 +1,212 @@
+[
+    {
+        "rank": 1,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 125,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 3,
+        "score": 146
+    },
+    {
+        "rank": 2,
+        "name": "Maxiumus Texelleaus",
+        "inf_kills": 84,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 84
+    },
+    {
+        "rank": 3,
+        "name": "Baelen Kyyus",
+        "inf_kills": 51,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 2,
+        "deaths": 0,
+        "score": 58
+    },
+    {
+        "rank": 4,
+        "name": "Sydico Doomshield",
+        "inf_kills": 30,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 1,
+        "score": 58
+    },
+    {
+        "rank": 5,
+        "name": "Jezor Tychian",
+        "inf_kills": 38,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 2,
+        "deaths": 4,
+        "score": 54
+    },
+    {
+        "rank": 6,
+        "name": "Fernon Serimos",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 47
+    },
+    {
+        "rank": 7,
+        "name": "Chino Agustus",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 44
+    },
+    {
+        "rank": 8,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 44
+    },
+    {
+        "rank": 9,
+        "name": "Karolus Edelmut",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 41
+    },
+    {
+        "rank": 10,
+        "name": "Dagonel Griffor",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 32
+    },
+    {
+        "rank": 11,
+        "name": "Caras Mordatus",
+        "inf_kills": 30,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 30
+    },
+    {
+        "rank": 12,
+        "name": "Balderic Caeledis",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 13,
+        "name": "Soladorr Cleardane",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 22
+    },
+    {
+        "rank": 14,
+        "name": "Kane Corvar",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 3,
+        "score": 21
+    },
+    {
+        "rank": 15,
+        "name": "Vaccus Castiel",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 19
+    },
+    {
+        "rank": 16,
+        "name": "Torris Holgor",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 17
+    },
+    {
+        "rank": 17,
+        "name": "Notal Pharius",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 12
+    },
+    {
+        "rank": 18,
+        "name": "Vaccus Castiel",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 2
+    },
+    {
+        "rank": 19,
+        "name": "Harvos Liche",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 20,
+        "name": "Avar Ulbrecht",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 21,
+        "name": "Arrathus Decinian",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

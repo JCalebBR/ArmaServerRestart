@@ -1,0 +1,232 @@
+[
+    {
+        "rank": 1,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 168,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 6,
+        "score": 174
+    },
+    {
+        "rank": 2,
+        "name": "Abraham Bectus",
+        "inf_kills": 129,
+        "soft_veh": 3,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 141
+    },
+    {
+        "rank": 3,
+        "name": "Ranaris Daross",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 36,
+        "air": 0,
+        "deaths": 1,
+        "score": 110
+    },
+    {
+        "rank": 4,
+        "name": "Alarak Sicarius",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 13,
+        "air": 0,
+        "deaths": 6,
+        "score": 68
+    },
+    {
+        "rank": 5,
+        "name": "Artyios Lysem",
+        "inf_kills": 56,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 56
+    },
+    {
+        "rank": 6,
+        "name": "Wilhelm Caligean",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 43
+    },
+    {
+        "rank": 7,
+        "name": "Dagonet Griffor",
+        "inf_kills": 53,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 48
+    },
+    {
+        "rank": 8,
+        "name": "Xetor Alanclaest",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 47
+    },
+    {
+        "rank": 9,
+        "name": "Ulrich Tannhauser",
+        "inf_kills": 30,
+        "soft_veh": 5,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 45
+    },
+    {
+        "rank": 10,
+        "name": "Sedric Richter",
+        "inf_kills": 37,
+        "soft_veh": 1,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 40
+    },
+    {
+        "rank": 11,
+        "name": "Xari Endymion",
+        "inf_kills": 35,
+        "soft_veh": 2,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 40
+    },
+    {
+        "rank": 12,
+        "name": "Brother Fulvianus",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 39
+    },
+    {
+        "rank": 13,
+        "name": "Diego Tykus",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 14,
+        "name": "Bulvarr Bjarkskar",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 15,
+        "name": "Cyrus King",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 12
+    },
+    {
+        "rank": 16,
+        "name": "Tancrede Silvae",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 16
+    },
+    {
+        "rank": 17,
+        "name": "Drakor Blackfrst",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 11
+    },
+    {
+        "rank": 18,
+        "name": "Ven Erath",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 7
+    },
+    {
+        "rank": 19,
+        "name": "Tyran Halbalais",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 4
+    },
+    {
+        "rank": 20,
+        "name": "Castean Berata",
+        "inf_kills": 3,
+        "soft_veh": 5,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 13
+    },
+    {
+        "rank": 21,
+        "name": "Azrioq Zeusn",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 22,
+        "name": "Bulvair Bjarkskar",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 23,
+        "name": "Dagonel Griffor",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

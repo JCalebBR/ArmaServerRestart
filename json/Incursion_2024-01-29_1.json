@@ -1,0 +1,152 @@
+[
+    {
+        "rank": 1,
+        "name": "Dagonel Griffor",
+        "inf_kills": 349,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 349
+    },
+    {
+        "rank": 2,
+        "name": "Wolf Tribune",
+        "inf_kills": 208,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 1,
+        "score": 224
+    },
+    {
+        "rank": 3,
+        "name": "Fernus Gerauden",
+        "inf_kills": 215,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 1,
+        "deaths": 0,
+        "score": 226
+    },
+    {
+        "rank": 4,
+        "name": "Anselm Thassandro",
+        "inf_kills": 166,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 169
+    },
+    {
+        "rank": 5,
+        "name": "Gregor Tiberius",
+        "inf_kills": 137,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 137
+    },
+    {
+        "rank": 6,
+        "name": "Esurien Mortuus",
+        "inf_kills": 121,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 127
+    },
+    {
+        "rank": 7,
+        "name": "Azazel Magrio",
+        "inf_kills": 117,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 3,
+        "score": 122
+    },
+    {
+        "rank": 8,
+        "name": "Mosk Pius",
+        "inf_kills": 109,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 109
+    },
+    {
+        "rank": 9,
+        "name": "Talos Foehammer",
+        "inf_kills": 88,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 88
+    },
+    {
+        "rank": 10,
+        "name": "Arrathus Decinian",
+        "inf_kills": 58,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 61
+    },
+    {
+        "rank": 11,
+        "name": "Ezekiel Rayner",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 52
+    },
+    {
+        "rank": 12,
+        "name": "Kane Corvar",
+        "inf_kills": 48,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 48
+    },
+    {
+        "rank": 13,
+        "name": "Luceus Caphriel",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 31
+    },
+    {
+        "rank": 14,
+        "name": "Vorac Forimus",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 12
+    },
+    {
+        "rank": 15,
+        "name": "He Who Thinks",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

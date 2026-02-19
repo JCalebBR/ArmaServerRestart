@@ -1,0 +1,182 @@
+[
+    {
+        "rank": 1,
+        "name": "Asmodai Achurnfeld",
+        "inf_kills": 186,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 4,
+        "score": 189
+    },
+    {
+        "rank": 2,
+        "name": "Azrion Zeuion",
+        "inf_kills": 117,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 117
+    },
+    {
+        "rank": 3,
+        "name": "Magos Delta-4",
+        "inf_kills": 95,
+        "soft_veh": 1,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 4,
+        "score": 106
+    },
+    {
+        "rank": 4,
+        "name": "Gregor Tiberius",
+        "inf_kills": 77,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 4,
+        "score": 86
+    },
+    {
+        "rank": 5,
+        "name": "Adrius Auxilius",
+        "inf_kills": 53,
+        "soft_veh": 4,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 5,
+        "score": 76
+    },
+    {
+        "rank": 6,
+        "name": "Usiel Dranacht",
+        "inf_kills": 55,
+        "soft_veh": 1,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 1,
+        "score": 75
+    },
+    {
+        "rank": 7,
+        "name": "Wilhelm King",
+        "inf_kills": 57,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 60
+    },
+    {
+        "rank": 8,
+        "name": "Kase Caseus",
+        "inf_kills": 48,
+        "soft_veh": 1,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 50
+    },
+    {
+        "rank": 9,
+        "name": "Arrathus Decinian",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 41
+    },
+    {
+        "rank": 10,
+        "name": "Seqtur Clades",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 6,
+        "score": 33
+    },
+    {
+        "rank": 11,
+        "name": "Arnicus Zepharis",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 31
+    },
+    {
+        "rank": 12,
+        "name": "Raimund Krause",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 27
+    },
+    {
+        "rank": 13,
+        "name": "Primus Exodius",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 27
+    },
+    {
+        "rank": 14,
+        "name": "Alastor Moratorn",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 0,
+        "score": 21
+    },
+    {
+        "rank": 15,
+        "name": "Dolvek Rubantor",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 21
+    },
+    {
+        "rank": 16,
+        "name": "Terminus Undra",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 7,
+        "score": 21
+    },
+    {
+        "rank": 17,
+        "name": "Teones",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 18,
+        "name": "Cadmane Tureo",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 0
+    }
+]

@@ -1,0 +1,222 @@
+[
+    {
+        "rank": 1,
+        "name": "Moss Caessian",
+        "inf_kills": 149,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 8,
+        "deaths": 0,
+        "score": 210
+    },
+    {
+        "rank": 2,
+        "name": "Scion Augustine",
+        "inf_kills": 64,
+        "soft_veh": 0,
+        "armor_veh": 13,
+        "air": 18,
+        "deaths": 2,
+        "score": 193
+    },
+    {
+        "rank": 3,
+        "name": "Zeruel Monarch",
+        "inf_kills": 99,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 10,
+        "deaths": 0,
+        "score": 149
+    },
+    {
+        "rank": 4,
+        "name": "Scion Valeria",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 18,
+        "deaths": 1,
+        "score": 118
+    },
+    {
+        "rank": 5,
+        "name": "Daecam Aetos",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 8,
+        "deaths": 2,
+        "score": 115
+    },
+    {
+        "rank": 6,
+        "name": "Seraph Historia",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 5,
+        "deaths": 0,
+        "score": 95
+    },
+    {
+        "rank": 7,
+        "name": "Zacharia Wolff",
+        "inf_kills": 71,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 2,
+        "deaths": 0,
+        "score": 87
+    },
+    {
+        "rank": 8,
+        "name": "Dantanius Lunius",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 1,
+        "deaths": 0,
+        "score": 81
+    },
+    {
+        "rank": 9,
+        "name": "Nerovar Wolff",
+        "inf_kills": 46,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 6,
+        "deaths": 0,
+        "score": 79
+    },
+    {
+        "rank": 10,
+        "name": "Moze Historia",
+        "inf_kills": 65,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 65
+    },
+    {
+        "rank": 11,
+        "name": "Arkhest Penitent",
+        "inf_kills": 58,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 58
+    },
+    {
+        "rank": 12,
+        "name": "Arrathus Decinian",
+        "inf_kills": 53,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 53
+    },
+    {
+        "rank": 13,
+        "name": "Zeliom Cavon",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 49
+    },
+    {
+        "rank": 14,
+        "name": "Myrrh Deadshield",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 34
+    },
+    {
+        "rank": 15,
+        "name": "Solaris Dracos",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 24
+    },
+    {
+        "rank": 16,
+        "name": "Fin Enarah",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 20
+    },
+    {
+        "rank": 17,
+        "name": "Aleharl Helldust",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 19
+    },
+    {
+        "rank": 18,
+        "name": "Reaper Grimaldi",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 19
+    },
+    {
+        "rank": 19,
+        "name": "Friedrich Kruger",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 17
+    },
+    {
+        "rank": 20,
+        "name": "Kane Corvar",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 4
+    },
+    {
+        "rank": 21,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 3
+    },
+    {
+        "rank": 22,
+        "name": "Friedrich Kruger",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

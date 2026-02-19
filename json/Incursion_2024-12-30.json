@@ -1,0 +1,202 @@
+[
+    {
+        "rank": 1,
+        "name": "Arrathus Decinian",
+        "inf_kills": 215,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 215
+    },
+    {
+        "rank": 2,
+        "name": "Neacal Dracion",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 24,
+        "deaths": 2,
+        "score": 133
+    },
+    {
+        "rank": 3,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 87,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 0,
+        "deaths": 3,
+        "score": 120
+    },
+    {
+        "rank": 4,
+        "name": "Kane Corvar",
+        "inf_kills": 79,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 88
+    },
+    {
+        "rank": 5,
+        "name": "Lysander Orosius",
+        "inf_kills": 77,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 77
+    },
+    {
+        "rank": 6,
+        "name": "Bondsman Denmane",
+        "inf_kills": 72,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 7,
+        "score": 72
+    },
+    {
+        "rank": 7,
+        "name": "Baron Pluton",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": -1,
+        "deaths": 5,
+        "score": 44
+    },
+    {
+        "rank": 8,
+        "name": "Usiel Dranacht",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 41
+    },
+    {
+        "rank": 9,
+        "name": "Gabrial Doomhammer",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 41
+    },
+    {
+        "rank": 10,
+        "name": "Tyberos Scharn",
+        "inf_kills": 36,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 39
+    },
+    {
+        "rank": 11,
+        "name": "Horatio Loran",
+        "inf_kills": 36,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 36
+    },
+    {
+        "rank": 12,
+        "name": "Alastor Moratorn",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 28
+    },
+    {
+        "rank": 13,
+        "name": "Bronte Orestes",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 21
+    },
+    {
+        "rank": 14,
+        "name": "Tyrian Halbalas",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 20
+    },
+    {
+        "rank": 15,
+        "name": "Joseph Caseious",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 16
+    },
+    {
+        "rank": 16,
+        "name": "Cyrus King",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 15
+    },
+    {
+        "rank": 17,
+        "name": "Alexorn Rodratros",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 8
+    },
+    {
+        "rank": 18,
+        "name": "Wilhelm King",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 19,
+        "name": "Alexorn Rodratros",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 20,
+        "name": "Cadmane Tureo",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 0
+    }
+]

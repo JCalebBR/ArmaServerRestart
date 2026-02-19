@@ -1,0 +1,222 @@
+[
+    {
+        "rank": 1,
+        "name": "Balderic Caeledis",
+        "inf_kills": 33,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 33
+    },
+    {
+        "rank": 2,
+        "name": "Sydico Doomshield",
+        "inf_kills": 29,
+        "soft_veh": -1,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 32
+    },
+    {
+        "rank": 3,
+        "name": "Sonos Calgist",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 22
+    },
+    {
+        "rank": 4,
+        "name": "Arrathus Decinian",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 21
+    },
+    {
+        "rank": 5,
+        "name": "Wilhelm Calgean",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 18
+    },
+    {
+        "rank": 6,
+        "name": "Rhamiel Astelus",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 18
+    },
+    {
+        "rank": 7,
+        "name": "Horatio Loran",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 16
+    },
+    {
+        "rank": 8,
+        "name": "Lysander Orosius",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 10
+    },
+    {
+        "rank": 9,
+        "name": "Toroc Arakia",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 9
+    },
+    {
+        "rank": 10,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 9
+    },
+    {
+        "rank": 11,
+        "name": "Wolf Tribune",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 8
+    },
+    {
+        "rank": 12,
+        "name": "Reker Domadias",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 6
+    },
+    {
+        "rank": 13,
+        "name": "Tyberos Scharn",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 5
+    },
+    {
+        "rank": 14,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 4
+    },
+    {
+        "rank": 15,
+        "name": "Vorac Forimus",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 3
+    },
+    {
+        "rank": 16,
+        "name": "Casterin Skullbleeder",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 3
+    },
+    {
+        "rank": 17,
+        "name": "Edath Deathseeker",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 1
+    },
+    {
+        "rank": 18,
+        "name": "Goonther Kovic",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 1
+    },
+    {
+        "rank": 19,
+        "name": "Dagonel Griffor",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 20,
+        "name": "Reker Domadias",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 21,
+        "name": "The Thinker",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 22,
+        "name": "Segtur Clades",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": -1,
+        "deaths": 2,
+        "score": -1
+    }
+]

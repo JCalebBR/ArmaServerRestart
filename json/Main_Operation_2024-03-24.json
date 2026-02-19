@@ -1,0 +1,402 @@
+[
+    {
+        "rank": 1,
+        "name": "Esurien Mortuus",
+        "inf_kills": 132,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 140
+    },
+    {
+        "rank": 2,
+        "name": "Azrion Zeuion",
+        "inf_kills": 127,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 127
+    },
+    {
+        "rank": 3,
+        "name": "Anselm Thassandro",
+        "inf_kills": 101,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 4,
+        "score": 104
+    },
+    {
+        "rank": 4,
+        "name": "Neacal Dracion",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 2,
+        "deaths": 1,
+        "score": 79
+    },
+    {
+        "rank": 5,
+        "name": "Adrius Auxilius",
+        "inf_kills": 70,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 73
+    },
+    {
+        "rank": 6,
+        "name": "Moss Caessian",
+        "inf_kills": 58,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 2,
+        "score": 73
+    },
+    {
+        "rank": 7,
+        "name": "Gregor Tiberius",
+        "inf_kills": 69,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 69
+    },
+    {
+        "rank": 8,
+        "name": "Lysander Orosius",
+        "inf_kills": 64,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 6,
+        "score": 64
+    },
+    {
+        "rank": 9,
+        "name": "Toroc Arakia",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 61
+    },
+    {
+        "rank": 10,
+        "name": "Bon Sedros",
+        "inf_kills": 55,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 58
+    },
+    {
+        "rank": 11,
+        "name": "Fernon Serimos",
+        "inf_kills": 50,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 4,
+        "score": 55
+    },
+    {
+        "rank": 12,
+        "name": "Sonos Calgist",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 4,
+        "score": 47
+    },
+    {
+        "rank": 13,
+        "name": "Balderic Caeledis",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 43
+    },
+    {
+        "rank": 14,
+        "name": "Azazel Magrio",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 41
+    },
+    {
+        "rank": 15,
+        "name": "Praeto Morellius",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 39
+    },
+    {
+        "rank": 16,
+        "name": "Mathias Tempest",
+        "inf_kills": 36,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 36
+    },
+    {
+        "rank": 17,
+        "name": "Sergio Xandus",
+        "inf_kills": 32,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 32
+    },
+    {
+        "rank": 18,
+        "name": "Cadmane Tureo",
+        "inf_kills": 32,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 32
+    },
+    {
+        "rank": 19,
+        "name": "Tyberos Scharn",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 3,
+        "score": 29
+    },
+    {
+        "rank": 20,
+        "name": "Mors Tempest",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 28
+    },
+    {
+        "rank": 21,
+        "name": "Caras Mordatus",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 27
+    },
+    {
+        "rank": 22,
+        "name": "Owen Vazizian",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 25
+    },
+    {
+        "rank": 23,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 24
+    },
+    {
+        "rank": 24,
+        "name": "Alarak Sicarius",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 22
+    },
+    {
+        "rank": 25,
+        "name": "Malrinius Manus",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 20
+    },
+    {
+        "rank": 26,
+        "name": "Apollos Berengard",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 20
+    },
+    {
+        "rank": 27,
+        "name": "Bastallan Provectus",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": -2,
+        "deaths": 1,
+        "score": 19
+    },
+    {
+        "rank": 28,
+        "name": "Seqtur Clades",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 18
+    },
+    {
+        "rank": 29,
+        "name": "Dolvek Rubantor",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 17
+    },
+    {
+        "rank": 30,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 16
+    },
+    {
+        "rank": 31,
+        "name": "Sazi Yammoro",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 15
+    },
+    {
+        "rank": 32,
+        "name": "Xarl Endymion",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 12
+    },
+    {
+        "rank": 33,
+        "name": "Jewel Threrus",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 6
+    },
+    {
+        "rank": 34,
+        "name": "Terminus Ondra",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 6
+    },
+    {
+        "rank": 35,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 4
+    },
+    {
+        "rank": 36,
+        "name": "Dagger Talorn",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 3
+    },
+    {
+        "rank": 37,
+        "name": "Ven Erath",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 3
+    },
+    {
+        "rank": 38,
+        "name": "Dagonel Griffor",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 1
+    },
+    {
+        "rank": 39,
+        "name": "Wolf Tribune",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 1
+    },
+    {
+        "rank": 40,
+        "name": "Sazi Yammoro",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

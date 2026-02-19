@@ -1,0 +1,142 @@
+[
+    {
+        "rank": 1,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 203,
+        "soft_veh": -1,
+        "armor_veh": 2,
+        "air": 15,
+        "deaths": 1,
+        "score": 282
+    },
+    {
+        "rank": 2,
+        "name": "Sonos Calgist",
+        "inf_kills": 76,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 2,
+        "deaths": 0,
+        "score": 89
+    },
+    {
+        "rank": 3,
+        "name": "Lysander Orosius",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 2,
+        "deaths": 0,
+        "score": 87
+    },
+    {
+        "rank": 4,
+        "name": "Horatio Loran",
+        "inf_kills": 54,
+        "soft_veh": -1,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 55
+    },
+    {
+        "rank": 5,
+        "name": "Cyrus King",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 42
+    },
+    {
+        "rank": 6,
+        "name": "Chinn Agustius",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 1,
+        "deaths": 1,
+        "score": 39
+    },
+    {
+        "rank": 7,
+        "name": "Avar Ulbrecht",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 29
+    },
+    {
+        "rank": 8,
+        "name": "Praeto Morellius",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 9,
+        "name": "Balderic Caeledis",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 10,
+        "name": "Caras Mordatus",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 21
+    },
+    {
+        "rank": 11,
+        "name": "Asterion Theross",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 6
+    },
+    {
+        "rank": 12,
+        "name": "Kane Corvar",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 4
+    },
+    {
+        "rank": 13,
+        "name": "Harvos Liche",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 14,
+        "name": "Castian Rozila",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

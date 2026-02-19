@@ -2,16 +2,17 @@ const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { GameDig } = require('gamedig');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
 
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('status')
-		.setDescription('Checks the status of a server')
+		.setName(strings.commands.status.name)
+		.setDescription(strings.commands.status.desc)
 		.addStringOption(option =>
-			option.setName('server')
-				.setDescription('The server to query')
+			option.setName(strings.commands.status.args.first.name)
+				.setDescription(strings.commands.status.args.first.desc)
 				.setRequired(true)
 				.setAutocomplete(true),
 		),
@@ -38,10 +39,10 @@ module.exports = {
 			serverConfig = JSON.parse(data).servers[serverName];
 		} catch (e) {
 			console.error(e);
-			return interaction.reply({ content: `❌ Error loading config.`, ephemeral: true });
+			return interaction.reply({ content: strings.errors.genericError({ message: 'Error loading config file.' }), ephemeral: true });
 		}
 
-		if (!serverConfig) return interaction.reply({ content: `❌ Unknown server.`, ephemeral: true });
+		if (!serverConfig) return interaction.reply({ content: strings.errors.noFile(serverName), ephemeral: true });
 
 		await interaction.deferReply();
 

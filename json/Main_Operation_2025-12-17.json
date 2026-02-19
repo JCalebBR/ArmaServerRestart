@@ -1,0 +1,202 @@
+[
+    {
+        "rank": 1,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 368,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 5,
+        "deaths": 3,
+        "score": 396
+    },
+    {
+        "rank": 2,
+        "name": "Moss Caessian",
+        "inf_kills": 132,
+        "soft_veh": 0,
+        "armor_veh": 14,
+        "air": 2,
+        "deaths": 3,
+        "score": 184
+    },
+    {
+        "rank": 3,
+        "name": "Fin Enarah",
+        "inf_kills": 71,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 6,
+        "deaths": 4,
+        "score": 134
+    },
+    {
+        "rank": 4,
+        "name": "Dagonel Griffor",
+        "inf_kills": 97,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 97
+    },
+    {
+        "rank": 5,
+        "name": "Kaelum Blade",
+        "inf_kills": 83,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 86
+    },
+    {
+        "rank": 6,
+        "name": "Zeruel Monarch",
+        "inf_kills": 79,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 82
+    },
+    {
+        "rank": 7,
+        "name": "Neacal Dracion",
+        "inf_kills": 77,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 5,
+        "score": 82
+    },
+    {
+        "rank": 8,
+        "name": "Vespera Aetos",
+        "inf_kills": 76,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 76
+    },
+    {
+        "rank": 9,
+        "name": "Zacharia Wolff",
+        "inf_kills": 65,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 4,
+        "score": 68
+    },
+    {
+        "rank": 10,
+        "name": "Reaper Grimaldi",
+        "inf_kills": 53,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 56
+    },
+    {
+        "rank": 11,
+        "name": "Dantanius Lunius",
+        "inf_kills": 47,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 4,
+        "score": 56
+    },
+    {
+        "rank": 12,
+        "name": "Arrathus Decinian",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 3,
+        "deaths": 3,
+        "score": 55
+    },
+    {
+        "rank": 13,
+        "name": "Seqtur Clades",
+        "inf_kills": 29,
+        "soft_veh": 1,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 2,
+        "score": 46
+    },
+    {
+        "rank": 14,
+        "name": "Daecam Aetos",
+        "inf_kills": 42,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 45
+    },
+    {
+        "rank": 15,
+        "name": "Harvos Liche",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 3,
+        "score": 45
+    },
+    {
+        "rank": 16,
+        "name": "Sydico Doomshield",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 17,
+        "name": "Ansger Warfist",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 6,
+        "score": 24
+    },
+    {
+        "rank": 18,
+        "name": "Myrrh Deadshield",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 22
+    },
+    {
+        "rank": 19,
+        "name": "Alarak Sicarius",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 5,
+        "score": 4
+    },
+    {
+        "rank": 20,
+        "name": "Myrrh_Deadshield",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

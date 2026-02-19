@@ -1,0 +1,162 @@
+[
+    {
+        "rank": 1,
+        "name": "Dagonel Griffor",
+        "inf_kills": 83,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 1,
+        "score": 104
+    },
+    {
+        "rank": 2,
+        "name": "Willhelm King",
+        "inf_kills": 59,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 1,
+        "score": 85
+    },
+    {
+        "rank": 3,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 73
+    },
+    {
+        "rank": 4,
+        "name": "Cyrus King",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 38
+    },
+    {
+        "rank": 5,
+        "name": "Ranaric Daross",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 34
+    },
+    {
+        "rank": 6,
+        "name": "Sedric Richter",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 1,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 7,
+        "name": "Wolf Tribune",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 5,
+        "score": 27
+    },
+    {
+        "rank": 8,
+        "name": "Albin Balistarii",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 1,
+        "score": 25
+    },
+    {
+        "rank": 9,
+        "name": "Gregor Tiberius",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 25
+    },
+    {
+        "rank": 10,
+        "name": "Emeros Fol",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 11,
+        "name": "Barabas Barbarossa",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 20
+    },
+    {
+        "rank": 12,
+        "name": "Aurelius Ventris",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 4,
+        "score": 18
+    },
+    {
+        "rank": 13,
+        "name": "Aidanus Pupillus",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 17
+    },
+    {
+        "rank": 14,
+        "name": "Ven Erath",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 6
+    },
+    {
+        "rank": 15,
+        "name": "Omesias Fasandar",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 16,
+        "name": "Arnulf Innum",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

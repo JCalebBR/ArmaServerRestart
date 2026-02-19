@@ -1,0 +1,222 @@
+[
+    {
+        "rank": 1,
+        "name": "Wilhelm King",
+        "inf_kills": 303,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 7,
+        "deaths": 0,
+        "score": 347
+    },
+    {
+        "rank": 2,
+        "name": "Siniel Arakia",
+        "inf_kills": 273,
+        "soft_veh": 0,
+        "armor_veh": 22,
+        "air": 0,
+        "deaths": 1,
+        "score": 339
+    },
+    {
+        "rank": 3,
+        "name": "Raykan Hussarion",
+        "inf_kills": 235,
+        "soft_veh": 0,
+        "armor_veh": 14,
+        "air": 1,
+        "deaths": 0,
+        "score": 282
+    },
+    {
+        "rank": 4,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 215,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 7,
+        "deaths": 1,
+        "score": 271
+    },
+    {
+        "rank": 5,
+        "name": "Adrius Auxilius",
+        "inf_kills": 189,
+        "soft_veh": 0,
+        "armor_veh": -2,
+        "air": 5,
+        "deaths": 0,
+        "score": 208
+    },
+    {
+        "rank": 6,
+        "name": "Raimund Krause",
+        "inf_kills": 173,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 4,
+        "deaths": 0,
+        "score": 208
+    },
+    {
+        "rank": 7,
+        "name": "Valeus Tabreth",
+        "inf_kills": 164,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 5,
+        "deaths": 0,
+        "score": 207
+    },
+    {
+        "rank": 8,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 159,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 0,
+        "score": 185
+    },
+    {
+        "rank": 9,
+        "name": "Orthicus Otto",
+        "inf_kills": 152,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 2,
+        "deaths": 0,
+        "score": 165
+    },
+    {
+        "rank": 10,
+        "name": "Fernon Serimos",
+        "inf_kills": 124,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 1,
+        "deaths": 2,
+        "score": 144
+    },
+    {
+        "rank": 11,
+        "name": "Avar Vorleii",
+        "inf_kills": 121,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 2,
+        "deaths": 0,
+        "score": 143
+    },
+    {
+        "rank": 12,
+        "name": "Alastor Moratorn",
+        "inf_kills": 119,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 1,
+        "deaths": 0,
+        "score": 133
+    },
+    {
+        "rank": 13,
+        "name": "Terminus Undra",
+        "inf_kills": 73,
+        "soft_veh": 0,
+        "armor_veh": 10,
+        "air": 2,
+        "deaths": 0,
+        "score": 113
+    },
+    {
+        "rank": 14,
+        "name": "Sydico Doomshield",
+        "inf_kills": 89,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 3,
+        "deaths": 1,
+        "score": 107
+    },
+    {
+        "rank": 15,
+        "name": "Infernus Wolff",
+        "inf_kills": 101,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 1,
+        "score": 106
+    },
+    {
+        "rank": 16,
+        "name": "Gaius Valerius",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 69
+    },
+    {
+        "rank": 17,
+        "name": "Tyberos Scharn",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 1,
+        "score": 19
+    },
+    {
+        "rank": 18,
+        "name": "Herius Occisor",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 6
+    },
+    {
+        "rank": 19,
+        "name": "Azrion Zeuion",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 20,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 21,
+        "name": "TM Alastor Moratorn",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 22,
+        "name": "The Prophet",
+        "inf_kills": -2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": -2
+    }
+]

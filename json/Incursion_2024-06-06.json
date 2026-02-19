@@ -1,0 +1,112 @@
+[
+    {
+        "rank": 1,
+        "name": "Arrathus Decinian",
+        "inf_kills": 48,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 0,
+        "deaths": 0,
+        "score": 72
+    },
+    {
+        "rank": 2,
+        "name": "Fernon Serimos",
+        "inf_kills": 40,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 0,
+        "deaths": 4,
+        "score": 64
+    },
+    {
+        "rank": 3,
+        "name": "Artorias Galahad",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 0,
+        "score": 37
+    },
+    {
+        "rank": 4,
+        "name": "Chinn Agustius",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 5,
+        "name": "Kane Corvar",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 24
+    },
+    {
+        "rank": 6,
+        "name": "Wilhelm King",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 23
+    },
+    {
+        "rank": 7,
+        "name": "Aray Armros",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 21
+    },
+    {
+        "rank": 8,
+        "name": "Kase Caseus",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 7
+    },
+    {
+        "rank": 9,
+        "name": "Toroc Arakia",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 10,
+        "name": "Neacal Dracion",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 11,
+        "name": "Azrion Zeuion",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

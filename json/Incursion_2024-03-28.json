@@ -1,0 +1,162 @@
+[
+    {
+        "rank": 1,
+        "name": "Azrion Zeuion",
+        "inf_kills": 218,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 0,
+        "deaths": 0,
+        "score": 251
+    },
+    {
+        "rank": 2,
+        "name": "Lysander Orosius",
+        "inf_kills": 196,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 196
+    },
+    {
+        "rank": 3,
+        "name": "Horatio Loran",
+        "inf_kills": 174,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 186
+    },
+    {
+        "rank": 4,
+        "name": "Gregor Tiberius",
+        "inf_kills": 175,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 181
+    },
+    {
+        "rank": 5,
+        "name": "Harrow Krodarius",
+        "inf_kills": 164,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 1,
+        "deaths": 1,
+        "score": 175
+    },
+    {
+        "rank": 6,
+        "name": "Cyrus King",
+        "inf_kills": 154,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 163
+    },
+    {
+        "rank": 7,
+        "name": "Toroc Arakia",
+        "inf_kills": 139,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 148
+    },
+    {
+        "rank": 8,
+        "name": "Bon Sedros",
+        "inf_kills": 127,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 133
+    },
+    {
+        "rank": 9,
+        "name": "Adrius Auxilius",
+        "inf_kills": 117,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 129
+    },
+    {
+        "rank": 10,
+        "name": "Apollos Berengard",
+        "inf_kills": 110,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 2,
+        "score": 125
+    },
+    {
+        "rank": 11,
+        "name": "Drekarius Tharren",
+        "inf_kills": 105,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 0,
+        "score": 123
+    },
+    {
+        "rank": 12,
+        "name": "Praeto Morellius",
+        "inf_kills": 113,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 122
+    },
+    {
+        "rank": 13,
+        "name": "Terminus Ondra",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 12,
+        "air": 2,
+        "deaths": 0,
+        "score": 120
+    },
+    {
+        "rank": 14,
+        "name": "Alarak Sicarius",
+        "inf_kills": 100,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 100
+    },
+    {
+        "rank": 15,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 60,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 2,
+        "score": 86
+    },
+    {
+        "rank": 16,
+        "name": "Julius Brazenheart",
+        "inf_kills": 75,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 84
+    }
+]

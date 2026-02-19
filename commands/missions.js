@@ -8,6 +8,7 @@ const {
 } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
 
 // --- CONFIGURATION ---
 const TARGET_DIR = 'C:\\Games\\ArmaA3\\mpmissions';
@@ -15,8 +16,8 @@ const ITEMS_PER_PAGE = 10;
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('missions')
-		.setDescription('Lists all .pbo mission files on the server (Newest first)'),
+		.setName(strings.commands.missions.name)
+		.setDescription(strings.commands.missions.desc),
 
 	async execute(interaction) {
 		await interaction.deferReply();
@@ -43,11 +44,11 @@ module.exports = {
 
 		} catch (error) {
 			console.error(error);
-			return interaction.editReply('❌ Could not read the missions directory.');
+			return interaction.editReply(strings.errors.genericError({ message: 'Could not read the missions directory.' }));
 		}
 
 		if (files.length === 0) {
-			return interaction.editReply('📂 No mission files found.');
+			return interaction.editReply(strings.errors.noFiles('pbo'));
 		}
 
 		// 2. Pagination Logic
@@ -96,13 +97,13 @@ module.exports = {
 
 			const prevBtn = new ButtonBuilder()
 				.setCustomId('prev')
-				.setLabel('◀ Previous')
+				.setLabel(strings.ui.prevBtn)
 				.setStyle(ButtonStyle.Primary)
 				.setDisabled(page === 0);
 
 			const nextBtn = new ButtonBuilder()
 				.setCustomId('next')
-				.setLabel('Next ▶')
+				.setLabel(strings.ui.nextBtn)
 				.setStyle(ButtonStyle.Primary)
 				.setDisabled(page === totalPages - 1);
 
@@ -128,7 +129,7 @@ module.exports = {
 		collector.on('collect', async i => {
 			// Check if the user clicking is the one who ran the command
 			if (i.user.id !== interaction.user.id) {
-				return i.reply({ content: '❌ You cannot control this menu.', ephemeral: true });
+				return i.reply({ content: strings.errors.notYourMenu, ephemeral: true });
 			}
 
 			if (i.customId === 'prev') {
@@ -144,7 +145,6 @@ module.exports = {
 		});
 
 		collector.on('end', () => {
-			// Optional: Remove buttons when time expires so people don't click dead buttons
 			interaction.editReply({ components: [] }).catch(() => { console.error('Error removing buttons'); });
 		});
 	},

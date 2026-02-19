@@ -7,17 +7,18 @@ const {
 } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
 
 // --- CONFIGURATION ---
 const TARGET_DIR = 'C:\\Games\\ArmaA3\\mpmissions';
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('delete')
-		.setDescription('Permanently deletes a mission file from the server')
+		.setName(strings.commands.delete.name)
+		.setDescription(strings.commands.delete.desc)
 		.addStringOption(option =>
-			option.setName('mission')
-				.setDescription('The file to delete')
+			option.setName(strings.commands.delete.args.first.name)
+				.setDescription(strings.commands.delete.args.first.desc)
 				.setRequired(true)
 				.setAutocomplete(true),
 		),
@@ -49,7 +50,7 @@ module.exports = {
 
 		if (!fs.existsSync(filePath)) {
 			return interaction.reply({
-				content: `❌ File **${safeName}** not found.`,
+				content: strings.errors.noFile(safeName),
 				ephemeral: true,
 			});
 		}

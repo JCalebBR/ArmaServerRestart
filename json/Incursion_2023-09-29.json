@@ -1,0 +1,222 @@
+[
+    {
+        "rank": 1,
+        "name": "Betto Ebonclovius",
+        "inf_kills": 212,
+        "soft_veh": 1,
+        "armor_veh": 12,
+        "air": 4,
+        "deaths": 0,
+        "score": 270
+    },
+    {
+        "rank": 2,
+        "name": "Alarak Sicarius",
+        "inf_kills": 41,
+        "soft_veh": 2,
+        "armor_veh": 32,
+        "air": 8,
+        "deaths": 5,
+        "score": 181
+    },
+    {
+        "rank": 3,
+        "name": "Adrius Auxilius",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 79
+    },
+    {
+        "rank": 4,
+        "name": "Abraham Bectus",
+        "inf_kills": 57,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 3,
+        "deaths": 0,
+        "score": 75
+    },
+    {
+        "rank": 5,
+        "name": "Arrathus Decinian",
+        "inf_kills": 46,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 0,
+        "score": 72
+    },
+    {
+        "rank": 6,
+        "name": "Avar Torismund",
+        "inf_kills": 58,
+        "soft_veh": 2,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 65
+    },
+    {
+        "rank": 7,
+        "name": "Ulrich Tannhauser",
+        "inf_kills": 37,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 0,
+        "deaths": 1,
+        "score": 61
+    },
+    {
+        "rank": 8,
+        "name": "Odysseus Iraetus",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 60
+    },
+    {
+        "rank": 9,
+        "name": "Cyrus King",
+        "inf_kills": 51,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 56
+    },
+    {
+        "rank": 10,
+        "name": "Dagonel Griffor",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 6,
+        "deaths": 0,
+        "score": 56
+    },
+    {
+        "rank": 11,
+        "name": "Radiolus Asherail",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 52
+    },
+    {
+        "rank": 12,
+        "name": "Wilhelm King",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 44
+    },
+    {
+        "rank": 13,
+        "name": "Caeledis",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 39
+    },
+    {
+        "rank": 14,
+        "name": "Neacal Dracion",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 2,
+        "score": 34
+    },
+    {
+        "rank": 15,
+        "name": "Dais Dune",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 31
+    },
+    {
+        "rank": 16,
+        "name": "Merlin Albus",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 25
+    },
+    {
+        "rank": 17,
+        "name": "Elduin Murus",
+        "inf_kills": 17,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 22
+    },
+    {
+        "rank": 18,
+        "name": "Neros Halitus",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 12
+    },
+    {
+        "rank": 19,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 6
+    },
+    {
+        "rank": 20,
+        "name": "Constantine Maar",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 4
+    },
+    {
+        "rank": 21,
+        "name": "Wolf Tribune",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 2
+    },
+    {
+        "rank": 22,
+        "name": "Harvos Liche",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

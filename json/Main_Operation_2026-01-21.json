@@ -1,0 +1,192 @@
+[
+    {
+        "rank": 1,
+        "name": "Fin Enarah",
+        "inf_kills": 86,
+        "soft_veh": 1,
+        "armor_veh": 23,
+        "air": 15,
+        "deaths": 0,
+        "score": 232
+    },
+    {
+        "rank": 2,
+        "name": "Dagonel Griffor",
+        "inf_kills": 131,
+        "soft_veh": 1,
+        "armor_veh": 8,
+        "air": 1,
+        "deaths": 2,
+        "score": 162
+    },
+    {
+        "rank": 3,
+        "name": "Tyrian Halbalas",
+        "inf_kills": 138,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 1,
+        "score": 153
+    },
+    {
+        "rank": 4,
+        "name": "Wilhelm King",
+        "inf_kills": 146,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 146
+    },
+    {
+        "rank": 5,
+        "name": "Zacharia Wolff",
+        "inf_kills": 125,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 2,
+        "deaths": 1,
+        "score": 144
+    },
+    {
+        "rank": 6,
+        "name": "Alarak Sicarius",
+        "inf_kills": 91,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 91
+    },
+    {
+        "rank": 7,
+        "name": "Orthicus Otto",
+        "inf_kills": 81,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 81
+    },
+    {
+        "rank": 8,
+        "name": "Arrathus Decinian",
+        "inf_kills": 53,
+        "soft_veh": 3,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 2,
+        "score": 71
+    },
+    {
+        "rank": 9,
+        "name": "Neacal Dracion",
+        "inf_kills": 47,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 50
+    },
+    {
+        "rank": 10,
+        "name": "Reaper Grimaldi",
+        "inf_kills": 49,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 49
+    },
+    {
+        "rank": 11,
+        "name": "Daecam Aetos",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 43
+    },
+    {
+        "rank": 12,
+        "name": "Vespera Aetos",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 35
+    },
+    {
+        "rank": 13,
+        "name": "Avar Vorleii",
+        "inf_kills": 32,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 35
+    },
+    {
+        "rank": 14,
+        "name": "Dantanius Lunius",
+        "inf_kills": 32,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 5,
+        "score": 32
+    },
+    {
+        "rank": 15,
+        "name": "Horatio Loran",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 4,
+        "score": 17
+    },
+    {
+        "rank": 16,
+        "name": "Icarus Draal",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 12
+    },
+    {
+        "rank": 17,
+        "name": "Wolfstille Krause",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 3
+    },
+    {
+        "rank": 18,
+        "name": "Seqtur Clades",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 19,
+        "name": "Kane Corvar",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

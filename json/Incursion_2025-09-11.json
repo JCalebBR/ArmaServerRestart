@@ -1,0 +1,182 @@
+[
+    {
+        "rank": 1,
+        "name": "Dagonel Griffor",
+        "inf_kills": 233,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 0,
+        "deaths": 0,
+        "score": 266
+    },
+    {
+        "rank": 2,
+        "name": "Seqtur Clades",
+        "inf_kills": 75,
+        "soft_veh": -1,
+        "armor_veh": 28,
+        "air": 1,
+        "deaths": 0,
+        "score": 162
+    },
+    {
+        "rank": 3,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 96,
+        "soft_veh": 0,
+        "armor_veh": 22,
+        "air": 0,
+        "deaths": 0,
+        "score": 162
+    },
+    {
+        "rank": 4,
+        "name": "Maxiram Caris",
+        "inf_kills": 78,
+        "soft_veh": 0,
+        "armor_veh": 19,
+        "air": 0,
+        "deaths": 1,
+        "score": 135
+    },
+    {
+        "rank": 5,
+        "name": "Neacal Dracion",
+        "inf_kills": 87,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 4,
+        "deaths": 0,
+        "score": 125
+    },
+    {
+        "rank": 6,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 83,
+        "soft_veh": 0,
+        "armor_veh": 12,
+        "air": 0,
+        "deaths": 0,
+        "score": 119
+    },
+    {
+        "rank": 7,
+        "name": "Fin Enarah",
+        "inf_kills": 101,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 113
+    },
+    {
+        "rank": 8,
+        "name": "Valeus Tabreth",
+        "inf_kills": 82,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 0,
+        "score": 109
+    },
+    {
+        "rank": 9,
+        "name": "Daecam Aetos",
+        "inf_kills": 59,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 68
+    },
+    {
+        "rank": 10,
+        "name": "Robo Sullean",
+        "inf_kills": 49,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 55
+    },
+    {
+        "rank": 11,
+        "name": "Jon Darnastrega",
+        "inf_kills": 37,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 49
+    },
+    {
+        "rank": 12,
+        "name": "Cydius Blackout",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 25
+    },
+    {
+        "rank": 13,
+        "name": "43A1-NA43-2243",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 8
+    },
+    {
+        "rank": 14,
+        "name": "AR Gabriel Santor",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 2
+    },
+    {
+        "rank": 15,
+        "name": "Kane Corvar",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 16,
+        "name": "1762 \"Tyborc\"",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 17,
+        "name": "Orthicus Otto",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 18,
+        "name": "Herius Occisor",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

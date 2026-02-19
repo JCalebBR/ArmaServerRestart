@@ -1,0 +1,142 @@
+[
+    {
+        "rank": 1,
+        "name": "Sariel Gorman",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 9,
+        "deaths": 1,
+        "score": 50
+    },
+    {
+        "rank": 2,
+        "name": "Tyrian Halbalas",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 2,
+        "deaths": 4,
+        "score": 29
+    },
+    {
+        "rank": 3,
+        "name": "Cyrus King",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 18
+    },
+    {
+        "rank": 4,
+        "name": "Dagonel Griffor",
+        "inf_kills": 17,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 17
+    },
+    {
+        "rank": 5,
+        "name": "Willhelm King",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 2,
+        "score": 11
+    },
+    {
+        "rank": 6,
+        "name": "Cyro Tius",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 11
+    },
+    {
+        "rank": 7,
+        "name": "Proximos Arios",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 0,
+        "score": 10
+    },
+    {
+        "rank": 8,
+        "name": "Gregor Tiberius",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": -1,
+        "deaths": 1,
+        "score": 9
+    },
+    {
+        "rank": 9,
+        "name": "Tarkor Tirax",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 7
+    },
+    {
+        "rank": 10,
+        "name": "Alajos Ortykus",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 7
+    },
+    {
+        "rank": 11,
+        "name": "Azrion Zeuion",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 12,
+        "name": "Alarak Sicarius",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 0
+    },
+    {
+        "rank": 13,
+        "name": "Wolf Tribune",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": -2,
+        "deaths": 0,
+        "score": -1
+    },
+    {
+        "rank": 14,
+        "name": "Baelen Kyvus",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 1,
+        "score": -1
+    }
+]

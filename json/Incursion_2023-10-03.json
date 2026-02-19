@@ -1,0 +1,182 @@
+[
+    {
+        "rank": 1,
+        "name": "Cyro Tius",
+        "inf_kills": 111,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 120
+    },
+    {
+        "rank": 2,
+        "name": "Dagonel Griffor",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 1,
+        "score": 93
+    },
+    {
+        "rank": 3,
+        "name": "Lysander Orosius",
+        "inf_kills": 57,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 0,
+        "score": 78
+    },
+    {
+        "rank": 4,
+        "name": "Rhamiel Astelus",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 75
+    },
+    {
+        "rank": 5,
+        "name": "Avar Torismund",
+        "inf_kills": 60,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 66
+    },
+    {
+        "rank": 6,
+        "name": "Detrus Salfrie",
+        "inf_kills": 36,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 0,
+        "score": 54
+    },
+    {
+        "rank": 7,
+        "name": "Horatio Loran",
+        "inf_kills": 51,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 51
+    },
+    {
+        "rank": 8,
+        "name": "Ciaphas Gries",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 50
+    },
+    {
+        "rank": 9,
+        "name": "Wolf Tribune",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0,
+        "score": 33
+    },
+    {
+        "rank": 10,
+        "name": "Cyrus King",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 30
+    },
+    {
+        "rank": 11,
+        "name": "Dracon Darkmantle",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 21
+    },
+    {
+        "rank": 12,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": -1,
+        "score": 21
+    },
+    {
+        "rank": 13,
+        "name": "Castian Rozila",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 15
+    },
+    {
+        "rank": 14,
+        "name": "Ash Farhammer",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 15,
+        "name": "Horatio Loran",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 16,
+        "name": "Sir Reginald Archibald V",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 17,
+        "name": "High Guard Harvesh",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    },
+    {
+        "rank": 18,
+        "name": "Ven Erath",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 0
+    }
+]

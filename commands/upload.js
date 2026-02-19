@@ -7,13 +7,10 @@ const {
 } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
 
-// --- CONFIGURATION ---
 const TARGET_DIR = 'C:\\Games\\ArmaA3\\mpmissions';
 
-/**
- * Helper: Downloads a file from a URL to a local path
- */
 async function downloadFile(url, destPath) {
 	const response = await fetch(url);
 	if (!response.ok) throw new Error(`Failed to fetch file: ${response.statusText}`);
@@ -26,11 +23,11 @@ async function downloadFile(url, destPath) {
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('upload')
-		.setDescription('Uploads a .pbo mission file to the server')
+		.setName(strings.commands.upload.name)
+		.setDescription(strings.commands.upload.desc)
 		.addAttachmentOption(option =>
-			option.setName('file')
-				.setDescription('The .pbo file to upload')
+			option.setName(strings.commands.upload.args.first.name)
+				.setDescription(strings.commands.upload.args.first.desc)
 				.setRequired(true),
 		),
 
@@ -41,7 +38,7 @@ module.exports = {
 		// 1. Validation: Check File Extension
 		if (!fileName.toLowerCase().endsWith('.pbo')) {
 			return interaction.reply({
-				content: '❌ Rejected. Only **.pbo** files are allowed.',
+				content: strings.errors.invalidFile('.pbo'),
 				ephemeral: true,
 			});
 		}
@@ -50,7 +47,7 @@ module.exports = {
 
 		// Security: Prevent directory traversal
 		if (!destPath.startsWith(TARGET_DIR)) {
-			return interaction.reply({ content: '❌ Invalid filename.', ephemeral: true });
+			return interaction.reply({ content: strings.errors.invalidFile('.pbo'), ephemeral: true });
 		}
 
 		// Deferred Reply, so the user can see the progress
@@ -62,12 +59,12 @@ module.exports = {
 
 			const confirmButton = new ButtonBuilder()
 				.setCustomId('confirm')
-				.setLabel('Overwrite')
+				.setLabel(strings.ui.confirmBtn)
 				.setStyle(ButtonStyle.Danger);
 
 			const cancelButton = new ButtonBuilder()
 				.setCustomId('cancel')
-				.setLabel('Cancel')
+				.setLabel(strings.ui.cancelBtn)
 				.setStyle(ButtonStyle.Secondary);
 
 			const row = new ActionRowBuilder().addComponents(confirmButton, cancelButton);
@@ -86,7 +83,7 @@ module.exports = {
 				// --- CHANGE 2: Security Check ---
 				// Ensure only the person who ran the command can click the buttons
 				if (i.user.id !== interaction.user.id) {
-					return i.reply({ content: '🚫 You cannot control this upload.', ephemeral: true });
+					return i.reply({ content: strings.errors.notYourMenu, ephemeral: true });
 				}
 
 				if (i.customId === 'confirm') {
@@ -98,7 +95,7 @@ module.exports = {
 						await i.editReply(`✅ **${fileName}** uploaded successfully (Overwritten).`);
 					} catch (error) {
 						console.error(error);
-						await i.editReply(`❌ Upload failed: ${error.message}`);
+						await i.editReply({ content: strings.errors.genericError({ message: `Upload failed: ${error.message}` }), components: [] });
 					}
 				} else {
 					// User clicked Cancel
@@ -124,7 +121,7 @@ module.exports = {
 			await interaction.editReply(`✅ **${fileName}** uploaded successfully.`);
 		} catch (error) {
 			console.error(error);
-			await interaction.editReply(`❌ Upload failed: ${error.message}`);
+			await interaction.editReply({ content: strings.errors.genericError({ message: `Upload failed: ${error.message}` }), components: [] });
 		}
 	},
 };

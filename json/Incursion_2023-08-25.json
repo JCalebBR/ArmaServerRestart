@@ -1,0 +1,202 @@
+[
+    {
+        "rank": 1,
+        "name": "Asterion Theross",
+        "inf_kills": 67,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 3,
+        "deaths": 1,
+        "score": 106
+    },
+    {
+        "rank": 2,
+        "name": "Arnulf Innum",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 4,
+        "score": 55
+    },
+    {
+        "rank": 3,
+        "name": "Sydico Doomshield",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 4,
+        "score": 49
+    },
+    {
+        "rank": 4,
+        "name": "Siegward Romaritch",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 4,
+        "score": 47
+    },
+    {
+        "rank": 5,
+        "name": "Cyrus King",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 34
+    },
+    {
+        "rank": 6,
+        "name": "Castian Rozila",
+        "inf_kills": 16,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 1,
+        "score": 31
+    },
+    {
+        "rank": 7,
+        "name": "Adrius Auxilius",
+        "inf_kills": 21,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 21
+    },
+    {
+        "rank": 8,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 6,
+        "score": 20
+    },
+    {
+        "rank": 9,
+        "name": "Dagonel Griffor",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 1,
+        "deaths": 4,
+        "score": 17
+    },
+    {
+        "rank": 10,
+        "name": "Drakor Blackhart",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 8,
+        "score": 15
+    },
+    {
+        "rank": 11,
+        "name": "Harvos Liche",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 10,
+        "score": 15
+    },
+    {
+        "rank": 12,
+        "name": "Nemo Anatius",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 14
+    },
+    {
+        "rank": 13,
+        "name": "Sedric Richter",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": -2,
+        "deaths": 3,
+        "score": 12
+    },
+    {
+        "rank": 14,
+        "name": "Radiolus Asherail",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 4,
+        "score": 12
+    },
+    {
+        "rank": 15,
+        "name": "Wolf Tribune",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 11
+    },
+    {
+        "rank": 16,
+        "name": "Ven Erath",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 3,
+        "score": 6
+    },
+    {
+        "rank": 17,
+        "name": "Julius Brazenheart",
+        "inf_kills": 5,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 5
+    },
+    {
+        "rank": 18,
+        "name": "Alarak Sicarius",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 19,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 20,
+        "name": "Proximos Arios",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

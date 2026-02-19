@@ -1,65 +1,21 @@
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
-const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
+const { findArmaProcesses, killProcess } = require('../utils/server');
 
-// --- CONFIGURATION ---
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
-function findArmaProcesses(targetPort) {
-	return new Promise((resolve) => {
-		const psCommand = `powershell -Command "Get-CimInstance Win32_Process -Filter \\"name like 'arma3server%'\\" | Select-Object ProcessId, CommandLine | ConvertTo-Json -Compress"`;
-
-		exec(psCommand, (error, stdout) => {
-			if (error || !stdout.trim()) return resolve([]);
-
-			try {
-				let processes = JSON.parse(stdout.trim());
-				if (!Array.isArray(processes)) processes = [processes];
-
-				// Filter for our specific port
-				const matches = processes.filter(proc => {
-					const cmd = (proc.CommandLine || "").toLowerCase();
-					return cmd.includes(`port=${targetPort}`) || cmd.includes(`port ${targetPort}`);
-				});
-
-				// Tag them
-				const results = matches.map(proc => {
-					const cmd = proc.CommandLine.toLowerCase();
-					const isClient = cmd.includes('-client');
-					return {
-						pid: proc.ProcessId,
-						type: isClient ? 'HEADLESS CLIENT' : 'SERVER',
-					};
-				});
-
-				resolve(results);
-			} catch (e) {
-				console.error("JSON Parse Error:", e);
-				resolve([]);
-			}
-		});
-	});
-}
-
-/**
- * 2. KILL: Terminates the specific PID
- */
-function killProcess(pid) {
-	return new Promise((resolve) => {
-		exec(`taskkill /PID ${pid} /F`, () => resolve(true));
-	});
-}
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('stop')
-		.setDescription('Shuts down a Server and its Headless Clients')
+		.setName(strings.commands.stop.name)
+		.setDescription(strings.commands.stop.desc)
 		// Default to Admin only (you can override in Server Settings)
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 		.addStringOption(option =>
-			option.setName('server')
-				.setDescription('The server to stop')
+			option.setName(strings.commands.stop.args.first.name)
+				.setDescription(strings.commands.stop.args.first.desc)
 				.setRequired(true)
 				.setAutocomplete(true),
 		),
@@ -87,11 +43,11 @@ module.exports = {
 			serverConfig = JSON.parse(data).servers[serverName];
 		} catch (e) {
 			console.error(e);
-			return interaction.reply({ content: `❌ Error loading config file.`, ephemeral: true });
+			return interaction.reply({ content: strings.errors.genericError({ message: 'Error loading config file.' }), ephemeral: true });
 		}
 
 		if (!serverConfig) {
-			return interaction.reply({ content: `❌ Unknown server: **${serverName}**`, ephemeral: true });
+			return interaction.reply({ content: strings.errors.genericError({ message: `Unknown server: **${serverName}**` }), ephemeral: true });
 		}
 
 		const targetPort = serverConfig.port;
@@ -123,7 +79,7 @@ module.exports = {
 
 		} catch (error) {
 			console.error(error);
-			await interaction.editReply('❌ Internal error during shutdown sequence.');
+			await interaction.editReply(strings.errors.genericError({ message: 'Internal error during stop sequence.' }));
 		}
 	},
 };

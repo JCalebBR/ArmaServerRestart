@@ -1,0 +1,172 @@
+[
+    {
+        "rank": 1,
+        "name": "Orthicus Otto",
+        "inf_kills": 129,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 132
+    },
+    {
+        "rank": 2,
+        "name": "Crugrath Issidya",
+        "inf_kills": 128,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 131
+    },
+    {
+        "rank": 3,
+        "name": "Balderic Caeledis",
+        "inf_kills": 127,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 127
+    },
+    {
+        "rank": 4,
+        "name": "Zacharia Wolff",
+        "inf_kills": 109,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 121
+    },
+    {
+        "rank": 5,
+        "name": "Fin Enarah",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 14,
+        "air": 0,
+        "deaths": 0,
+        "score": 116
+    },
+    {
+        "rank": 6,
+        "name": "Siniel Arakia",
+        "inf_kills": 106,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 106
+    },
+    {
+        "rank": 7,
+        "name": "Soladorr Cleardane",
+        "inf_kills": 66,
+        "soft_veh": 0,
+        "armor_veh": 13,
+        "air": 0,
+        "deaths": 0,
+        "score": 105
+    },
+    {
+        "rank": 8,
+        "name": "Fernon Serimos",
+        "inf_kills": 84,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 87
+    },
+    {
+        "rank": 9,
+        "name": "Cassius Thrax",
+        "inf_kills": 86,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 86
+    },
+    {
+        "rank": 10,
+        "name": "Vespera Aetos",
+        "inf_kills": 83,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 86
+    },
+    {
+        "rank": 11,
+        "name": "Domidrios Blackfang",
+        "inf_kills": 63,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 63
+    },
+    {
+        "rank": 12,
+        "name": "Veltek Aquila",
+        "inf_kills": 40,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 40
+    },
+    {
+        "rank": 13,
+        "name": "Hymnus Fahlad",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 14,
+        "name": "Thalastia Asherion",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 25
+    },
+    {
+        "rank": 15,
+        "name": "Avar Vorleii",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 15
+    },
+    {
+        "rank": 16,
+        "name": "{I} Sareri Rose",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 17,
+        "name": "Raykan Hussarion",
+        "inf_kills": -1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": -1
+    }
+]

@@ -1,0 +1,202 @@
+[
+    {
+        "rank": 1,
+        "name": "Neacal Dracion",
+        "inf_kills": 80,
+        "soft_veh": 0,
+        "armor_veh": 22,
+        "air": 13,
+        "deaths": 0,
+        "score": 211
+    },
+    {
+        "rank": 2,
+        "name": "Dagonel Griffor",
+        "inf_kills": 102,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 105
+    },
+    {
+        "rank": 3,
+        "name": "Balderic Caeledis",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": -6,
+        "air": 1,
+        "deaths": 0,
+        "score": 48
+    },
+    {
+        "rank": 4,
+        "name": "Cyrus King",
+        "inf_kills": 33,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 39
+    },
+    {
+        "rank": 5,
+        "name": "Arrathus Decinian",
+        "inf_kills": 38,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 38
+    },
+    {
+        "rank": 6,
+        "name": "Torris Holgor",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 1,
+        "score": 37
+    },
+    {
+        "rank": 7,
+        "name": "Sydico Doomshield",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 34
+    },
+    {
+        "rank": 8,
+        "name": "Horatio Loran",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 34
+    },
+    {
+        "rank": 9,
+        "name": "Augustus Carmine",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 29
+    },
+    {
+        "rank": 10,
+        "name": "Aurelian Dantioch",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 28
+    },
+    {
+        "rank": 11,
+        "name": "Adrius Auxilius",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 26
+    },
+    {
+        "rank": 12,
+        "name": "Ezekial Dullahan",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 1,
+        "score": 26
+    },
+    {
+        "rank": 13,
+        "name": "Azrion Zeuion",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 1,
+        "score": 25
+    },
+    {
+        "rank": 14,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 0,
+        "score": 23
+    },
+    {
+        "rank": 15,
+        "name": "Malrinius Manus",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 18
+    },
+    {
+        "rank": 16,
+        "name": "Wolf Tribune",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 7
+    },
+    {
+        "rank": 17,
+        "name": "Seqtur Clades",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 4
+    },
+    {
+        "rank": 18,
+        "name": "Ven Erath",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 4
+    },
+    {
+        "rank": 19,
+        "name": "Jezor Tychian",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 1
+    },
+    {
+        "rank": 20,
+        "name": "Harvos Liche",
+        "inf_kills": -1,
+        "soft_veh": -2,
+        "armor_veh": -1,
+        "air": -1,
+        "deaths": 1,
+        "score": -13
+    }
+]

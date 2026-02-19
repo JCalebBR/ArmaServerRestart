@@ -1,0 +1,112 @@
+[
+    {
+        "rank": 1,
+        "name": "Daecam Aetos",
+        "inf_kills": 83,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 1,
+        "score": 98
+    },
+    {
+        "rank": 2,
+        "name": "Tyrian Halbalas",
+        "inf_kills": 54,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 57
+    },
+    {
+        "rank": 3,
+        "name": "Fin Enarah",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 3,
+        "deaths": 0,
+        "score": 55
+    },
+    {
+        "rank": 4,
+        "name": "Zeruel Monarch",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 47
+    },
+    {
+        "rank": 5,
+        "name": "Seqtur Clades",
+        "inf_kills": 28,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 2,
+        "score": 37
+    },
+    {
+        "rank": 6,
+        "name": "Usiel Dranacht",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 35
+    },
+    {
+        "rank": 7,
+        "name": "Vespera Aetos",
+        "inf_kills": 32,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 32
+    },
+    {
+        "rank": 8,
+        "name": "Crugrath Issidya",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 13
+    },
+    {
+        "rank": 9,
+        "name": "Omneil Noctus",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 10,
+        "name": "Kane Corvar",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 11,
+        "name": "Harvos Liche",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

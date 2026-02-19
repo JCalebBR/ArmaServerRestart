@@ -1,0 +1,142 @@
+[
+    {
+        "rank": 1,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 195,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 0,
+        "score": 213
+    },
+    {
+        "rank": 2,
+        "name": "Wolfstille Krause",
+        "inf_kills": 104,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 142
+    },
+    {
+        "rank": 3,
+        "name": "Raykan Hussarion",
+        "inf_kills": 139,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 139
+    },
+    {
+        "rank": 4,
+        "name": "Neacal Dracion",
+        "inf_kills": 43,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 9,
+        "deaths": 0,
+        "score": 106
+    },
+    {
+        "rank": 5,
+        "name": "Moss Caessian",
+        "inf_kills": 105,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 105
+    },
+    {
+        "rank": 6,
+        "name": "Fernon Serimos",
+        "inf_kills": 82,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 82
+    },
+    {
+        "rank": 7,
+        "name": "Sharr Kata",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 74
+    },
+    {
+        "rank": 8,
+        "name": "Alehari Helldust",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 74
+    },
+    {
+        "rank": 9,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 65,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 65
+    },
+    {
+        "rank": 10,
+        "name": "Zeruel Monarch",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 52
+    },
+    {
+        "rank": 11,
+        "name": "Zephyrus Blackthorn",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 0,
+        "score": 16
+    },
+    {
+        "rank": 12,
+        "name": "Azrion Zeuion",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 10
+    },
+    {
+        "rank": 13,
+        "name": "Kane Corvar",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 3
+    },
+    {
+        "rank": 14,
+        "name": "Omneil Noctus",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

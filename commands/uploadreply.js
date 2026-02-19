@@ -11,6 +11,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const { pipeline } = require('stream/promises');
+const strings = require('../utils/strings');
 
 const { analyzePbo, formatList } = require('../utils/mission-parser');
 
@@ -19,7 +20,7 @@ const UPLOAD_DESTINATION = 'C:\\Games\\ArmaA3\\mpmissions\\';
 
 module.exports = {
 	data: new ContextMenuCommandBuilder()
-		.setName('Upload PBO')
+		.setName(strings.commands.uploadreply.name)
 		.setType(ApplicationCommandType.Message),
 
 	async execute(interaction) {
@@ -30,7 +31,7 @@ module.exports = {
 
 		if (!attachment) {
 			return interaction.reply({
-				content: '❌ That message does not have a valid **.pbo** file attached.',
+				content: strings.errors.noFile('pbo'),
 				ephemeral: true,
 			});
 		}
@@ -44,9 +45,9 @@ module.exports = {
 
 		try {
 			// 1. DOWNLOAD TO TEMP
-			await interaction.editReply(`📥 Downloading **${fileName}**...`);
-			const response = await fetch(attachment.url);
-			if (!response.ok) throw new Error(`Download failed: ${response.statusText}`);
+			await interaction.editReply(strings.ui.downloading(fileName));
+			let response = await fetch(attachment.url);
+			if (!response.ok) throw new Error(strings.errors.downloadFail(response.statusText));
 			const fileStream = fs.createWriteStream(tempPboPath);
 			await pipeline(response.body, fileStream);
 
@@ -79,17 +80,17 @@ module.exports = {
 				// --- CONFLICT HANDLING ---
 				const confirmButton = new ButtonBuilder()
 					.setCustomId('confirm')
-					.setLabel('Overwrite')
+					.setLabel(strings.ui.confirmBtn)
 					.setStyle(ButtonStyle.Danger);
 
 				const cancelButton = new ButtonBuilder()
 					.setCustomId('cancel')
-					.setLabel('Cancel')
+					.setLabel(strings.ui.cancelBtn)
 					.setStyle(ButtonStyle.Secondary);
 
 				const row = new ActionRowBuilder().addComponents(confirmButton, cancelButton);
 
-				const response = await interaction.editReply({
+				response = await interaction.editReply({
 					content: `⚠️ **${fileName}** already exists on the server.\nIt passed validation. Do you want to overwrite it?`,
 					components: [row],
 					embeds: [],
@@ -131,7 +132,6 @@ module.exports = {
 				return;
 			}
 
-			// 5. NO CONFLICT - UPLOAD IMMEDIATELY
 			await interaction.editReply(`🚀 Uploading to server...`);
 			await finalizeUpload(tempPboPath, finalPboPath, fileName, hasWarnings, isNamingValid, results, interaction);
 
@@ -143,9 +143,6 @@ module.exports = {
 	},
 };
 
-/**
- * Moves file to destination and sends Success Embed
- */
 async function finalizeUpload(source, dest, fileName, hasWarnings, isNamingValid, results, interactionOrButton) {
 	if (!fs.existsSync(UPLOAD_DESTINATION)) {
 		throw new Error(`Server folder not found: ${UPLOAD_DESTINATION}`);

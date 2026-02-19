@@ -1,0 +1,232 @@
+[
+    {
+        "rank": 1,
+        "name": "Alarak Sicarius",
+        "inf_kills": 85,
+        "soft_veh": 12,
+        "armor_veh": 15,
+        "air": 1,
+        "deaths": 1,
+        "score": 159
+    },
+    {
+        "rank": 2,
+        "name": "Herius Occisor",
+        "inf_kills": 96,
+        "soft_veh": 1,
+        "armor_veh": 10,
+        "air": 0,
+        "deaths": 1,
+        "score": 128
+    },
+    {
+        "rank": 3,
+        "name": "Caras Mordatus",
+        "inf_kills": 72,
+        "soft_veh": 4,
+        "armor_veh": 10,
+        "air": 0,
+        "deaths": 1,
+        "score": 110
+    },
+    {
+        "rank": 4,
+        "name": "Neacal Dracion",
+        "inf_kills": 32,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 13,
+        "deaths": 1,
+        "score": 106
+    },
+    {
+        "rank": 5,
+        "name": "Arrathus Decinian",
+        "inf_kills": 76,
+        "soft_veh": 2,
+        "armor_veh": 7,
+        "air": 0,
+        "deaths": 1,
+        "score": 101
+    },
+    {
+        "rank": 6,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 71,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 1,
+        "deaths": 0,
+        "score": 97
+    },
+    {
+        "rank": 7,
+        "name": "Sydico Doomshield",
+        "inf_kills": 78,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 83
+    },
+    {
+        "rank": 8,
+        "name": "Adrius Auxilius",
+        "inf_kills": 23,
+        "soft_veh": 4,
+        "armor_veh": 13,
+        "air": 1,
+        "deaths": 0,
+        "score": 75
+    },
+    {
+        "rank": 9,
+        "name": "Augustus Carmine",
+        "inf_kills": 50,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 0,
+        "score": 65
+    },
+    {
+        "rank": 10,
+        "name": "Soladorr Cleardane",
+        "inf_kills": 54,
+        "soft_veh": 2,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 58
+    },
+    {
+        "rank": 11,
+        "name": "Dagonel Griffor",
+        "inf_kills": 35,
+        "soft_veh": 2,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 45
+    },
+    {
+        "rank": 12,
+        "name": "Yutari Issidya",
+        "inf_kills": 25,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 30
+    },
+    {
+        "rank": 13,
+        "name": "Wolf Tribune",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 27
+    },
+    {
+        "rank": 14,
+        "name": "Judas Chronatis",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 23
+    },
+    {
+        "rank": 15,
+        "name": "Goonther Kovic",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 23
+    },
+    {
+        "rank": 16,
+        "name": "Horatio Loran",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 9
+    },
+    {
+        "rank": 17,
+        "name": "Torris Holgor",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 6,
+        "score": 9
+    },
+    {
+        "rank": 18,
+        "name": "Harvos Liche",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 6,
+        "score": 2
+    },
+    {
+        "rank": 19,
+        "name": "Harvos Liche",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 2
+    },
+    {
+        "rank": 20,
+        "name": "Cyrus King",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 21,
+        "name": "Crazy Man",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 22,
+        "name": "Neacal Dracion",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 23,
+        "name": "Cadmane Tureo",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

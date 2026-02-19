@@ -1,0 +1,82 @@
+[
+    {
+        "rank": 1,
+        "name": "Alarak Sicarius",
+        "inf_kills": 107,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 2,
+        "score": 116
+    },
+    {
+        "rank": 2,
+        "name": "Artyios Lysem",
+        "inf_kills": 94,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 1,
+        "deaths": 1,
+        "score": 108
+    },
+    {
+        "rank": 3,
+        "name": "Xetor Alanclaest",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 12,
+        "air": 0,
+        "deaths": 2,
+        "score": 100
+    },
+    {
+        "rank": 4,
+        "name": "Cyro Tius",
+        "inf_kills": 80,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 88
+    },
+    {
+        "rank": 5,
+        "name": "Drek Tharren",
+        "inf_kills": 55,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 1,
+        "score": 58
+    },
+    {
+        "rank": 6,
+        "name": "Castus Caedus",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 19
+    },
+    {
+        "rank": 7,
+        "name": "Tyrian Halbalas",
+        "inf_kills": 6,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 14
+    },
+    {
+        "rank": 8,
+        "name": "Wilhelm Calgean",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 1
+    }
+]

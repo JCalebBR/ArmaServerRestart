@@ -1,52 +1,18 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { spawn, exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
+const { launchProcess, isServerRunning } = require('../utils/server');
 
-// --- CONFIGURATION ---
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
-
-/**
- * Helper: Checks if a server is ALREADY running on this port
- */
-function isServerRunning(targetPort) {
-	return new Promise((resolve) => {
-		// We strictly check for the port in the command line
-		const cmd = `wmic process where "name like 'arma3server%' and CommandLine like '%-port=${targetPort}%'" get ProcessId /format:list`;
-		exec(cmd, (err, stdout) => {
-			if (err || !stdout.trim()) resolve(false);
-			else resolve(true);
-		});
-	});
-}
-
-/**
- * Helper: Launches a process safely in the background
- */
-function launchProcess(exePath, args) {
-	// We use the Windows 'start' command.
-	// Syntax: start "Window Title" /MIN "Path/To/Exe" arguments...
-	// /MIN launches it minimized (optional, good for keeping the server clean)
-	const command = `start "Arma3Server" /MIN "${exePath}" ${args}`;
-
-	console.log(`[Start] Decoupling process: ${command}`);
-
-	const subprocess = spawn(command, {
-		shell: true,
-		detached: true,
-		stdio: 'ignore',
-	});
-
-	subprocess.unref();
-}
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('start')
-		.setDescription('Boots up a server')
+		.setName(strings.commands.start.name)
+		.setDescription(strings.commands.start.desc)
 		.addStringOption(option =>
-			option.setName('server')
-				.setDescription('The server to start')
+			option.setName(strings.commands.start.args.first.name)
+				.setDescription(strings.commands.start.args.first.desc)
 				.setRequired(true)
 				.setAutocomplete(true),
 		),
@@ -80,11 +46,11 @@ module.exports = {
 			serverConfig = fullConfig.servers[serverName];
 		} catch (e) {
 			console.error(e);
-			return interaction.reply(`❌ Error loading config file.`);
+			return interaction.reply({ content: strings.errors.genericError({ message: 'Error loading config file.' }), ephemeral: true });
 		}
 
 		if (!serverConfig) {
-			return interaction.reply(`❌ Unknown server: **${serverName}**`);
+			return interaction.reply({ content: strings.errors.noFile(serverName), ephemeral: true });
 		}
 
 		await interaction.deferReply();

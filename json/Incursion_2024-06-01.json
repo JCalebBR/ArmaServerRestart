@@ -1,0 +1,212 @@
+[
+    {
+        "rank": 1,
+        "name": "Harrow Krodarius",
+        "inf_kills": 179,
+        "soft_veh": 29,
+        "armor_veh": 48,
+        "air": 46,
+        "deaths": 3,
+        "score": 611
+    },
+    {
+        "rank": 2,
+        "name": "Alarak Sicarius",
+        "inf_kills": 83,
+        "soft_veh": 8,
+        "armor_veh": 9,
+        "air": 19,
+        "deaths": 1,
+        "score": 221
+    },
+    {
+        "rank": 3,
+        "name": "Chinn Agustius",
+        "inf_kills": 51,
+        "soft_veh": 2,
+        "armor_veh": 10,
+        "air": 26,
+        "deaths": 1,
+        "score": 215
+    },
+    {
+        "rank": 4,
+        "name": "Malrinius Manus",
+        "inf_kills": 98,
+        "soft_veh": 8,
+        "armor_veh": 15,
+        "air": 6,
+        "deaths": 2,
+        "score": 189
+    },
+    {
+        "rank": 5,
+        "name": "Lysander Orosius",
+        "inf_kills": 116,
+        "soft_veh": 2,
+        "armor_veh": 6,
+        "air": 10,
+        "deaths": 2,
+        "score": 188
+    },
+    {
+        "rank": 6,
+        "name": "Adrius Auxilius",
+        "inf_kills": 59,
+        "soft_veh": 1,
+        "armor_veh": 33,
+        "air": 1,
+        "deaths": 2,
+        "score": 165
+    },
+    {
+        "rank": 7,
+        "name": "Kase Caseus",
+        "inf_kills": 76,
+        "soft_veh": 4,
+        "armor_veh": 8,
+        "air": 9,
+        "deaths": 0,
+        "score": 153
+    },
+    {
+        "rank": 8,
+        "name": "Horatio Loran",
+        "inf_kills": 65,
+        "soft_veh": 7,
+        "armor_veh": 16,
+        "air": 4,
+        "deaths": 2,
+        "score": 147
+    },
+    {
+        "rank": 9,
+        "name": "Balderic Caeledis",
+        "inf_kills": 63,
+        "soft_veh": 3,
+        "armor_veh": 6,
+        "air": 10,
+        "deaths": 4,
+        "score": 137
+    },
+    {
+        "rank": 10,
+        "name": "Sydico Doomshield",
+        "inf_kills": 76,
+        "soft_veh": 1,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 84
+    },
+    {
+        "rank": 11,
+        "name": "Caras Mordatus",
+        "inf_kills": 51,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 1,
+        "score": 69
+    },
+    {
+        "rank": 12,
+        "name": "Arcanist Aetheo",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 1,
+        "deaths": 2,
+        "score": 55
+    },
+    {
+        "rank": 13,
+        "name": "Wolf Tribune",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 4,
+        "deaths": 3,
+        "score": 47
+    },
+    {
+        "rank": 14,
+        "name": "Terminus Ondra",
+        "inf_kills": 22,
+        "soft_veh": 1,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 30
+    },
+    {
+        "rank": 15,
+        "name": "Vendrenn Alarm",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 24
+    },
+    {
+        "rank": 16,
+        "name": "Hirius Occisor",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 12
+    },
+    {
+        "rank": 17,
+        "name": "Ven Erath",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 8
+    },
+    {
+        "rank": 18,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 4
+    },
+    {
+        "rank": 19,
+        "name": "Neros Halitus",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 20,
+        "name": "Anselm Thassandro",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 21,
+        "name": "CT-1665 Alarm",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    }
+]

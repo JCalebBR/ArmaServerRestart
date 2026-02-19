@@ -1,28 +1,31 @@
 const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('reload')
-		.setDescription('Reloads a command')
-		// FIX 1: You must define the option here for Discord to show the input box
+		.setName(strings.commands.reload.name)
+		.setDescription(strings.commands.reload.desc)
 		.addStringOption(option =>
-			option.setName('command')
-				.setDescription('The command to reload')
-				.setRequired(true),
+			option.setName(strings.commands.reload.args.first.name)
+				.setDescription(strings.commands.reload.args.first.desc)
+				.setRequired(true)
+				.setAutocomplete(true),
 		),
+	async autocomplete(interaction) {
+		const focusedValue = interaction.options.getFocused();
+		const commands = interaction.client.commands.map(cmd => cmd.data.name);
+		const filtered = commands.filter(cmd => cmd.startsWith(focusedValue));
+		await interaction.respond(filtered);
+	},
 	async execute(interaction) {
 		const commandName = interaction.options.getString('command', true).toLowerCase();
 		const command = interaction.client.commands.get(commandName);
 
 		if (!command) {
-			return interaction.reply(`There is no command with name \`${commandName}\`!`);
+			return interaction.reply(strings.errors.noFile(commandName));
 		}
-
-		// FIX 2: Robust Path Finding
-		// We can't assume the command is in the same folder as this script.
-		// We scan the parent "commands" directory to find where the file actually lives.
 
 		let commandPath = null;
 
@@ -44,10 +47,9 @@ module.exports = {
 		}
 
 		if (!commandPath) {
-			return interaction.reply(`Could not locate the file for \`${commandName}\`. Is it in a subfolder?`);
+			return interaction.reply(strings.errors.noFile(commandName));
 		}
 
-		// FIX 3: Clear the cache using the ABSOLUTE path found above
 		delete require.cache[require.resolve(commandPath)];
 
 		try {

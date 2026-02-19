@@ -1,82 +1,18 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { exec, spawn } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const strings = require('../utils/strings');
+const { findArmaProcesses, killProcess, relaunchProcess } = require('../utils/server');
 
-// --- CONFIGURATION ---
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
-
-/**
- * 1. SCOUT: Finds ALL processes matching the port
- */
-function findArmaProcesses(targetPort) {
-	return new Promise((resolve) => {
-		const psCommand = `powershell -Command "Get-CimInstance Win32_Process -Filter \\"name like 'arma3server%'\\" | Select-Object ProcessId, CommandLine | ConvertTo-Json -Compress"`;
-
-		exec(psCommand, (error, stdout) => {
-			if (error || !stdout.trim()) return resolve([]);
-
-			try {
-				let processes = JSON.parse(stdout.trim());
-				if (!Array.isArray(processes)) processes = [processes];
-
-				const matches = processes.filter(proc => {
-					const cmd = (proc.CommandLine || "").toLowerCase();
-					return cmd.includes(`port=${targetPort}`) || cmd.includes(`port ${targetPort}`);
-				});
-
-				const results = matches.map(proc => {
-					const cmd = proc.CommandLine.toLowerCase();
-					const isClient = cmd.includes('-client');
-					return {
-						pid: proc.ProcessId,
-						commandLine: proc.CommandLine,
-						type: isClient ? 'HEADLESS CLIENT' : 'SERVER',
-					};
-				});
-
-				resolve(results);
-			} catch (e) {
-				console.error("JSON Parse Error:", e);
-				resolve([]);
-			}
-		});
-	});
-}
-
-/**
- * 2. KILL
- */
-function killProcess(pid) {
-	return new Promise((resolve) => {
-		exec(`taskkill /PID ${pid} /F`, () => resolve(true));
-	});
-}
-
-/**
- * 3. RESURRECT
- */
-function relaunchProcess(commandLine) {
-	const decoupledCommand = `start "RestoredServer" /MIN ${commandLine}`;
-
-	console.log(`[Resurrecting] executing: ${decoupledCommand}`);
-
-	const subprocess = spawn(decoupledCommand, {
-		shell: true,
-		detached: true,
-		stdio: 'ignore',
-	});
-
-	subprocess.unref();
-}
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('restart')
-		.setDescription('Restarts Server AND Headless Clients')
+		.setName(strings.commands.restart.name)
+		.setDescription(strings.commands.restart.desc)
 		.addStringOption(option =>
-			option.setName('server')
-				.setDescription('The server to restart')
+			option.setName(strings.commands.restart.args.first.name)
+				.setDescription(strings.commands.restart.args.first.desc)
 				.setRequired(true)
 				.setAutocomplete(true),
 		),
@@ -111,11 +47,11 @@ module.exports = {
 			serverConfig = fullConfig.servers[serverName];
 		} catch (e) {
 			console.error(e);
-			return interaction.reply({ content: `❌ Error loading config file.`, ephemeral: true });
+			return interaction.reply({ content: strings.errors.genericError({ message: 'Error loading config file.' }), ephemeral: true });
 		}
 
 		if (!serverConfig) {
-			return interaction.reply({ content: `❌ Unknown server: **${serverName}**`, ephemeral: true });
+			return interaction.reply({ content: strings.errors.noFile(serverName), ephemeral: true });
 		}
 
 		const targetPort = serverConfig.port;

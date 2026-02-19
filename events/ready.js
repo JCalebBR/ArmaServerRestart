@@ -51,7 +51,6 @@ async function updateServerStatus(client) {
 		const maxPlayers = state.maxplayers;
 		const mapName = state.map;
 
-		// Display: "12/50 Players | Altis"
 		const statusText = `${playerCount}/${maxPlayers} Players | ${mapName}`;
 
 		client.user.setPresence({
@@ -60,7 +59,6 @@ async function updateServerStatus(client) {
 		});
 
 	} catch (e) {
-		console.warn(e);
 		client.user.setPresence({
 			activities: [{ name: 'Server Offline', type: ActivityType.Watching }],
 			status: 'dnd',

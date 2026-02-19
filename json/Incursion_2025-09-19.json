@@ -1,0 +1,212 @@
+[
+    {
+        "rank": 1,
+        "name": "Frederus Arbrecht",
+        "inf_kills": 173,
+        "soft_veh": 0,
+        "armor_veh": 60,
+        "air": 3,
+        "deaths": 2,
+        "score": 368
+    },
+    {
+        "rank": 2,
+        "name": "Dogarius Kaledon",
+        "inf_kills": 233,
+        "soft_veh": 0,
+        "armor_veh": 26,
+        "air": 1,
+        "deaths": 0,
+        "score": 316
+    },
+    {
+        "rank": 3,
+        "name": "Arrathus Decinian",
+        "inf_kills": 209,
+        "soft_veh": 0,
+        "armor_veh": 16,
+        "air": 1,
+        "deaths": 1,
+        "score": 262
+    },
+    {
+        "rank": 4,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 144,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 1,
+        "score": 171
+    },
+    {
+        "rank": 5,
+        "name": "Valeus Tabreth",
+        "inf_kills": 120,
+        "soft_veh": 0,
+        "armor_veh": 11,
+        "air": 1,
+        "deaths": 0,
+        "score": 158
+    },
+    {
+        "rank": 6,
+        "name": "Fin Enarah",
+        "inf_kills": 107,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 0,
+        "score": 134
+    },
+    {
+        "rank": 7,
+        "name": "Alaric Tyrannus",
+        "inf_kills": 76,
+        "soft_veh": 0,
+        "armor_veh": 17,
+        "air": 1,
+        "deaths": 1,
+        "score": 132
+    },
+    {
+        "rank": 8,
+        "name": "Raziel Historia",
+        "inf_kills": 116,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 0,
+        "score": 131
+    },
+    {
+        "rank": 9,
+        "name": "Orthicus Otto",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 83
+    },
+    {
+        "rank": 10,
+        "name": "Lucian Grimmsson",
+        "inf_kills": 51,
+        "soft_veh": 0,
+        "armor_veh": 6,
+        "air": 0,
+        "deaths": 0,
+        "score": 69
+    },
+    {
+        "rank": 11,
+        "name": "Avar Vorleii",
+        "inf_kills": 57,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 62
+    },
+    {
+        "rank": 12,
+        "name": "Zeruel Monarch",
+        "inf_kills": 50,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 5,
+        "score": 62
+    },
+    {
+        "rank": 13,
+        "name": "67A4-NA43-1762",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 8,
+        "air": 0,
+        "deaths": 0,
+        "score": 42
+    },
+    {
+        "rank": 14,
+        "name": "Aleharl Helldust",
+        "inf_kills": 38,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 2,
+        "score": 41
+    },
+    {
+        "rank": 15,
+        "name": "Harvos Liche",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 35
+    },
+    {
+        "rank": 16,
+        "name": "Daecam Aetos",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0,
+        "score": 29
+    },
+    {
+        "rank": 17,
+        "name": "Horatio Loran",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 17
+    },
+    {
+        "rank": 18,
+        "name": "AR Gabriel Santor",
+        "inf_kills": 0,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 10
+    },
+    {
+        "rank": 19,
+        "name": "Seqtur Clades",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 2,
+        "score": 10
+    },
+    {
+        "rank": 20,
+        "name": "43A1-NA43-2243",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 9
+    },
+    {
+        "rank": 21,
+        "name": "Kane Corvar",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

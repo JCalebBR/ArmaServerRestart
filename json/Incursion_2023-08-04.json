@@ -1,0 +1,152 @@
+[
+    {
+        "rank": 1,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 91,
+        "soft_veh": 0,
+        "armor_veh": 27,
+        "air": 0,
+        "deaths": 1,
+        "score": 172
+    },
+    {
+        "rank": 2,
+        "name": "Cyrus King",
+        "inf_kills": 127,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 130
+    },
+    {
+        "rank": 3,
+        "name": "Nemo Anatius",
+        "inf_kills": 112,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 115
+    },
+    {
+        "rank": 4,
+        "name": "Goonther Kovic",
+        "inf_kills": 107,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 107
+    },
+    {
+        "rank": 5,
+        "name": "Quiphicus Drallis",
+        "inf_kills": 35,
+        "soft_veh": 0,
+        "armor_veh": 21,
+        "air": 0,
+        "deaths": 0,
+        "score": 98
+    },
+    {
+        "rank": 6,
+        "name": "Castian Rozila",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 10,
+        "air": 0,
+        "deaths": 1,
+        "score": 82
+    },
+    {
+        "rank": 7,
+        "name": "Uziel Varus",
+        "inf_kills": 70,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 3,
+        "score": 76
+    },
+    {
+        "rank": 8,
+        "name": "Ulrich Tannhauser",
+        "inf_kills": 63,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 3,
+        "score": 69
+    },
+    {
+        "rank": 9,
+        "name": "Sydico Doomshield",
+        "inf_kills": 37,
+        "soft_veh": 0,
+        "armor_veh": 9,
+        "air": 0,
+        "deaths": 0,
+        "score": 64
+    },
+    {
+        "rank": 10,
+        "name": "Seqtur Clades",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 23
+    },
+    {
+        "rank": 11,
+        "name": "Dagonel Griffor",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 2,
+        "score": 23
+    },
+    {
+        "rank": 12,
+        "name": "Harvos Liche",
+        "inf_kills": 19,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 22
+    },
+    {
+        "rank": 13,
+        "name": "Ven Erath",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 6
+    },
+    {
+        "rank": 14,
+        "name": "Xeon Kradys",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    },
+    {
+        "rank": 15,
+        "name": "Baelen Kyyus",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 7,
+        "score": 0
+    }
+]

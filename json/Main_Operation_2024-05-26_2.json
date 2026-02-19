@@ -1,0 +1,342 @@
+[
+    {
+        "rank": 1,
+        "name": "Axe-Sergeant LtSkitzune",
+        "inf_kills": 65,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 17,
+        "deaths": 0,
+        "score": 171
+    },
+    {
+        "rank": 2,
+        "name": "Executor-Armorer Kermit",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 7,
+        "air": 11,
+        "deaths": 1,
+        "score": 88
+    },
+    {
+        "rank": 3,
+        "name": "Lord Speaker Asmodai",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 7,
+        "deaths": 2,
+        "score": 88
+    },
+    {
+        "rank": 4,
+        "name": "Champion Zazahiel",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 1,
+        "deaths": 3,
+        "score": 61
+    },
+    {
+        "rank": 5,
+        "name": "Balderic Caeledis",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 9,
+        "deaths": 0,
+        "score": 60
+    },
+    {
+        "rank": 6,
+        "name": "Azrion Zeuion",
+        "inf_kills": 44,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 1,
+        "score": 59
+    },
+    {
+        "rank": 7,
+        "name": "Executor-Brother Hellas",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 5,
+        "deaths": 1,
+        "score": 50
+    },
+    {
+        "rank": 8,
+        "name": "Horatio Loran",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 5,
+        "deaths": 0,
+        "score": 49
+    },
+    {
+        "rank": 9,
+        "name": "High Chaplain Grigori",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 4,
+        "score": 47
+    },
+    {
+        "rank": 10,
+        "name": "Axe-Lieutenant Indy",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 5,
+        "deaths": 0,
+        "score": 45
+    },
+    {
+        "rank": 11,
+        "name": "Blackaxe Ordo",
+        "inf_kills": 34,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 2,
+        "deaths": 1,
+        "score": 44
+    },
+    {
+        "rank": 12,
+        "name": "Trialee \"Ancient\" Nyx",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 0,
+        "score": 42
+    },
+    {
+        "rank": 13,
+        "name": "Moss Caessian",
+        "inf_kills": 25,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0,
+        "score": 37
+    },
+    {
+        "rank": 14,
+        "name": "Ancient Ash",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 3,
+        "deaths": 0,
+        "score": 35
+    },
+    {
+        "rank": 15,
+        "name": "Arrathus Decinian",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 5,
+        "air": 0,
+        "deaths": 0,
+        "score": 35
+    },
+    {
+        "rank": 16,
+        "name": "Veltek Aquila",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 2,
+        "deaths": 0,
+        "score": 34
+    },
+    {
+        "rank": 17,
+        "name": "Candidate Frost",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 4,
+        "deaths": 1,
+        "score": 34
+    },
+    {
+        "rank": 18,
+        "name": "Sang Priest Castinus",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 2,
+        "deaths": 0,
+        "score": 31
+    },
+    {
+        "rank": 19,
+        "name": "Asterion Theross",
+        "inf_kills": 30,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 30
+    },
+    {
+        "rank": 20,
+        "name": "Praetor Beraso",
+        "inf_kills": 30,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 30
+    },
+    {
+        "rank": 21,
+        "name": "Avar Torismund",
+        "inf_kills": 13,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 3,
+        "deaths": 0,
+        "score": 28
+    },
+    {
+        "rank": 22,
+        "name": "Epistolary Icurus",
+        "inf_kills": 22,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 22
+    },
+    {
+        "rank": 23,
+        "name": "Alarak Sicarius",
+        "inf_kills": 14,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 19
+    },
+    {
+        "rank": 24,
+        "name": "Neacal Dracion",
+        "inf_kills": 1,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 3,
+        "deaths": 0,
+        "score": 19
+    },
+    {
+        "rank": 25,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 2,
+        "deaths": 1,
+        "score": 18
+    },
+    {
+        "rank": 26,
+        "name": "Caras Mordatus",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 12
+    },
+    {
+        "rank": 27,
+        "name": "Death Scribe Hadraniel",
+        "inf_kills": 11,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 11
+    },
+    {
+        "rank": 28,
+        "name": "Axe Brother Kane Corvar",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 9
+    },
+    {
+        "rank": 29,
+        "name": "Axe Brother Neoth",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 4
+    },
+    {
+        "rank": 30,
+        "name": "Witch Doctor Dasago",
+        "inf_kills": 3,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 3
+    },
+    {
+        "rank": 31,
+        "name": "Dagonel Griffor",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 2
+    },
+    {
+        "rank": 32,
+        "name": "Blackaxe Terminator Scav",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 0
+    },
+    {
+        "rank": 33,
+        "name": "Sawbone Jörmungandr",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    },
+    {
+        "rank": 34,
+        "name": "Ven Erath",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 0
+    }
+]

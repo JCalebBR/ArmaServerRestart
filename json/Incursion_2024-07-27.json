@@ -1,0 +1,82 @@
+[
+    {
+        "rank": 1,
+        "name": "Sydico Doomshield",
+        "inf_kills": 48,
+        "soft_veh": 0,
+        "armor_veh": 16,
+        "air": 2,
+        "deaths": 1,
+        "score": 106
+    },
+    {
+        "rank": 2,
+        "name": "Asmodai Achumfeld",
+        "inf_kills": 38,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 1,
+        "deaths": 0,
+        "score": 49
+    },
+    {
+        "rank": 3,
+        "name": "Fernon Serimos",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 1,
+        "deaths": 4,
+        "score": 40
+    },
+    {
+        "rank": 4,
+        "name": "Jezor Tychian",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 3,
+        "score": 31
+    },
+    {
+        "rank": 5,
+        "name": "Kyr'ad Voss",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 29
+    },
+    {
+        "rank": 6,
+        "name": "Augustus Carmine",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 15
+    },
+    {
+        "rank": 7,
+        "name": "Seqtur Clades",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 15
+    },
+    {
+        "rank": 8,
+        "name": "The Thinker Be Thinking",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": -1,
+        "air": 0,
+        "deaths": 1,
+        "score": -3
+    }
+]

@@ -1,0 +1,254 @@
+[
+    {
+        "rank": 1,
+        "name": "Gregor Tiberius",
+        "inf_kills": 107,
+        "soft_veh": 2,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 2,
+        "name": "Asterion Theross",
+        "inf_kills": 96,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 2,
+        "deaths": 0
+    },
+    {
+        "rank": 3,
+        "name": "Adrius Auxilius",
+        "inf_kills": 54,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 4,
+        "name": "Fernon Serimos",
+        "inf_kills": 48,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1
+    },
+    {
+        "rank": 5,
+        "name": "Arrathus Decinian",
+        "inf_kills": 40,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 2,
+        "deaths": 1
+    },
+    {
+        "rank": 6,
+        "name": "Proximos Arios",
+        "inf_kills": 50,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1
+    },
+    {
+        "rank": 7,
+        "name": "Sedric Richter",
+        "inf_kills": 40,
+        "soft_veh": 1,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 8,
+        "name": "Seanicus Asterphon",
+        "inf_kills": 31,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1
+    },
+    {
+        "rank": 9,
+        "name": "Gallus Stanz",
+        "inf_kills": 27,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 10,
+        "name": "Bon Sedros",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 11,
+        "name": "Cyrus King",
+        "inf_kills": 23,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0
+    },
+    {
+        "rank": 12,
+        "name": "Artarion Bastilan",
+        "inf_kills": 26,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 13,
+        "name": "Wolf Tribune",
+        "inf_kills": 24,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 14,
+        "name": "Lysander Orosius",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 15,
+        "name": "Apollos Berengard",
+        "inf_kills": 18,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 16,
+        "name": "Kane Corvar",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 17,
+        "name": "Julius Brazenheart",
+        "inf_kills": 15,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 18,
+        "name": "Talos Belmont",
+        "inf_kills": 12,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 19,
+        "name": "Alajos Ortykus",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 20,
+        "name": "Vel'tek Aquila",
+        "inf_kills": 10,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 21,
+        "name": "Xarl Endymion",
+        "inf_kills": 9,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 22,
+        "name": "Sirolath Echer",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 23,
+        "name": "Aray Armros",
+        "inf_kills": 8,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 24,
+        "name": "Toroc Arakia",
+        "inf_kills": 7,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 25,
+        "name": "Moss Caessian",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1
+    },
+    {
+        "rank": 26,
+        "name": "Venerable Wolfhart",
+        "inf_kills": 4,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 27,
+        "name": "Dagonel Griffor",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    },
+    {
+        "rank": 28,
+        "name": "Gerhard Ortelius",
+        "inf_kills": 2,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0
+    }
+]

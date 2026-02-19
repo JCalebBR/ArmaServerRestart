@@ -1,0 +1,152 @@
+[
+    {
+        "rank": 1,
+        "name": "Neacal Dracion",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 14,
+        "air": 7,
+        "deaths": 0,
+        "score": 116
+    },
+    {
+        "rank": 2,
+        "name": "Odysseus Iraetus",
+        "inf_kills": 81,
+        "soft_veh": 4,
+        "armor_veh": 3,
+        "air": 1,
+        "deaths": 0,
+        "score": 103
+    },
+    {
+        "rank": 3,
+        "name": "Fernus Gerauden",
+        "inf_kills": 82,
+        "soft_veh": 0,
+        "armor_veh": 2,
+        "air": 0,
+        "deaths": 1,
+        "score": 88
+    },
+    {
+        "rank": 4,
+        "name": "Lysander Orosius",
+        "inf_kills": 67,
+        "soft_veh": 0,
+        "armor_veh": 3,
+        "air": 0,
+        "deaths": 1,
+        "score": 81
+    },
+    {
+        "rank": 5,
+        "name": "Astiluel Tigah",
+        "inf_kills": 74,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 0,
+        "score": 77
+    },
+    {
+        "rank": 6,
+        "name": "Sydico Doomshield",
+        "inf_kills": 58,
+        "soft_veh": 1,
+        "armor_veh": 1,
+        "air": 1,
+        "deaths": 0,
+        "score": 68
+    },
+    {
+        "rank": 7,
+        "name": "Talos Foehammer",
+        "inf_kills": 34,
+        "soft_veh": 1,
+        "armor_veh": 4,
+        "air": 3,
+        "deaths": 2,
+        "score": 63
+    },
+    {
+        "rank": 8,
+        "name": "Asterion Theross",
+        "inf_kills": 61,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 0,
+        "score": 61
+    },
+    {
+        "rank": 9,
+        "name": "Deicide Brightburn",
+        "inf_kills": 52,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 1,
+        "deaths": 0,
+        "score": 57
+    },
+    {
+        "rank": 10,
+        "name": "Arrathus Decinian",
+        "inf_kills": 39,
+        "soft_veh": 0,
+        "armor_veh": 4,
+        "air": 0,
+        "deaths": 1,
+        "score": 56
+    },
+    {
+        "rank": 11,
+        "name": "Aray Amros",
+        "inf_kills": 41,
+        "soft_veh": 0,
+        "armor_veh": 1,
+        "air": 0,
+        "deaths": 1,
+        "score": 44
+    },
+    {
+        "rank": 12,
+        "name": "Toroc Arakia",
+        "inf_kills": 29,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 29
+    },
+    {
+        "rank": 13,
+        "name": "Dagonel Griffor",
+        "inf_kills": 20,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 1,
+        "score": 20
+    },
+    {
+        "rank": 14,
+        "name": "Siegward Romaritch",
+        "inf_kills": 0,
+        "soft_veh": 2,
+        "armor_veh": 2,
+        "air": 1,
+        "deaths": 2,
+        "score": 15
+    },
+    {
+        "rank": 15,
+        "name": "Sedric Richter",
+        "inf_kills": 0,
+        "soft_veh": 0,
+        "armor_veh": 0,
+        "air": 0,
+        "deaths": 2,
+        "score": 0
+    }
+]
