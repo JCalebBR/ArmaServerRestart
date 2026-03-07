@@ -17,6 +17,7 @@ const strings = require('../utils/strings');
 
 // --- UPDATED: Imported saveScoreboardBatch and getOperationScoreboard ---
 const {
+	db,
 	renamePlayer,
 	getPlayerOperationRecord,
 	updatePlayerOperationRecord,
@@ -223,10 +224,12 @@ async function handleProcessScoreboardFlow(interaction, attachments, targetMessa
 						// Directly insert into SQLite
 						saveScoreboardBatch(cleanedData, opDate, opType);
 
-						try { await targetMessage.react('💾'); } catch (reactErr) { }
+						try { await targetMessage.react('💾'); } catch (reactErr) {
+							console.warning('Failed to react to message:', reactErr);
+						}
 
 						return interaction.editReply({
-							content: `✅ **Import Successful!**\n\n**Next Steps:**\n1. Run the \`/cleandb\` command to apply rename rules and remove bad names.\n2. Apply player corrections in the thread.\n3. Use the **Run Corrections** button to finalize and generate the JSON backup.`
+							content: `✅ **Import Successful!**\n\n**Next Steps:**\n1. Run the \`/cleandb\` command to apply rename rules and remove bad names.\n2. Apply player corrections in the thread.\n3. Use the **Run Corrections** button to finalize and generate the JSON backup.`,
 						});
 
 					} catch (dbError) {
@@ -279,74 +282,110 @@ async function handleCorrectionsFlow(interaction, targetMessage, client) {
 
 		const messages = await thread.messages.fetch({ limit: 100 });
 		const messagesArray = Array.from(messages.values()).reverse();
+
 		let renamesApplied = 0;
 		let deathDiscountsApplied = 0;
-		const failedDiscounts = [];
-
-		const renameRegex = /Rename:\s*["']([^"']+)["']\s*["']([^"']+)["']/i;
-		const deathRegex = /Death discount:\s*(\d+)/i;
+		let attendanceDiscountsApplied = 0;
+		const failedCorrections = [];
 
 		for (const msg of messagesArray) {
 			if (msg.author.bot) continue;
 
-			const content = msg.content;
+			const lines = msg.content.split('\n');
+			let currentMode = null;
+			let msgReacted = false;
 
-			const renameMatch = content.match(renameRegex);
-			if (renameMatch) {
-				const oldName = renameMatch[1].trim();
-				const newName = renameMatch[2].trim();
-				const changes = renamePlayer(oldName, newName);
-				if (changes > 0) {
-					renamesApplied++;
-					await msg.react('✅');
+			for (let line of lines) {
+				line = line.trim();
+				if (!line) continue;
+
+				const lowerLine = line.toLowerCase();
+
+				// Check for section headers and switch modes
+				if (lowerLine.startsWith('rename actors:')) {
+					currentMode = 'renames';
+					continue;
+				} else if (lowerLine.startsWith('death discounts:')) {
+					currentMode = 'deaths';
+					continue;
+				} else if (lowerLine.startsWith('discount attendance:')) {
+					currentMode = 'attendance';
+					continue;
+				}
+
+				// Parse the line based on the active mode
+				if (currentMode === 'renames') {
+					const parts = line.split('|');
+					if (parts.length === 2) {
+						const oldName = parts[0].trim();
+						const newName = parts[1].trim();
+						if (oldName && newName) {
+							const changes = renamePlayer(oldName, newName);
+							if (changes > 0) {
+								renamesApplied++;
+								msgReacted = true;
+							}
+						}
+					}
+				}
+				else if (currentMode === 'deaths') {
+					const parts = line.split('|');
+					if (parts.length === 2) {
+						const playerName = parts[0].trim();
+						const rawAmount = parts[1].trim();
+
+						// Use Math.abs to force the number to be positive regardless of signs
+						const discountAmount = Math.abs(parseInt(rawAmount, 10));
+
+						if (playerName && !isNaN(discountAmount)) {
+							const record = getPlayerOperationRecord(dbDate, opType, playerName);
+
+							if (record) {
+								const newDeaths = Math.max(0, record.deaths - discountAmount);
+								const changes = updatePlayerOperationRecord(record.id, {
+									inf_kills: record.inf_kills,
+									soft_veh: record.soft_veh,
+									armor_veh: record.armor_veh,
+									air: record.air,
+									score: record.score,
+									deaths: newDeaths,
+								});
+
+								if (changes > 0) {
+									deathDiscountsApplied++;
+									msgReacted = true;
+								}
+							} else {
+								failedCorrections.push(`Death: ${playerName}`);
+							}
+						}
+					}
+				}
+				else if (currentMode === 'attendance') {
+					const playerName = line;
+					if (playerName) {
+						// Delete just this specific operation record directly using the db instance
+						const stmt = db.prepare(`DELETE FROM scoreboards WHERE operation_date = ? AND operation_type = ? AND player_name = ?`);
+						const info = stmt.run(dbDate, opType, playerName);
+
+						if (info.changes > 0) {
+							attendanceDiscountsApplied++;
+							msgReacted = true;
+						} else {
+							failedCorrections.push(`Attendance: ${playerName}`);
+						}
+					}
 				}
 			}
 
-			const deathMatch = content.match(deathRegex);
-			if (deathMatch) {
-				const discountAmount = parseInt(deathMatch[1], 10);
-
-				let member = msg.member;
-				if (!member) {
-					try { member = await thread.guild.members.fetch(msg.author.id); } catch (err) {
-						console.warn('Failed to fetch member from thread:', err);
-					}
-				}
-
-				const rawDiscordName = member?.nickname || member?.displayName || msg.author.displayName || msg.author.username;
-
-				const cleanDiscordName = rawDiscordName
-					.replace(/\s*\([^)]*\)/g, '')
-					.replace(/[^\w\s']/g, '')
-					.replace(/\bBT\b/g, '')
-					.trim()
-					.replace(/\s+/g, ' ');
-
-				const record = getPlayerOperationRecord(dbDate, opType, cleanDiscordName);
-
-				if (record) {
-					const newDeaths = Math.max(0, record.deaths - discountAmount);
-
-					const changes = updatePlayerOperationRecord(record.id, {
-						inf_kills: record.inf_kills,
-						soft_veh: record.soft_veh,
-						armor_veh: record.armor_veh,
-						air: record.air,
-						score: record.score,
-						deaths: newDeaths,
-					});
-
-					if (changes > 0) {
-						await msg.react('✅');
-						deathDiscountsApplied++;
-					};
-				} else {
-					failedDiscounts.push(cleanDiscordName);
+			if (msgReacted) {
+				try { await msg.react('✅'); } catch (e) {
+					console.warn('Failed to react to message:', e);
 				}
 			}
 		}
 
-		// --- NEW: Fetch Corrected Data and Backup to JSON ---
+		// --- Fetch Corrected Data and Backup to JSON ---
 		const finalScoreboardData = getOperationScoreboard(dbDate, opType);
 
 		const prettyJson = JSON.stringify(finalScoreboardData, null, 4);
@@ -368,26 +407,28 @@ async function handleCorrectionsFlow(interaction, targetMessage, client) {
 			backupStatus = `\n⚠️ Corrections applied, but failed to send JSON backup to the designated channel.`;
 		}
 
-		// Build summary
+		// Build summary embed
 		const embed = new EmbedBuilder()
 			.setTitle('🔧 Corrections Applied & Backed Up')
 			.setColor(0x00FF00)
 			.setDescription(`Successfully processed thread instructions and exported final database snapshot.` + backupStatus)
 			.addFields(
-				{ name: '👤 Renames Processed', value: `${renamesApplied}`, inline: true },
-				{ name: '💀 Deaths Discounted', value: `${deathDiscountsApplied}`, inline: true },
+				{ name: '👤 Renames', value: `${renamesApplied}`, inline: true },
+				{ name: '💀 Death Discounts', value: `${deathDiscountsApplied}`, inline: true },
+				{ name: '👋 Attendance Purged', value: `${attendanceDiscountsApplied}`, inline: true },
 			);
 
-		if (failedDiscounts.length > 0) {
+		if (failedCorrections.length > 0) {
 			embed.addFields({
-				name: '⚠️ Failed Discounts (No DB Record Found)',
-				value: failedDiscounts.map(n => `• ${n}`).join('\n').substring(0, 1024),
+				name: '⚠️ Failed Corrections (No DB Record Found)',
+				value: failedCorrections.map(n => `• ${n}`).join('\n').substring(0, 1024),
 			});
 		}
 
 		await interaction.editReply({ content: null, embeds: [embed] });
-
-		try { await targetMessage.react('✅'); } catch (e) { }
+		try { await targetMessage.react('✅'); } catch (e) {
+			console.warn('Failed to react to message:', e);
+		}
 
 	} catch (error) {
 		console.error(error);

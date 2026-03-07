@@ -91,7 +91,7 @@ module.exports = {
 			console.log(`[DEBUG] ✅ Thread created successfully! ID: ${thread.id}`);
 
 			// 5. Instruction Post
-			const instructionMsg = await thread.send(`Salutations my lords.\n**Please provide corrections to the operation screenshots below in this exact format.**\nRename: "OLD_NAME" "NEW_NAME" - Ex. Actor named Mosk Pius but player is Moss Caessian, Rename: "Mosk Pius" "Moss Caessian"\nDeath discount: NUMBER_OF_DEATHS - The amount of deaths to subtract from the total, this must be done by the player themselves.`);
+			const instructionMsg = await thread.send("# FOLLOW THE INSTRUCTIONS EXACTLY\n```Rename actors:\nMosk Pius | Moss Caessian\nWarpsmith Endymion | Xarl Endymion\n...```\nActor name first, followed by the actual player name in the unit.\n```Death discounts:\nMoss Caessian | -1\nBalderic Caeledis | 3\n...\n```The amount of deaths to subtract from the total. You can use negative numbers or positive, it doesn't matter.\n```Discount attendance:\nAlarak Sicarius\nCastian Rozila\n...```\nDiscount the attendance of the named players.");
 
 			await instructionMsg.pin();
 			console.log(`[DEBUG] ✅ Instructions sent and pinned.`);
