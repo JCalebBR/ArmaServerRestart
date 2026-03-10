@@ -88,6 +88,37 @@ async function extractAndCleanScoreboardData(attachments) {
 		return true;
 	});
 
+	// --- NEW: Bulletproof Deduplication ---
+	const uniquePlayers = new Map();
+
+	for (const player of cleanedData) {
+		// Calculate real stats value ignoring Claude's hallucinated score
+		const trueStats = (player.inf_kills * 1) + (player.soft_veh * 2) + (player.armor_veh * 3) + (player.air * 5);
+
+		if (uniquePlayers.has(player.name)) {
+			const existingPlayer = uniquePlayers.get(player.name);
+			const existingStats = (existingPlayer.inf_kills * 1) + (existingPlayer.soft_veh * 2) + (existingPlayer.armor_veh * 3) + (existingPlayer.air * 5);
+
+			// Keep the one with strictly higher actual stats
+			if (trueStats > existingStats) {
+				uniquePlayers.set(player.name, player);
+			}
+			// If stats are identical, keep the one with the better (lower) rank
+			else if (trueStats === existingStats) {
+				if (player.rank < existingPlayer.rank) {
+					uniquePlayers.set(player.name, player);
+				}
+			}
+		} else {
+			// First time seeing this player
+			uniquePlayers.set(player.name, player);
+		}
+	}
+
+	// Overwrite the raw array with the perfectly deduplicated list
+	cleanedData = Array.from(uniquePlayers.values());
+	// --------------------------------------
+
 	return cleanedData;
 }
 

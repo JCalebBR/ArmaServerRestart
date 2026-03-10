@@ -331,7 +331,7 @@ function getPlayerAttendanceDetails(playerName) {
 		SELECT 
 			SUBSTR(operation_date, 1, 4) as year, 
 			SUBSTR(operation_date, 6, 2) as month, 
-			COUNT(*) as op_count
+			COUNT(DISTINCT operation_date || operation_type) as op_count
 		FROM scoreboards
 		WHERE player_name = ?
 		GROUP BY year, month
@@ -362,35 +362,15 @@ function getPlayerOperationsChronological(playerName) {
 }
 
 function getUnitOperationsPerMonth() {
-	// We use nested subqueries to mathematically deduce the true number of unit operations
-	// by finding the maximum number of times any single player deployed on a specific date and type.
 	const stmt = db.prepare(`
-        SELECT 
-            year, 
-            month, 
-            SUM(true_op_count) as total_ops
-        FROM (
-            SELECT 
-                SUBSTR(operation_date, 1, 4) as year, 
-                SUBSTR(operation_date, 6, 2) as month, 
-                MAX(op_count) as true_op_count
-            FROM (
-                -- Step 1: Count how many times each player deployed to each specific date/type
-                SELECT 
-                    operation_date, 
-                    operation_type, 
-                    player_name, 
-                    COUNT(*) as op_count
-                FROM scoreboards
-                GROUP BY operation_date, operation_type, player_name
-            )
-            -- Step 2: Find the highest player attendance count for that date/type
-            GROUP BY operation_date, operation_type
-        )
-        -- Step 3: Sum those highest counts together for the final monthly total
-        GROUP BY year, month
-        ORDER BY year DESC, month DESC
-    `);
+		SELECT 
+			SUBSTR(operation_date, 1, 4) as year, 
+			SUBSTR(operation_date, 6, 2) as month, 
+			COUNT(DISTINCT operation_date || operation_type) as total_ops
+		FROM scoreboards
+		GROUP BY year, month
+		ORDER BY year DESC, month DESC
+	`);
 
 	return stmt.all();
 }
@@ -556,6 +536,17 @@ function deleteOperation(opDate, opType) {
 	return info.changes;
 }
 
+function getMonthlyAttendanceAllPlayers(year, month) {
+	const stmt = db.prepare(`
+		SELECT player_name, COUNT(DISTINCT operation_date || operation_type) as op_count
+		FROM scoreboards
+		WHERE SUBSTR(operation_date, 1, 4) = ? AND SUBSTR(operation_date, 6, 2) = ?
+		GROUP BY player_name
+	`);
+
+	return stmt.all(year, month);
+}
+
 // --- TEMPORARY DATABASE CLEANUP ---
 // This deletes names that are exactly '', null, or just empty spaces
 const cleanupInfo = db.prepare(`
@@ -599,4 +590,5 @@ module.exports = {
 	getFamilyScoreboard,
 	getTwinScoreboard,
 	deleteOperation,
+	getMonthlyAttendanceAllPlayers,
 };
