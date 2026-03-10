@@ -80,12 +80,10 @@ module.exports = {
 				else if (words.length === 1) { shouldDelete = true; }
 				else if (words.length > 2) { shouldDelete = true; }
 				else {
-					const nameLower = name.toLowerCase();
-					for (const bannedWord of blacklist) {
-						if (nameLower.includes(bannedWord)) {
-							shouldDelete = true;
-							break;
-						}
+					const nameLower = words[0].toLowerCase();
+
+					if (blacklist.includes(nameLower)) {
+						shouldDelete = true;
 					}
 				}
 

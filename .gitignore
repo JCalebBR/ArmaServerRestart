@@ -144,3 +144,4 @@ node_modules
 *.code-workspace
 *.sqm
 servers.json
+json/*
