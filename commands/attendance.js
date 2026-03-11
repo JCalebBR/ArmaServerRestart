@@ -87,6 +87,13 @@ module.exports = {
 				if (member.user.bot) continue;
 
 				const roleNames = member.roles.cache.map(r => r.name.toLowerCase());
+
+				// --- NEW: Filter out Retired and Visitor roles immediately ---
+				if (roleNames.includes('retired bt') || roleNames.includes('visitor')) {
+					continue;
+				}
+				// -------------------------------------------------------------
+
 				let category = null;
 				let displayRole = null;
 
@@ -103,9 +110,9 @@ module.exports = {
 						displayRole = member.roles.cache.find(r => r.name.toLowerCase() === highestT3).name;
 					}
 					// Priority 3: Fighting Company
-					else if (roleNames.includes('fighting company')) {
+					else if (roleNames.includes('fighting company orosius')) {
 						category = 'fighting';
-						displayRole = member.roles.cache.find(r => r.name.toLowerCase() === 'fighting company').name;
+						displayRole = member.roles.cache.find(r => r.name.toLowerCase() === 'fighting company orosius').name;
 					}
 				}
 
@@ -152,8 +159,8 @@ module.exports = {
 					// Group the inactive players by their specific role
 					for (const roleName of Object.keys(cat.data).sort()) {
 						// Sort names alphabetically
-						const members = cat.data[roleName].sort((a, b) => a.name.localeCompare(b.name));
-						const lines = members.map(m => `❌ **${m.name}** (${m.ops}/${cat.req})`);
+						const inactiveMembers = cat.data[roleName].sort((a, b) => a.name.localeCompare(b.name));
+						const lines = inactiveMembers.map(m => `❌ **${m.name}** (${m.ops}/${cat.req})`);
 
 						// Chunk in case a role has a massive amount of inactive players
 						const chunks = chunkArray(lines, 12);
