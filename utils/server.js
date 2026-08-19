@@ -1,6 +1,15 @@
 const { execFile, spawn } = require('child_process');
+const path = require('path');
 
 const PROCESS_QUERY_SCRIPT = "$ErrorActionPreference = 'Stop'; Get-CimInstance Win32_Process -Filter \"name like 'arma3server%'\" | Select-Object Name, ProcessId, ExecutablePath, CommandLine | ConvertTo-Json -Compress";
+const PROCESS_LAUNCH_SCRIPT = [
+	"$ErrorActionPreference = 'Stop'",
+	'$json = [Console]::In.ReadToEnd()',
+	"if ([string]::IsNullOrWhiteSpace($json)) { throw 'The process launch specification is missing.' }",
+	'$spec = $json | ConvertFrom-Json',
+	'$process = Start-Process -FilePath ([string]$spec.executablePath) -ArgumentList ([string]$spec.arguments) -WorkingDirectory ([string]$spec.workingDirectory) -WindowStyle Normal -PassThru',
+	'[Console]::Out.Write($process.Id)',
+].join('; ');
 
 class ServerProcessesExistError extends Error {
 	constructor(processes) {
@@ -192,27 +201,75 @@ function countProcessTypes(processes) {
 	};
 }
 
+function quoteWindowsArgument(argument) {
+	const value = String(argument);
+	if (value && !/[\s"]/.test(value)) return value;
+	return `"${value.replace(/(\\*)"/g, '$1$1\\"').replace(/(\\+)$/g, '$1$1')}"`;
+}
+
+function serializeLaunchArguments(args) {
+	if (!Array.isArray(args)) return String(args || '');
+	return args.map(quoteWindowsArgument).join(' ');
+}
+
 function launchProcess(executablePath, args, options = {}) {
-	const { spawnImpl = spawn } = options;
-	const argumentList = Array.isArray(args) ? args : tokenizeWindowsCommandLine(args);
+	const { spawnImpl = spawn, timeoutMs = 30_000 } = options;
+	const specification = {
+		executablePath,
+		arguments: serializeLaunchArguments(args),
+		workingDirectory: path.win32.dirname(executablePath),
+	};
 
 	return new Promise((resolve, reject) => {
 		let child;
+		let stdout = '';
+		let stderr = '';
+		let settled = false;
+		let timeout = null;
+		const finish = (error, result) => {
+			if (settled) return;
+			settled = true;
+			clearTimeout(timeout);
+			if (error) reject(error);
+			else resolve(result);
+		};
+
 		try {
-			child = spawnImpl(executablePath, argumentList, {
-				detached: true,
-				stdio: 'ignore',
+			child = spawnImpl('powershell.exe', [
+				'-NoProfile',
+				'-NonInteractive',
+				'-Command',
+				PROCESS_LAUNCH_SCRIPT,
+			], {
 				windowsHide: true,
+				stdio: ['pipe', 'pipe', 'pipe'],
 			});
 		} catch (error) {
 			return reject(error);
 		}
 
-		child.once('error', reject);
-		child.once('spawn', () => {
-			child.unref();
-			resolve({ pid: child.pid });
+		child.stdout.on('data', chunk => { stdout += chunk.toString(); });
+		child.stderr.on('data', chunk => { stderr += chunk.toString(); });
+		child.on('error', error => finish(error));
+		child.stdin.on('error', error => finish(error));
+		child.on('close', code => {
+			if (code !== 0) {
+				const details = stderr.trim() || stdout.trim() || `PowerShell exited with code ${code}.`;
+				return finish(new Error(`Could not launch an independent visible process: ${details}`));
+			}
+
+			const pid = Number(stdout.trim());
+			if (!Number.isInteger(pid) || pid <= 0) {
+				return finish(new Error('The independent process launcher did not return a valid PID.'));
+			}
+			finish(null, { pid });
 		});
+
+		timeout = setTimeout(() => {
+			child.kill();
+			finish(new Error('The independent process launcher timed out.'));
+		}, timeoutMs);
+		child.stdin.end(JSON.stringify(specification));
 	});
 }
 

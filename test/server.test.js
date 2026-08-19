@@ -1,5 +1,6 @@
 const assert = require('node:assert/strict');
 const { EventEmitter } = require('node:events');
+const { PassThrough } = require('node:stream');
 const test = require('node:test');
 const {
 	ServerProcessesExistError,
@@ -31,6 +32,26 @@ const SERVER_CONFIG = {
 
 function processInfo(pid, type = 'SERVER') {
 	return { pid, type };
+}
+
+function completedLauncher(exitCode, capture, output = '1234', errorOutput = '') {
+	return (file, args, options) => {
+		const child = new EventEmitter();
+		child.stdin = new PassThrough();
+		child.stdout = new PassThrough();
+		child.stderr = new PassThrough();
+		child.kill = () => { child.killed = true; };
+		if (capture) {
+			Object.assign(capture, { file, args, options, input: '' });
+			child.stdin.on('data', chunk => { capture.input += chunk.toString(); });
+		}
+		process.nextTick(() => {
+			child.stdout.end(output);
+			child.stderr.end(errorOutput);
+			child.emit('close', exitCode);
+		});
+		return child;
+	};
 }
 
 test('Windows command lines preserve quoted arguments and both port syntaxes', () => {
@@ -119,23 +140,39 @@ test('CIM discovery returns every duplicate process with parsed arguments', asyn
 	assert.deepEqual(processes.map(process => process.type), ['SERVER', 'HEADLESS CLIENT']);
 });
 
-test('direct launches use tokenized arguments and return the spawned PID', async () => {
+test('launches create an independent visible process and return its PID', async () => {
 	const capture = {};
-	const child = new EventEmitter();
-	child.pid = 1234;
-	child.unref = () => { capture.unref = true; };
-	const resultPromise = launchProcess('arma3server_x64.exe', '-port=2302 "-mod=@One;@Two"', {
-		spawnImpl: (file, args, options) => {
-			Object.assign(capture, { file, args, options });
-			process.nextTick(() => child.emit('spawn'));
-			return child;
-		},
+	const result = await launchProcess('C:\\Games\\ArmaA3\\arma3server_x64.exe', '-port=2302 "-mod=@One;@Two"', {
+		spawnImpl: completedLauncher(0, capture),
 	});
+	const specification = JSON.parse(capture.input);
 
-	assert.deepEqual(await resultPromise, { pid: 1234 });
-	assert.deepEqual(capture.args, ['-port=2302', '-mod=@One;@Two']);
-	assert.equal(capture.options.detached, true);
-	assert.equal(capture.unref, true);
+	assert.deepEqual(result, { pid: 1234 });
+	assert.equal(capture.file, 'powershell.exe');
+	assert.ok(capture.args.includes('-NonInteractive'));
+	assert.match(capture.args.at(-1), /Start-Process.+WindowStyle Normal.+PassThru/);
+	assert.equal(capture.options.windowsHide, true);
+	assert.deepEqual(capture.options.stdio, ['pipe', 'pipe', 'pipe']);
+	assert.deepEqual(specification, {
+		executablePath: 'C:\\Games\\ArmaA3\\arma3server_x64.exe',
+		arguments: '-port=2302 "-mod=@One;@Two"',
+		workingDirectory: 'C:\\Games\\ArmaA3',
+	});
+});
+
+test('independent launch failures and invalid PIDs are rejected', async () => {
+	await assert.rejects(
+		launchProcess('C:\\Games\\arma3server_x64.exe', '-port=2302', {
+			spawnImpl: completedLauncher(1, null, '', 'access denied'),
+		}),
+		/Could not launch an independent visible process: access denied/,
+	);
+	await assert.rejects(
+		launchProcess('C:\\Games\\arma3server_x64.exe', '-port=2302', {
+			spawnImpl: completedLauncher(0, null, ''),
+		}),
+		/did not return a valid PID/,
+	);
 });
 
 test('termination uses taskkill against the complete process tree', async () => {
