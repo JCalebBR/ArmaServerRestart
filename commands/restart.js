@@ -2,7 +2,12 @@ const { SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const strings = require('../utils/strings');
-const { findArmaProcesses, killProcess, relaunchProcess } = require('../utils/server');
+const { tryAcquireServerOperation } = require('../utils/operationCoordinator');
+const {
+	countProcessTypes,
+	findConfiguredServerProcesses,
+	restartConfiguredServer,
+} = require('../utils/server');
 
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
@@ -17,36 +22,29 @@ module.exports = {
 				.setAutocomplete(true),
 		),
 
-	// NEW: Handle the dynamic choices from servers.json
 	async autocomplete(interaction) {
 		const focusedValue = interaction.options.getFocused();
 		let config = {};
-
 		try {
-			const fileContent = fs.readFileSync(CONFIG_PATH, 'utf8');
-			config = JSON.parse(fileContent);
-		} catch (e) { console.error("Error reading servers.json", e); }
+			config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+		} catch (error) {
+			console.error('Error reading servers.json', error);
+		}
 
-		// Get keys from the "servers" object
 		const choices = config.servers ? Object.keys(config.servers) : [];
 		const filtered = choices.filter(choice => choice.startsWith(focusedValue));
-
-		await interaction.respond(
-			filtered.map(choice => ({ name: choice, value: choice })),
-		);
+		await interaction.respond(filtered.map(choice => ({ name: choice, value: choice })));
 	},
 
 	async execute(interaction) {
 		const serverName = interaction.options.getString('server', true);
-
-		// 1. READ CONFIG (To get the Port)
+		let fullConfig;
 		let serverConfig;
 		try {
-			const data = fs.readFileSync(CONFIG_PATH, 'utf8');
-			const fullConfig = JSON.parse(data);
+			fullConfig = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
 			serverConfig = fullConfig.servers[serverName];
-		} catch (e) {
-			console.error(e);
+		} catch (error) {
+			console.error(error);
 			return interaction.reply({ content: strings.errors.genericError({ message: 'Error loading config file.' }), ephemeral: true });
 		}
 
@@ -54,56 +52,57 @@ module.exports = {
 			return interaction.reply({ content: strings.errors.noFile(serverName), ephemeral: true });
 		}
 
-		const targetPort = serverConfig.port;
-
 		await interaction.deferReply();
+		const operationLease = tryAcquireServerOperation(serverConfig.port);
+		if (!operationLease.acquired) {
+			const message = operationLease.reason === 'maintenance'
+				? '⚠️ Mods are currently being updated. The server cannot be restarted yet.'
+				: '⚠️ Another lifecycle operation is already running for **' + serverName + '**.';
+			return interaction.editReply(message);
+		}
 
 		try {
-			// STEP 1: Find processes (Using the agnostic logic)
-			const targets = await findArmaProcesses(targetPort);
-
-			if (targets.length === 0) {
-				return interaction.editReply(`⚠️ No running processes found for **${serverName}** (Port ${targetPort}).\nUse \`/start\` if the server is offline.`);
+			const initialProcesses = await findConfiguredServerProcesses(serverConfig);
+			const initialCounts = countProcessTypes(initialProcesses);
+			if (initialProcesses.length > 0) {
+				await interaction.editReply(
+					'🛑 Restart found **' + initialCounts.serverCount + '** server and **' + initialCounts.hcCount + '** HC process(es). Removing all of them...',
+				);
+			} else {
+				await interaction.editReply('ℹ️ **' + serverName + '** is offline. Starting its configured process state...');
 			}
 
-			// Report what we found
-			const serverCount = targets.filter(t => t.type === 'SERVER').length;
-			const hcCount = targets.filter(t => t.type === 'HEADLESS CLIENT').length;
-			await interaction.editReply(`Found **${serverCount}** Server and **${hcCount}** HC(s). Killing...`);
+			const restartResult = await restartConfiguredServer(fullConfig, serverConfig, {
+				startOptions: {
+					onProgress: async progress => {
+						if (progress.phase === 'launching_server') {
+							await interaction.editReply('🚀 Launching a clean **' + serverName + '** server process...');
+						}
+						if (progress.phase === 'waiting_for_hcs') {
+							await interaction.editReply('✅ Server process verified. Waiting 10s before launching ' + progress.hcCount + ' HC(s)...');
+						}
+						if (progress.phase === 'launching_hc') {
+							await interaction.editReply('🚀 Launching HC **' + progress.index + ' of ' + progress.hcCount + '** for **' + serverName + '**...');
+						}
+						if (progress.phase === 'rolling_back') {
+							await interaction.editReply('⚠️ Restart verification failed. Rolling back **' + serverName + '**...');
+						}
+					},
+				},
+			});
+			const result = restartResult.startResult;
 
-			// STEP 2: Kill EVERYTHING found
-			for (const target of targets) {
-				await killProcess(target.pid);
-			}
-
-			// Wait 2 seconds for clean shutdown
-			await new Promise(r => setTimeout(r, 2000));
-
-			// STEP 3: Relaunch (Server First -> Then Clients)
-			const serverProc = targets.find(t => t.type === 'SERVER');
-			const clientProcs = targets.filter(t => t.type === 'HEADLESS CLIENT');
-
-			if (serverProc) {
-				console.log(`[Restart] Launching Server...`);
-				relaunchProcess(serverProc.commandLine);
-			}
-
-			// Wait 5 seconds before starting HCs so the server can initialize
-			if (clientProcs.length > 0) {
-				await interaction.editReply(`✅ Server launched. Waiting 5s to launch Headless Clients...`);
-				await new Promise(r => setTimeout(r, 5000));
-
-				for (const client of clientProcs) {
-					console.log(`[Restart] Launching HC...`);
-					relaunchProcess(client.commandLine);
-				}
-			}
-
-			await interaction.editReply(`✅ **${serverName.toUpperCase()}** full restart complete.\n(Server + ${clientProcs.length} HCs cycled)`);
-
+			await interaction.editReply(
+				'✅ **' + serverName.toUpperCase() + '** restart verified. Running **' + result.serverCount + '** server and **' + result.hcCount + '** HC(s).',
+			);
 		} catch (error) {
-			console.error(error);
-			await interaction.editReply('❌ Internal error during restart sequence.');
+			console.error('[Restart] Failed for ' + serverName + ':', error);
+			const rollbackMessage = error.rollbackError
+				? ' Rollback also failed; manual process cleanup is required.'
+				: '';
+			await interaction.editReply('❌ **' + serverName + '** could not be restarted: ' + error.message + rollbackMessage);
+		} finally {
+			operationLease.release();
 		}
 	},
 };

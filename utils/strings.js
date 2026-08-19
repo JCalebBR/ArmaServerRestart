@@ -281,6 +281,10 @@ module.exports = {
 				},
 			},
 		},
+		update: {
+			name: "update",
+			desc: "Updates all staged Arma 3 mods from the Steam Workshop",
+		},
 		upload: {
 			name: "upload",
 			desc: "Uploads a .pbo mission file to the server",

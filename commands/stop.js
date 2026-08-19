@@ -1,17 +1,21 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { PermissionFlagsBits, SlashCommandBuilder } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 const strings = require('../utils/strings');
-const { findArmaProcesses, killProcess } = require('../utils/server');
+const { tryAcquireServerOperation } = require('../utils/operationCoordinator');
+const {
+	ServerTerminationError,
+	countProcessTypes,
+	findConfiguredServerProcesses,
+	stopConfiguredServer,
+} = require('../utils/server');
 
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
-
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName(strings.commands.stop.name)
 		.setDescription(strings.commands.stop.desc)
-		// Default to Admin only (you can override in Server Settings)
 		.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 		.addStringOption(option =>
 			option.setName(strings.commands.stop.args.first.name)
@@ -23,9 +27,10 @@ module.exports = {
 	async autocomplete(interaction) {
 		const focusedValue = interaction.options.getFocused();
 		let config = {};
-		try { config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8')); }
-		catch (e) {
-			console.error("Error reading servers.json", e);
+		try {
+			config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+		} catch (error) {
+			console.error('Error reading servers.json', error);
 		}
 
 		const choices = config.servers ? Object.keys(config.servers) : [];
@@ -35,51 +40,53 @@ module.exports = {
 
 	async execute(interaction) {
 		const serverName = interaction.options.getString('server', true);
-
-		// 1. READ CONFIG
 		let serverConfig;
 		try {
-			const data = fs.readFileSync(CONFIG_PATH, 'utf8');
-			serverConfig = JSON.parse(data).servers[serverName];
-		} catch (e) {
-			console.error(e);
+			const fullConfig = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+			serverConfig = fullConfig.servers[serverName];
+		} catch (error) {
+			console.error(error);
 			return interaction.reply({ content: strings.errors.genericError({ message: 'Error loading config file.' }), ephemeral: true });
 		}
 
 		if (!serverConfig) {
-			return interaction.reply({ content: strings.errors.genericError({ message: `Unknown server: **${serverName}**` }), ephemeral: true });
+			return interaction.reply({ content: strings.errors.genericError({ message: 'Unknown server: **' + serverName + '**' }), ephemeral: true });
 		}
 
-		const targetPort = serverConfig.port;
-
 		await interaction.deferReply();
+		const operationLease = tryAcquireServerOperation(serverConfig.port);
+		if (!operationLease.acquired) {
+			const message = operationLease.reason === 'maintenance'
+				? '⚠️ Mods are currently being updated. Server lifecycle commands are temporarily locked.'
+				: '⚠️ Another lifecycle operation is already running for **' + serverName + '**.';
+			return interaction.editReply(message);
+		}
 
 		try {
-			// STEP 1: Find processes
-			const targets = await findArmaProcesses(targetPort);
-
-			if (targets.length === 0) {
-				return interaction.editReply(`⚠️ **${serverName}** is already offline (No processes on Port ${targetPort}).`);
+			const processes = await findConfiguredServerProcesses(serverConfig);
+			if (processes.length === 0) {
+				return interaction.editReply('⚠️ **' + serverName + '** is already offline. No matching process arguments were found.');
 			}
 
-			const serverCount = targets.filter(t => t.type === 'SERVER').length;
-			const hcCount = targets.filter(t => t.type === 'HEADLESS CLIENT').length;
-
-			await interaction.editReply(`🛑 Found **${serverCount}** Server and **${hcCount}** HC(s). Shutting down...`);
-
-			// STEP 2: Kill
-			for (const target of targets) {
-				await killProcess(target.pid);
-			}
-
-			// Small delay to ensure Windows cleans up
-			await new Promise(r => setTimeout(r, 2000));
-
-			await interaction.editReply(`✅ **${serverName.toUpperCase()}** has been stopped successfully.`);
-
+			const counts = countProcessTypes(processes);
+			await interaction.editReply(
+				'🛑 Found **' + counts.serverCount + '** server and **' + counts.hcCount + '** HC process(es). Terminating all matching processes...',
+			);
+			const result = await stopConfiguredServer(serverConfig);
+			await interaction.editReply(
+				'✅ **' + serverName.toUpperCase() + '** is stopped. Verified removal of **' + result.terminatedCount + '** process(es).',
+			);
 		} catch (error) {
-			console.error(error);
-			await interaction.editReply(strings.errors.genericError({ message: 'Internal error during stop sequence.' }));
+			console.error('[Stop] Failed for ' + serverName + ':', error);
+			if (error instanceof ServerTerminationError) {
+				const counts = countProcessTypes(error.processes);
+				return interaction.editReply(
+					'❌ Stop verification failed. **' + counts.serverCount + '** server and **' + counts.hcCount + '** HC process(es) remain and may require manual cleanup.',
+				);
+			}
+			await interaction.editReply('❌ Could not inspect or stop **' + serverName + '**: ' + error.message);
+		} finally {
+			operationLease.release();
 		}
 	},
 };
