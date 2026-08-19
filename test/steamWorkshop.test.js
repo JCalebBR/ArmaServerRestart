@@ -14,10 +14,15 @@ const {
 	parseMetaCpp,
 	runProcess,
 	runSteamCmd,
+	runSteamCmdBatch,
+	summarizeSteamCmdFailure,
 	validateWorkshopChild,
 	workshopItemsMatch,
 } = require('../utils/steamWorkshop');
-const { _buildReportEmbeds: buildReportEmbeds } = require('../commands/update');
+const {
+	_buildReportEmbeds: buildReportEmbeds,
+	_createReplyEditor: createReplyEditor,
+} = require('../commands/update');
 
 function temporaryDirectory(t) {
 	const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'arma-workshop-test-'));
@@ -112,6 +117,7 @@ test('runSteamCmd passes cached-login arguments without a password', async () =>
 
 	assert.equal(capture.executable, 'C:\\steamcmd\\steamcmd.exe');
 	assert.deepEqual(capture.args, [
+		'+@ShutdownOnFailedCommand', '0',
 		'+@NoPromptForPassword', '1',
 		'+force_install_dir', 'C:\\mods',
 		'+login', 'workshop-user',
@@ -135,8 +141,54 @@ test('runSteamCmd rejects a zero exit code without an item success confirmation'
 			stagingDirectory: 'C:\\mods',
 			appId: 107410,
 		}, '450814997', { spawnImpl: completedSpawn(0) }),
-		/SteamCMD did not confirm Workshop item 450814997/,
+		/SteamCMD exited with code 0 without confirming the download/,
 	);
+});
+
+test('runSteamCmdBatch uses one login and preserves per-item results', async () => {
+	const capture = {};
+	const completed = [];
+	const result = await runSteamCmdBatch({
+		steamCmdPath: 'C:\\steamcmd\\steamcmd.exe',
+		username: 'workshop-user',
+		stagingDirectory: 'C:\\mods',
+		appId: 107410,
+	}, ['100', '200', '300'], {
+		spawnImpl: completedSpawn(0, capture, [
+			'Success. Downloaded item 100 to cache.',
+			'ERROR! Download item 200 failed (Failure).',
+			'Success. Downloaded item 300 to cache.',
+		].join('\r\n')),
+		onItemComplete: item => completed.push(item.id),
+	});
+
+	assert.equal(capture.args.filter(argument => argument === '+login').length, 1);
+	assert.equal(capture.args.filter(argument => argument === '+workshop_download_item').length, 3);
+	assert.deepEqual(result.results, [
+		{ id: '100', success: true },
+		{ id: '200', success: false, reason: 'SteamCMD download failed: Failure.' },
+		{ id: '300', success: true },
+	]);
+	assert.deepEqual(completed, ['100', '200', '300']);
+});
+
+test('runSteamCmdBatch reports a login rate limit for every unprocessed item', async () => {
+	const result = await runSteamCmdBatch({
+		steamCmdPath: 'steamcmd.exe',
+		username: 'workshop-user',
+		stagingDirectory: 'C:\\mods',
+		appId: 107410,
+	}, ['100', '200'], {
+		spawnImpl: completedSpawn(5, null, 'Logging in user workshop-user...ERROR (Rate Limit Exceeded)'),
+	});
+
+	assert.equal(result.code, 5);
+	assert.deepEqual(result.results, [
+		{ id: '100', success: false, reason: 'Steam login was rate limited.' },
+		{ id: '200', success: false, reason: 'Steam login was rate limited.' },
+	]);
+	assert.equal(summarizeSteamCmdFailure('FAILED (No cached credentials and @NoPromptForPassword is set)', 5),
+		'SteamCMD has no cached credentials for the configured account.');
 });
 
 test('mirrorWorkshopItem accepts robocopy success codes and validates its exact paths', async () => {
@@ -175,5 +227,37 @@ test('public reports paginate partial successes within Discord limits', () => {
 		assert.ok(data.description.length <= 3500);
 		assert.match(data.title, /80\/81 Updated/);
 		assert.match(data.footer.text, /Completed in 2m 4s/);
+		assert.equal(data.fields.find(field => field.name === 'Checked').value, '80');
+		assert.equal(data.fields.find(field => field.name === 'Already current').value, '0');
 	}
+});
+
+test('partial failure reports do not claim every mod was current', () => {
+	const embeds = buildReportEmbeds([], [
+		{ id: '200', title: 'Failed Mod', reason: 'Steam login was rate limited.' },
+	], 3, '10s', 2);
+	const report = embeds[0].toJSON();
+
+	assert.match(report.description, /2.*already up to date/);
+	assert.doesNotMatch(report.description, /No mods required updates/);
+	assert.equal(report.fields.find(field => field.name === 'Checked').value, '2');
+	assert.equal(report.fields.find(field => field.name === 'Failed').value, '1');
+});
+
+test('ephemeral progress stops editing after an expired interaction token', async t => {
+	const warning = t.mock.method(console, 'warn', () => undefined);
+	let calls = 0;
+	const editReply = createReplyEditor({
+		async editReply() {
+			calls++;
+			const error = new Error('Invalid Webhook Token');
+			error.code = 50027;
+			throw error;
+		},
+	});
+
+	assert.equal(await editReply('first'), false);
+	assert.equal(await editReply('second'), false);
+	assert.equal(calls, 1);
+	assert.equal(warning.mock.callCount(), 1);
 });

@@ -91,6 +91,7 @@ function appendProcessOutput(current, chunk) {
 function runProcess(executable, args, options = {}) {
 	const {
 		acceptedExitCodes = [0],
+		onOutput,
 		spawnImpl = spawn,
 		timeoutMs = 7_200_000,
 	} = options;
@@ -117,8 +118,13 @@ function runProcess(executable, args, options = {}) {
 			else resolve(result);
 		};
 
-		if (child.stdout) child.stdout.on('data', chunk => { output = appendProcessOutput(output, chunk); });
-		if (child.stderr) child.stderr.on('data', chunk => { output = appendProcessOutput(output, chunk); });
+		const captureOutput = (chunk, source) => {
+			output = appendProcessOutput(output, chunk);
+			if (onOutput) onOutput(chunk, source);
+		};
+
+		if (child.stdout) child.stdout.on('data', chunk => captureOutput(chunk, 'stdout'));
+		if (child.stderr) child.stderr.on('data', chunk => captureOutput(chunk, 'stderr'));
 
 		child.on('error', error => finish(error));
 		child.on('close', code => {
@@ -138,23 +144,125 @@ function runProcess(executable, args, options = {}) {
 	});
 }
 
-async function runSteamCmd(config, workshopId, options = {}) {
+function summarizeSteamCmdFailure(output, exitCode) {
+	const normalized = typeof output === 'string' ? output : '';
+	if (/rate limit exceeded/i.test(normalized)) return 'Steam login was rate limited.';
+	if (/no cached credentials/i.test(normalized)) return 'SteamCMD has no cached credentials for the configured account.';
+	if (/invalid password/i.test(normalized)) return 'Steam rejected the cached password or login ticket.';
+	if (/account logon denied|steam guard/i.test(normalized)) return 'Steam Guard authorization is required.';
+	if (/no subscription/i.test(normalized)) return 'The Steam account does not own or cannot access this Workshop item.';
+
+	const loginError = normalized.match(/Logging in[^\r\n]*ERROR\s*\(([^)\r\n]+)\)/i);
+	if (loginError) return `Steam login failed: ${loginError[1].trim()}.`;
+	if (Number.isInteger(exitCode)) return `SteamCMD exited with code ${exitCode} without confirming the download.`;
+	return 'SteamCMD did not confirm the download.';
+}
+
+function createWorkshopResultTracker(workshopIds, onItemComplete) {
+	const expectedIds = new Set(workshopIds);
+	const results = new Map();
+	const buffers = { stdout: '', stderr: '' };
+
+	const record = (result, notify = true) => {
+		if (!expectedIds.has(result.id) || results.has(result.id)) return;
+		results.set(result.id, result);
+		if (notify && onItemComplete) onItemComplete(result);
+	};
+
+	const parseLine = line => {
+		const success = line.match(/Success\.\s+Downloaded item\s+(\d+)\b/i);
+		if (success) {
+			record({ id: success[1], success: true });
+			return;
+		}
+
+		const failure = line.match(/ERROR!\s+Download item\s+(\d+)\s+failed\s+\(([^)\r\n]+)\)/i);
+		if (failure) {
+			record({
+				id: failure[1],
+				success: false,
+				reason: `SteamCMD download failed: ${failure[2].trim()}.`,
+			});
+		}
+	};
+
+	const consume = (chunk, source = 'stdout') => {
+		const bufferName = source === 'stderr' ? 'stderr' : 'stdout';
+		buffers[bufferName] += chunk.toString();
+		const lines = buffers[bufferName].split(/\r?\n/);
+		buffers[bufferName] = lines.pop();
+		for (const line of lines) parseLine(line);
+	};
+
+	const finish = fallbackReason => {
+		parseLine(buffers.stdout);
+		parseLine(buffers.stderr);
+		for (const id of workshopIds) {
+			record({ id, success: false, reason: fallbackReason }, false);
+		}
+		return workshopIds.map(id => results.get(id));
+	};
+
+	return { consume, finish };
+}
+
+async function runSteamCmdBatch(config, workshopIds, options = {}) {
+	if (!Array.isArray(workshopIds) || workshopIds.length === 0) {
+		return { code: 0, output: '', results: [] };
+	}
+
+	const normalizedIds = workshopIds.map(String);
+	if (new Set(normalizedIds).size !== normalizedIds.length || normalizedIds.some(id => !/^\d+$/.test(id))) {
+		throw new Error('Workshop IDs must be unique numeric strings.');
+	}
+
+	const { onItemComplete, ...processOptions } = options;
 	const args = [
+		'+@ShutdownOnFailedCommand', '0',
 		'+@NoPromptForPassword', '1',
 		'+force_install_dir', config.stagingDirectory,
 		'+login', config.username,
-		'+workshop_download_item', String(config.appId), workshopId, 'validate',
-		'+quit',
 	];
+	for (const workshopId of normalizedIds) {
+		args.push('+workshop_download_item', String(config.appId), workshopId, 'validate');
+	}
+	args.push('+quit');
 
-	const result = await runProcess(config.steamCmdPath, args, options);
-	const successMessage = `success. downloaded item ${workshopId}`;
-	if (!result.output.toLowerCase().includes(successMessage)) {
-		const error = new Error(`SteamCMD did not confirm Workshop item ${workshopId}.`);
-		error.output = result.output;
+	const tracker = createWorkshopResultTracker(normalizedIds, onItemComplete);
+	const callerOnOutput = processOptions.onOutput;
+	let processResult;
+	let processError;
+
+	try {
+		processResult = await runProcess(config.steamCmdPath, args, {
+			...processOptions,
+			onOutput: (chunk, source) => {
+				tracker.consume(chunk, source);
+				if (callerOnOutput) callerOnOutput(chunk, source);
+			},
+		});
+	} catch (error) {
+		if (!Number.isInteger(error.exitCode)) throw error;
+		processError = error;
+	}
+
+	const code = processResult ? processResult.code : processError.exitCode;
+	const output = processResult ? processResult.output : processError.output;
+	const results = tracker.finish(summarizeSteamCmdFailure(output, code));
+	return { code, output, results };
+}
+
+async function runSteamCmd(config, workshopId, options = {}) {
+	const batch = await runSteamCmdBatch(config, [workshopId], options);
+	const result = batch.results[0];
+	if (!result.success) {
+		const error = new Error(result.reason);
+		error.exitCode = batch.code;
+		error.output = batch.output;
 		throw error;
 	}
-	return result;
+
+	return { code: batch.code, output: batch.output };
 }
 
 function validateWorkshopChild(parentDirectory, targetDirectory, workshopId) {
@@ -292,6 +400,8 @@ module.exports = {
 	readModMeta,
 	runProcess,
 	runSteamCmd,
+	runSteamCmdBatch,
+	summarizeSteamCmdFailure,
 	validateWorkshopChild,
 	workshopItemsMatch,
 };

@@ -18,7 +18,7 @@ const {
 	mirrorWorkshopItem,
 	paginateLines,
 	readModMeta,
-	runSteamCmd,
+	runSteamCmdBatch,
 	workshopItemsMatch,
 } = require('../utils/steamWorkshop');
 
@@ -71,18 +71,21 @@ function createProgressEmbed(index, total, title, workshopId) {
 		.setTimestamp();
 }
 
-function reportLines(updated, failures, total) {
+function reportLines(updated, failures, total, alreadyCurrent) {
 	const lines = [];
 
 	if (updated.length === 0 && failures.length === 0) {
 		return [`✅ All **${total}** mods were already up to date.`];
 	}
 
+	if (alreadyCurrent > 0) {
+		lines.push(`✅ **${alreadyCurrent}** mods were already up to date.`);
+	}
+
 	if (updated.length > 0) {
+		if (lines.length > 0) lines.push('');
 		lines.push('**Updated mods**');
 		for (const mod of updated) lines.push(`• **${mod.title}** (\`${mod.id}\`)`);
-	} else {
-		lines.push('✅ No mods required updates.');
 	}
 
 	if (failures.length > 0) {
@@ -96,17 +99,20 @@ function reportLines(updated, failures, total) {
 	return lines;
 }
 
-function buildReportEmbeds(updated, failures, total, elapsed) {
-	const pages = paginateLines(reportLines(updated, failures, total));
+function buildReportEmbeds(updated, failures, total, elapsed, alreadyCurrent = Math.max(0, total - updated.length - failures.length)) {
+	const checked = updated.length + alreadyCurrent;
+	const pages = paginateLines(reportLines(updated, failures, total, alreadyCurrent));
 	const color = failures.length > 0 ? 0xF2994A : 0x27AE60;
 
 	return pages.map((description, index) => new EmbedBuilder()
 		.setColor(color)
-		.setTitle(`📦 Mod Update Report — ${updated.length}/${total} Updated`)
+		.setTitle(`📦 Mod Update Report — ${updated.length}/${total} Updated • ${failures.length} Failed`)
 		.setDescription(description)
 		.addFields(
-			{ name: 'Total', value: String(total), inline: true },
+			{ name: 'Scanned', value: String(total), inline: true },
+			{ name: 'Checked', value: String(checked), inline: true },
 			{ name: 'Updated', value: String(updated.length), inline: true },
+			{ name: 'Already current', value: String(alreadyCurrent), inline: true },
 			{ name: 'Failed', value: String(failures.length), inline: true },
 		)
 		.setFooter({ text: `Page ${index + 1} of ${pages.length} • Completed in ${elapsed}` })
@@ -128,12 +134,30 @@ function createReportButtons(page, totalPages) {
 	);
 }
 
-async function safeEditReply(interaction, payload) {
-	try {
-		await interaction.editReply(payload);
-	} catch (error) {
-		console.warn('[Workshop] Could not update the ephemeral progress message:', error.message);
-	}
+function isExpiredInteractionError(error) {
+	const code = error?.code ?? error?.rawError?.code;
+	return [10015, 10062, 50027].includes(Number(code))
+		|| /invalid webhook token|unknown webhook|unknown interaction/i.test(error?.message || '');
+}
+
+function createReplyEditor(interaction) {
+	let available = true;
+	let warned = false;
+
+	return async payload => {
+		if (!available) return false;
+		try {
+			await interaction.editReply(payload);
+			return true;
+		} catch (error) {
+			if (isExpiredInteractionError(error)) available = false;
+			if (!warned || available) {
+				console.warn('[Workshop] Could not update the ephemeral progress message:', error.message);
+				warned = true;
+			}
+			return false;
+		}
+	};
 }
 
 async function publishReport(interaction, embeds) {
@@ -187,13 +211,14 @@ module.exports = {
 	async execute(interaction) {
 		const startedAt = Date.now();
 		await interaction.deferReply({ ephemeral: true });
+		const editReply = createReplyEditor(interaction);
 
 		const operationLease = tryAcquireMaintenanceOperation();
 		if (!operationLease.acquired) {
 			const message = operationLease.reason === 'server'
 				? '⚠️ A server lifecycle operation is already running.'
 				: '⚠️ A Steam Workshop update is already running.';
-			return interaction.editReply(message);
+			return editReply(message);
 		}
 
 		try {
@@ -201,18 +226,18 @@ module.exports = {
 			try {
 				config = loadWorkshopConfig();
 			} catch (error) {
-				return interaction.editReply(`❌ ${error.message}`);
+				return editReply(`❌ ${error.message}`);
 			}
 
 			let runningProcesses;
 			try {
 				runningProcesses = await findAllArmaProcesses();
 			} catch (error) {
-				return interaction.editReply(`❌ ${error.message}`);
+				return editReply(`❌ ${error.message}`);
 			}
 
 			if (runningProcesses.length > 0) {
-				return interaction.editReply('⚠️ Stop all Arma servers and headless clients before updating mods.');
+				return editReply('⚠️ Stop all Arma servers and headless clients before updating mods.');
 			}
 
 			let mods;
@@ -220,11 +245,11 @@ module.exports = {
 				mods = discoverWorkshopMods(config.stagingDirectory);
 			} catch (error) {
 				console.error('[Workshop] Could not scan the staging directory:', error);
-				return interaction.editReply('❌ The mod staging directory could not be scanned.');
+				return editReply('❌ The mod staging directory could not be scanned.');
 			}
 
 			if (mods.length === 0) {
-				return interaction.editReply('⚠️ No numeric Workshop-ID folders were found in the staging directory.');
+				return editReply('⚠️ No numeric Workshop-ID folders were found in the staging directory.');
 			}
 
 			const missingTitleIds = mods.filter(mod => !mod.meta.name).map(mod => mod.id);
@@ -239,41 +264,43 @@ module.exports = {
 
 			const updated = [];
 			const failures = [];
-
-			for (let index = 0; index < mods.length; index++) {
+			let alreadyCurrent = 0;
+			const modIndexes = new Map(mods.map((mod, index) => [mod.id, index]));
+			let progressEdits = Promise.resolve();
+			const showProgress = index => {
 				const mod = mods[index];
-				let title = cleanTitle(mod.meta.name || remoteTitles.get(mod.id), mod.id);
-				await safeEditReply(interaction, {
+				const title = cleanTitle(mod.meta.name || remoteTitles.get(mod.id), mod.id);
+				progressEdits = progressEdits.then(() => editReply({
 					embeds: [createProgressEmbed(index + 1, mods.length, title, mod.id)],
-				});
+				}));
+			};
 
-				try {
-					const processesBeforeDownload = await findAllArmaProcesses();
-					if (processesBeforeDownload.length > 0) {
-						const reason = 'An Arma process started during the update; this mod was not processed.';
-						for (const remainingMod of mods.slice(index)) {
-							failures.push({
-								id: remainingMod.id,
-								title: cleanTitle(remainingMod.meta.name || remoteTitles.get(remainingMod.id), remainingMod.id),
-								reason,
-							});
-						}
-						break;
-					}
-				} catch (error) {
-					const reason = `The remaining mods were not processed: ${error.message}`.slice(0, 300);
-					for (const remainingMod of mods.slice(index)) {
-						failures.push({
-							id: remainingMod.id,
-							title: cleanTitle(remainingMod.meta.name || remoteTitles.get(remainingMod.id), remainingMod.id),
-							reason,
-						});
-					}
-					break;
+			showProgress(0);
+			let downloadResults;
+			try {
+				const batch = await runSteamCmdBatch(config, mods.map(mod => mod.id), {
+					onItemComplete: result => {
+						const nextIndex = modIndexes.get(result.id) + 1;
+						if (nextIndex < mods.length) showProgress(nextIndex);
+					},
+				});
+				downloadResults = new Map(batch.results.map(result => [result.id, result]));
+			} catch (error) {
+				console.error('[Workshop] SteamCMD batch failed:', error);
+				const reason = `SteamCMD could not run: ${error.message}`.slice(0, 300);
+				downloadResults = new Map(mods.map(mod => [mod.id, { id: mod.id, success: false, reason }]));
+			}
+			await progressEdits;
+
+			for (const mod of mods) {
+				let title = cleanTitle(mod.meta.name || remoteTitles.get(mod.id), mod.id);
+				const download = downloadResults.get(mod.id);
+				if (!download?.success) {
+					failures.push({ id: mod.id, title, reason: download?.reason || 'SteamCMD did not return a result.' });
+					continue;
 				}
 
 				try {
-					await runSteamCmd(config, mod.id);
 					const cachedDirectory = cacheDirectoryFor(config, mod.id);
 					if (!fs.existsSync(cachedDirectory)) {
 						throw new Error('SteamCMD did not create a Workshop cache folder.');
@@ -281,7 +308,10 @@ module.exports = {
 
 					const cachedMeta = readModMeta(cachedDirectory);
 					title = cleanTitle(cachedMeta.name || mod.meta.name || remoteTitles.get(mod.id), mod.id);
-					if (workshopItemsMatch(mod.directory, cachedDirectory)) continue;
+					if (workshopItemsMatch(mod.directory, cachedDirectory)) {
+						alreadyCurrent++;
+						continue;
+					}
 
 					const processesBeforeCopy = await findAllArmaProcesses();
 					if (processesBeforeCopy.length > 0) {
@@ -301,17 +331,17 @@ module.exports = {
 			}
 
 			const elapsed = formatDuration(Date.now() - startedAt);
-			const embeds = buildReportEmbeds(updated, failures, mods.length, elapsed);
+			const embeds = buildReportEmbeds(updated, failures, mods.length, elapsed, alreadyCurrent);
 			try {
 				await publishReport(interaction, embeds);
-				await safeEditReply(interaction, {
+				await editReply({
 					content: `✅ Update finished in **${elapsed}**. The public report has been posted.`,
 					embeds: [],
 					components: [],
 				});
 			} catch (error) {
 				console.error('[Workshop] Could not publish the update report:', error);
-				await safeEditReply(interaction, {
+				await editReply({
 					content: `⚠️ Updating finished in **${elapsed}**, but the public report could not be posted: ${error.message}`,
 					embeds: [embeds[0]],
 					components: [],
@@ -323,5 +353,6 @@ module.exports = {
 	},
 
 	_buildReportEmbeds: buildReportEmbeds,
+	_createReplyEditor: createReplyEditor,
 	_loadWorkshopConfig: loadWorkshopConfig,
 };
