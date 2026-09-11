@@ -5,9 +5,10 @@ const strings = require('../utils/strings');
 const { tryAcquireServerOperation } = require('../utils/operationCoordinator');
 const {
 	ServerProcessesExistError,
-	countProcessTypes,
-	startConfiguredServer,
-} = require('../utils/server');
+	countConfiguredProcesses,
+	isMinecraft,
+	startServer,
+} = require('../utils/serverLifecycle');
 
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
@@ -32,7 +33,7 @@ module.exports = {
 		}
 
 		const choices = config.servers ? Object.keys(config.servers) : [];
-		const filtered = choices.filter(choice => choice.startsWith(focusedValue));
+		const filtered = choices.filter(choice => choice.toLowerCase().startsWith(focusedValue.toLowerCase())).slice(0, 25);
 		await interaction.respond(filtered.map(choice => ({ name: choice, value: choice })));
 	},
 
@@ -63,10 +64,13 @@ module.exports = {
 		}
 
 		try {
-			const result = await startConfiguredServer(fullConfig, serverConfig, {
+			const result = await startServer(fullConfig, serverConfig, {
 				onProgress: async progress => {
 					if (progress.phase === 'launching_server') {
 						await interaction.editReply('🚀 Launching **' + serverName + '** on Port ' + serverConfig.port + '...');
+					}
+					if (progress.phase === 'waiting_for_minecraft') {
+						await interaction.editReply('⏳ The Minecraft JVM is running. Waiting for the server and RCON to finish booting...');
 					}
 					if (progress.phase === 'waiting_for_hcs') {
 						await interaction.editReply('✅ Server process verified. Waiting 10s before launching ' + progress.hcCount + ' HC(s)...');
@@ -80,13 +84,30 @@ module.exports = {
 				},
 			});
 
-			await interaction.editReply(
-				'✅ **' + serverName + '** startup verified. Running **' + result.serverCount + '** server and **' + result.hcCount + '** HC(s).',
-			);
+			if (isMinecraft(serverConfig)) {
+				if (result.ready) {
+					await interaction.client.minecraftServices?.processQueue().catch(error => {
+						console.warn('[Minecraft Whitelist] Post-start queue processing failed:', error.message);
+					});
+				}
+				const message = result.ready
+					? '✅ **' + serverName + '** is online and accepting RCON commands.'
+					: '⚠️ **' + serverName + '** is still starting. The JVM is running, but readiness was not confirmed within 10 minutes.';
+				await interaction.editReply(message);
+			} else {
+				await interaction.editReply(
+					'✅ **' + serverName + '** startup verified. Running **' + result.serverCount + '** server and **' + result.hcCount + '** HC(s).',
+				);
+			}
 		} catch (error) {
 			console.error('[Start] Failed for ' + serverName + ':', error);
 			if (error instanceof ServerProcessesExistError) {
-				const counts = countProcessTypes(error.processes);
+				const counts = countConfiguredProcesses(error.processes, serverConfig);
+				if (isMinecraft(serverConfig)) {
+					return interaction.editReply(
+						'⚠️ **' + serverName + '** already has a matching launcher or Minecraft JVM. Nothing was launched. Use /stop or /restart to normalize it.',
+					);
+				}
 				return interaction.editReply(
 					'⚠️ **' + serverName + '** already has **' + counts.serverCount + '** server and **' + counts.hcCount + '** HC process(es). Nothing was launched. Use /stop or /restart to normalize them.',
 				);
@@ -94,7 +115,7 @@ module.exports = {
 
 			const rollbackMessage = error.rollbackError
 				? ' Rollback also failed; manual process cleanup is required.'
-				: ' All matching processes were rolled back.';
+				: (isMinecraft(serverConfig) ? '' : ' All matching processes were rolled back.');
 			await interaction.editReply('❌ **' + serverName + '** failed to start: ' + error.message + rollbackMessage);
 		} finally {
 			operationLease.release();

@@ -13,7 +13,7 @@ const PROCESS_LAUNCH_SCRIPT = [
 
 class ServerProcessesExistError extends Error {
 	constructor(processes) {
-		super('Matching Arma processes are already running.');
+		super('Matching server processes are already running.');
 		this.name = 'ServerProcessesExistError';
 		this.processes = processes;
 	}
@@ -29,7 +29,7 @@ class ServerStartupError extends Error {
 
 class ServerTerminationError extends Error {
 	constructor(processes, errors = []) {
-		super(`Could not terminate ${processes.length} matching Arma process(es).`);
+		super(`Could not terminate ${processes.length} matching server process(es).`);
 		this.name = 'ServerTerminationError';
 		this.processes = processes;
 		this.errors = errors;
@@ -217,7 +217,7 @@ function launchProcess(executablePath, args, options = {}) {
 	const specification = {
 		executablePath,
 		arguments: serializeLaunchArguments(args),
-		workingDirectory: path.win32.dirname(executablePath),
+		workingDirectory: options.workingDirectory || path.win32.dirname(executablePath),
 	};
 
 	return new Promise((resolve, reject) => {

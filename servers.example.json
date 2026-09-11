@@ -1,0 +1,41 @@
+{
+	"exePath": "C:\\Games\\Arma3\\arma3server_x64.exe",
+	"servers": {
+		"Example Arma Server": {
+			"kind": "arma3",
+			"host": "127.0.0.1",
+			"port": 2302,
+			"queryPort": 2303,
+			"hcCount": 0,
+			"serverArgs": "-port=2302 -config=C:\\Servers\\Arma\\server.cfg",
+			"hcArgs": ""
+		},
+		"Minecraft": {
+			"kind": "minecraft",
+			"host": "127.0.0.1",
+			"port": 25565,
+			"queryPort": 25565,
+			"workingDirectory": "C:\\Servers\\ATM10-Aeronautics",
+			"startScript": "C:\\Servers\\ATM10-Aeronautics\\startserver.bat",
+			"worldDirectory": "C:\\Servers\\ATM10-Aeronautics\\world",
+			"processMarker": "marcus.serverId=minecraft",
+			"rcon": {
+				"host": "127.0.0.1",
+				"port": 25575,
+				"passwordEnv": "MINECRAFT_RCON_PASSWORD"
+			},
+			"discordChannelId": "1194397220234072064",
+			"scheduledRestart": {
+				"enabled": true,
+				"cron": "0 0 */4 * * *",
+				"warnings": [600, 300, 60, 10]
+			}
+		}
+	},
+	"steamWorkshop": {
+		"steamCmdPath": "C:\\steamcmd\\steamcmd.exe",
+		"username": "<dedicated Steam account>",
+		"stagingDirectory": "C:\\Users\\YOUR_USER\\Documents\\ModStagingDirectory",
+		"appId": 107410
+	}
+}

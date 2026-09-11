@@ -24,3 +24,39 @@ The `/start`, `/stop`, and `/restart` commands identify servers from the argumen
 - An incomplete startup is rolled back instead of leaving a partial process set.
 
 The Windows account running the bot must be allowed to read process command lines through CIM and terminate the Arma process trees.
+
+## Minecraft server management
+
+Marcus can manage one Minecraft Java server through the existing `/start`, `/stop`, `/restart`, and `/status` commands. It also provides `/whitelist`, `/mcstats`, a two-way Discord chat relay, and scheduled restarts at 00:00, 04:00, 08:00, 12:00, 16:00, and 20:00 in the Windows host's local time.
+
+Copy the `Minecraft` entry from `servers.example.json` into the ignored `servers.json` and replace the example paths. In the ATM server's `user_jvm_args.txt`, add this line so Marcus can distinguish the server from other Java programs:
+
+```text
+-Dmarcus.serverId=minecraft
+```
+
+Initialize the ATM server pack manually and confirm `startserver.bat` works before controlling it through Discord. The PM2 daemon must run in the logged-in interactive Windows session for the independently launched console window to be visible; a Windows service running in session 0 cannot display that GUI.
+
+Configure these values in the server's `server.properties`:
+
+```properties
+server-port=25565
+enable-rcon=true
+rcon.port=25575
+rcon.password=USE_A_LONG_RANDOM_PASSWORD
+white-list=true
+enforce-whitelist=true
+broadcast-rcon-to-ops=false
+```
+
+Do not port-forward TCP 25575. Block external access to the RCON port in Windows Firewall and set the same password in the environment inherited by PM2:
+
+```powershell
+$env:MINECRAFT_RCON_PASSWORD = 'USE_THE_SAME_PASSWORD'
+pm2 restart Marcus --update-env
+pm2 save
+```
+
+After pulling a release containing new dependencies or commands, run `npm ci` and `node deploy-commands.js` before restarting Marcus. Whitelist requests made while Minecraft is offline are stored in the ignored `minecraft_state.db` file and applied after RCON becomes available.
+
+The chat bridge uses channel `1194397220234072064` from the server configuration. Unicode emoji are relayed directly, custom Discord emoji become `:emoji_name:` in Minecraft, and images, stickers, and GIFs appear as clickable URLs. `/mcstats` reads the latest persisted player snapshot from the configured world's `stats` directory; online-player values can therefore lag behind live gameplay.

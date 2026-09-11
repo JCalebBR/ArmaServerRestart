@@ -4,10 +4,11 @@ const path = require('path');
 const strings = require('../utils/strings');
 const { tryAcquireServerOperation } = require('../utils/operationCoordinator');
 const {
-	countProcessTypes,
-	findConfiguredServerProcesses,
-	restartConfiguredServer,
-} = require('../utils/server');
+	countConfiguredProcesses,
+	findConfiguredProcesses,
+	isMinecraft,
+	restartServer,
+} = require('../utils/serverLifecycle');
 
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
@@ -32,7 +33,7 @@ module.exports = {
 		}
 
 		const choices = config.servers ? Object.keys(config.servers) : [];
-		const filtered = choices.filter(choice => choice.startsWith(focusedValue));
+		const filtered = choices.filter(choice => choice.toLowerCase().startsWith(focusedValue.toLowerCase())).slice(0, 25);
 		await interaction.respond(filtered.map(choice => ({ name: choice, value: choice })));
 	},
 
@@ -62,21 +63,24 @@ module.exports = {
 		}
 
 		try {
-			const initialProcesses = await findConfiguredServerProcesses(serverConfig);
-			const initialCounts = countProcessTypes(initialProcesses);
+			const initialProcesses = await findConfiguredProcesses(serverConfig);
+			const initialCounts = countConfiguredProcesses(initialProcesses, serverConfig);
 			if (initialProcesses.length > 0) {
-				await interaction.editReply(
-					'🛑 Restart found **' + initialCounts.serverCount + '** server and **' + initialCounts.hcCount + '** HC process(es). Removing all of them...',
-				);
+				await interaction.editReply(isMinecraft(serverConfig)
+					? '🛑 Minecraft is running. Saving the world and stopping it gracefully...'
+					: '🛑 Restart found **' + initialCounts.serverCount + '** server and **' + initialCounts.hcCount + '** HC process(es). Removing all of them...');
 			} else {
 				await interaction.editReply('ℹ️ **' + serverName + '** is offline. Starting its configured process state...');
 			}
 
-			const restartResult = await restartConfiguredServer(fullConfig, serverConfig, {
+			const restartResult = await restartServer(fullConfig, serverConfig, {
 				startOptions: {
 					onProgress: async progress => {
 						if (progress.phase === 'launching_server') {
 							await interaction.editReply('🚀 Launching a clean **' + serverName + '** server process...');
+						}
+						if (progress.phase === 'waiting_for_minecraft') {
+							await interaction.editReply('⏳ Minecraft is booting. Waiting for RCON readiness...');
 						}
 						if (progress.phase === 'waiting_for_hcs') {
 							await interaction.editReply('✅ Server process verified. Waiting 10s before launching ' + progress.hcCount + ' HC(s)...');
@@ -92,9 +96,20 @@ module.exports = {
 			});
 			const result = restartResult.startResult;
 
-			await interaction.editReply(
-				'✅ **' + serverName.toUpperCase() + '** restart verified. Running **' + result.serverCount + '** server and **' + result.hcCount + '** HC(s).',
-			);
+			if (isMinecraft(serverConfig)) {
+				if (result.ready) {
+					await interaction.client.minecraftServices?.processQueue().catch(error => {
+						console.warn('[Minecraft Whitelist] Post-restart queue processing failed:', error.message);
+					});
+				}
+				await interaction.editReply(result.ready
+					? '✅ **' + serverName.toUpperCase() + '** restarted and is ready.'
+					: '⚠️ **' + serverName.toUpperCase() + '** restarted, but is still booting after the readiness timeout.');
+			} else {
+				await interaction.editReply(
+					'✅ **' + serverName.toUpperCase() + '** restart verified. Running **' + result.serverCount + '** server and **' + result.hcCount + '** HC(s).',
+				);
+			}
 		} catch (error) {
 			console.error('[Restart] Failed for ' + serverName + ':', error);
 			const rollbackMessage = error.rollbackError

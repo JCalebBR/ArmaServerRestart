@@ -285,6 +285,14 @@ module.exports = {
 			name: "update",
 			desc: "Updates all staged Arma 3 mods from the Steam Workshop",
 		},
+		whitelist: {
+			name: "whitelist",
+			desc: "Manage the Minecraft whitelist",
+		},
+		mcstats: {
+			name: "mcstats",
+			desc: "View persisted Minecraft player statistics",
+		},
 		upload: {
 			name: "upload",
 			desc: "Uploads a .pbo mission file to the server",

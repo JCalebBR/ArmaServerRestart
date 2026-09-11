@@ -5,10 +5,11 @@ const strings = require('../utils/strings');
 const { tryAcquireServerOperation } = require('../utils/operationCoordinator');
 const {
 	ServerTerminationError,
-	countProcessTypes,
-	findConfiguredServerProcesses,
-	stopConfiguredServer,
-} = require('../utils/server');
+	countConfiguredProcesses,
+	findConfiguredProcesses,
+	isMinecraft,
+	stopServer,
+} = require('../utils/serverLifecycle');
 
 const CONFIG_PATH = path.join(__dirname, '../servers.json');
 
@@ -34,7 +35,7 @@ module.exports = {
 		}
 
 		const choices = config.servers ? Object.keys(config.servers) : [];
-		const filtered = choices.filter(choice => choice.startsWith(focusedValue));
+		const filtered = choices.filter(choice => choice.toLowerCase().startsWith(focusedValue.toLowerCase())).slice(0, 25);
 		await interaction.respond(filtered.map(choice => ({ name: choice, value: choice })));
 	},
 
@@ -63,23 +64,26 @@ module.exports = {
 		}
 
 		try {
-			const processes = await findConfiguredServerProcesses(serverConfig);
+			const processes = await findConfiguredProcesses(serverConfig);
 			if (processes.length === 0) {
 				return interaction.editReply('⚠️ **' + serverName + '** is already offline. No matching process arguments were found.');
 			}
 
-			const counts = countProcessTypes(processes);
-			await interaction.editReply(
-				'🛑 Found **' + counts.serverCount + '** server and **' + counts.hcCount + '** HC process(es). Terminating all matching processes...',
-			);
-			const result = await stopConfiguredServer(serverConfig);
+			const counts = countConfiguredProcesses(processes, serverConfig);
+			await interaction.editReply(isMinecraft(serverConfig)
+				? '🛑 Saving **' + serverName + '** and requesting a graceful shutdown...'
+				: '🛑 Found **' + counts.serverCount + '** server and **' + counts.hcCount + '** HC process(es). Terminating all matching processes...');
+			const result = await stopServer(serverConfig);
 			await interaction.editReply(
 				'✅ **' + serverName.toUpperCase() + '** is stopped. Verified removal of **' + result.terminatedCount + '** process(es).',
 			);
 		} catch (error) {
 			console.error('[Stop] Failed for ' + serverName + ':', error);
 			if (error instanceof ServerTerminationError) {
-				const counts = countProcessTypes(error.processes);
+				const counts = countConfiguredProcesses(error.processes, serverConfig);
+				if (isMinecraft(serverConfig)) {
+					return interaction.editReply('❌ Stop verification failed. Matching Minecraft launcher/JVM processes remain and may require manual cleanup.');
+				}
 				return interaction.editReply(
 					'❌ Stop verification failed. **' + counts.serverCount + '** server and **' + counts.hcCount + '** HC process(es) remain and may require manual cleanup.',
 				);

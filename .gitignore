@@ -145,3 +145,6 @@ node_modules
 *.sqm
 servers.json
 json/*
+minecraft_state.db
+minecraft_state.db-shm
+minecraft_state.db-wal
