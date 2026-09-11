@@ -4,6 +4,7 @@ const {
 	describeMinecraftProcess,
 	matchingMinecraftProcesses,
 	minecraftJvmCount,
+	minecraftLogContainsReadyLine,
 	queryMinecraftCandidates,
 	startMinecraftServer,
 	stopMinecraftServer,
@@ -47,6 +48,11 @@ test('Minecraft CIM failures and malformed output remain real errors', async () 
 	}), /Could not parse the Minecraft process list/);
 });
 
+test('Minecraft log readiness recognizes the dedicated-server Done line', () => {
+	assert.equal(minecraftLogContainsReadyLine('[Server thread/INFO]: Done (2.221s)! For help, type "help"'), true);
+	assert.equal(minecraftLogContainsReadyLine('[Server thread/INFO]: Starting Minecraft server on *:25565'), false);
+});
+
 test('Minecraft start refuses duplicates and launches the batch file in an independent cmd process', async () => {
 	await assert.rejects(startMinecraftServer(CONFIG, {
 		checkRcon: false,
@@ -75,6 +81,25 @@ test('Minecraft start refuses duplicates and launches the batch file in an indep
 	assert.match(launch.args, /startserver\.bat/);
 	assert.equal(launch.options.workingDirectory, CONFIG.workingDirectory);
 	assert.equal(result.ready, true);
+});
+
+test('Minecraft start reports unavailable RCON after the game log reaches Done without rolling back the live JVM', async () => {
+	const running = [processInfo(11, 'java.exe', 'java -Dmarcus.serverId=minecraft')];
+	const snapshots = [[], running, running, running];
+	let rollbackCount = 0;
+	const result = await startMinecraftServer(CONFIG, {
+		checkRcon: false,
+		findProcesses: async () => snapshots.shift() || running,
+		launch: async () => undefined,
+		rconSend: async () => { throw new Error('connect ECONNREFUSED 127.0.0.1:25575'); },
+		logReadyCheck: async () => true,
+		rconPostReadyGraceMs: 0,
+		delayFn: async () => undefined,
+		stop: async () => { rollbackCount++; },
+	});
+	assert.equal(result.ready, false);
+	assert.match(result.readinessError, /enable-rcon=true/);
+	assert.equal(rollbackCount, 0);
 });
 
 test('Minecraft stop saves through RCON and verifies graceful process exit', async () => {

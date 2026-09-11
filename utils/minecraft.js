@@ -128,6 +128,48 @@ function minecraftJvmCount(processes) {
 	return processes.filter(process => process.type === 'MINECRAFT SERVER').length;
 }
 
+function minecraftLogContainsReadyLine(contents) {
+	return /\bDone \([\d.]+s\)! For help, type ["']help["']/i.test(String(contents || ''));
+}
+
+async function minecraftLogIsReady(serverConfig, options = {}) {
+	const logPath = options.logPath || minecraftPaths(serverConfig).latestLog;
+	const readTailBytes = options.readTailBytes ?? 64 * 1024;
+	let handle;
+	try {
+		handle = await fs.promises.open(logPath, 'r');
+		const stats = await handle.stat();
+		if (options.notBeforeMs && stats.mtimeMs < options.notBeforeMs - 1000) return false;
+		const length = Math.min(stats.size, readTailBytes);
+		if (length === 0) return false;
+		const buffer = Buffer.alloc(length);
+		await handle.read(buffer, 0, length, stats.size - length);
+		return minecraftLogContainsReadyLine(buffer.toString('utf8'));
+	} catch (error) {
+		if (error.code === 'ENOENT') return false;
+		throw error;
+	} finally {
+		await handle?.close();
+	}
+}
+
+function conciseRconReadinessError(error, serverConfig) {
+	const host = serverConfig.rcon?.host || '127.0.0.1';
+	const port = Number(serverConfig.rcon?.port) || 25575;
+	const rawMessage = String(error?.message || error || 'unknown RCON error');
+	const messages = [rawMessage];
+	let cause = error?.cause;
+	while (cause && messages.length < 3) {
+		if (cause.message) messages.push(String(cause.message));
+		cause = cause.cause;
+	}
+	const details = [...new Set(messages)].join(' — ').slice(0, 350);
+	if (/auth|password/i.test(details)) {
+		return `RCON rejected the configured password at ${host}:${port}. Make sure rcon.password in server.properties exactly matches the MINECRAFT_RCON_PASSWORD value available to Marcus.`;
+	}
+	return `Minecraft finished booting, but RCON is unavailable at ${host}:${port} (${details}). Check enable-rcon=true, rcon.port=${port}, the RCON password, and that server.properties is in the configured working directory.`;
+}
+
 async function notifyProgress(callback, progress) {
 	try {
 		await callback(progress);
@@ -148,6 +190,7 @@ async function startMinecraftServer(serverConfig, options = {}) {
 		await notifyProgress(onProgress, { phase: 'launching_server' });
 		const cmdPath = process.env.ComSpec || 'C:\\Windows\\System32\\cmd.exe';
 		const cmdArguments = `/d /s /c ""${serverConfig.startScript}""`;
+		const launchStartedAt = Date.now();
 		await launch(cmdPath, cmdArguments, { workingDirectory: serverConfig.workingDirectory });
 
 		const processes = await waitFor(async () => {
@@ -163,30 +206,57 @@ async function startMinecraftServer(serverConfig, options = {}) {
 		await notifyProgress(onProgress, { phase: 'waiting_for_minecraft' });
 
 		let exitedDuringStartup = false;
-		const readinessCheck = options.readinessCheck || (async () => {
-			const snapshot = await findProcesses();
-			if (minecraftJvmCount(snapshot) !== 1) {
-				exitedDuringStartup = true;
-				return true;
-			}
-			try {
-				await sendRcon(serverConfig, 'list');
-				return true;
-			} catch {
-				return false;
-			}
-		});
-		const ready = Boolean(await waitFor(readinessCheck, {
+		let lastReadinessError = null;
+		let logReadyDetectedAt = null;
+		const now = options.now || Date.now;
+		const rconSend = options.rconSend || (command => sendRcon(serverConfig, command));
+		const logReadyCheck = options.logReadyCheck || (() => minecraftLogIsReady(serverConfig, { notBeforeMs: launchStartedAt }));
+		const readinessCheck = options.readinessCheck
+			? async () => (await options.readinessCheck() ? { ready: true } : null)
+			: async () => {
+				const snapshot = await findProcesses();
+				if (minecraftJvmCount(snapshot) !== 1) {
+					exitedDuringStartup = true;
+					return { ready: false };
+				}
+				try {
+					await rconSend('list');
+					return { ready: true };
+				} catch (error) {
+					lastReadinessError = error;
+					if (/auth|password/i.test(String(error?.message || error))) {
+						return { ready: false, readinessError: conciseRconReadinessError(error, serverConfig) };
+					}
+					let logReady = false;
+					try {
+						logReady = await logReadyCheck();
+					} catch (logError) {
+						console.warn('[Minecraft Lifecycle] Could not inspect latest.log:', logError.message);
+					}
+					if (!logReady) {
+						logReadyDetectedAt = null;
+						return null;
+					}
+					if (logReadyDetectedAt === null) logReadyDetectedAt = now();
+					if (now() - logReadyDetectedAt < (options.rconPostReadyGraceMs ?? 15_000)) return null;
+					return { ready: false, readinessError: conciseRconReadinessError(error, serverConfig) };
+				}
+			};
+		const readinessResult = await waitFor(readinessCheck, {
 			delayFn: options.delayFn,
 			intervalMs: options.readinessPollMs ?? 5000,
 			timeoutMs: options.readinessTimeoutMs ?? 600_000,
-		}));
+		});
 		if (exitedDuringStartup) throw new ServerStartupError('The Minecraft JVM exited before RCON became ready.');
 		const finalProcesses = await findProcesses();
 		if (minecraftJvmCount(finalProcesses) !== 1) {
 			throw new ServerStartupError('The Minecraft JVM did not remain in the expected single-process state.', finalProcesses);
 		}
-		return { processes: finalProcesses, serverCount: 1, hcCount: 0, ready, kind: 'minecraft' };
+		const ready = Boolean(readinessResult?.ready);
+		const readinessError = readinessResult?.readinessError || (!ready && lastReadinessError
+			? conciseRconReadinessError(lastReadinessError, serverConfig)
+			: null);
+		return { processes: finalProcesses, serverCount: 1, hcCount: 0, ready, readinessError, kind: 'minecraft' };
 	} catch (error) {
 		try {
 			await (options.stop || (() => stopMinecraftServer(serverConfig)))();
@@ -278,10 +348,13 @@ function minecraftPaths(serverConfig) {
 }
 
 module.exports = {
+	conciseRconReadinessError,
 	describeMinecraftProcess,
 	findMinecraftProcesses,
 	matchingMinecraftProcesses,
 	minecraftJvmCount,
+	minecraftLogContainsReadyLine,
+	minecraftLogIsReady,
 	minecraftPaths,
 	queryMinecraftCandidates,
 	restartMinecraftServer,

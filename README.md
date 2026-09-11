@@ -49,10 +49,15 @@ enforce-whitelist=true
 broadcast-rcon-to-ops=false
 ```
 
-Do not port-forward TCP 25575. Block external access to the RCON port in Windows Firewall and set the same password in the environment inherited by PM2:
+Do not port-forward TCP 25575. Block external access to the RCON port in Windows Firewall. Marcus loads environment variables from a `.env` file in the repository root, so put the same password there (with no extra spaces around the variable name):
+
+```dotenv
+MINECRAFT_RCON_PASSWORD=USE_THE_SAME_PASSWORD
+```
+
+Values already supplied by the process environment take precedence over `.env`. Restart Marcus after changing the file:
 
 ```powershell
-$env:MINECRAFT_RCON_PASSWORD = 'USE_THE_SAME_PASSWORD'
 pm2 restart Marcus --update-env
 pm2 save
 ```

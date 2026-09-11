@@ -92,7 +92,7 @@ module.exports = {
 				}
 				const message = result.ready
 					? '✅ **' + serverName + '** is online and accepting RCON commands.'
-					: '⚠️ **' + serverName + '** is still starting. The JVM is running, but readiness was not confirmed within 10 minutes.';
+					: '⚠️ **' + serverName + '** is running, but Marcus cannot use RCON. ' + (result.readinessError || 'RCON readiness was not confirmed within 10 minutes.');
 				await interaction.editReply(message);
 			} else {
 				await interaction.editReply(

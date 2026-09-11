@@ -104,7 +104,7 @@ module.exports = {
 				}
 				await interaction.editReply(result.ready
 					? '✅ **' + serverName.toUpperCase() + '** restarted and is ready.'
-					: '⚠️ **' + serverName.toUpperCase() + '** restarted, but is still booting after the readiness timeout.');
+					: '⚠️ **' + serverName.toUpperCase() + '** restarted and its JVM is running, but Marcus cannot use RCON. ' + (result.readinessError || 'RCON readiness was not confirmed within 10 minutes.'));
 			} else {
 				await interaction.editReply(
 					'✅ **' + serverName.toUpperCase() + '** restart verified. Running **' + result.serverCount + '** server and **' + result.hcCount + '** HC(s).',
